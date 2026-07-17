@@ -1,0 +1,67 @@
+name: Bug report / Hibajelentés
+description: Report reproducible incorrect behavior / Reprodukálható hibás működés
+title: '[Bug]: '
+labels: [bug, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you / Köszönjük. Do not include private VAT, requester, company, address, credential, or security data.
+        Security vulnerabilities must be reported privately according to SECURITY.md.
+  - type: input
+    id: version
+    attributes:
+      label: Library version / Könyvtárverzió
+      placeholder: 1.0.0
+    validations:
+      required: true
+  - type: input
+    id: java
+    attributes:
+      label: Java and Maven version / Java- és Maven-verzió
+      placeholder: JDK 21.0.x, Maven 3.9.x
+    validations:
+      required: true
+  - type: dropdown
+    id: api
+    attributes:
+      label: Affected API / Érintett API
+      options:
+        - check (synchronous)
+        - checkAsync
+        - availability
+        - cache adapter
+        - lifecycle / close
+        - build or documentation
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description / Leírás
+      description: What happened and what should have happened?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction / Minimális reprodukció
+      description: Prefer a loopback mock and sanitized data.
+      render: java
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Sanitized logs or stack trace / Tisztított napló vagy stack trace
+      render: text
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks / Ellenőrzés
+      options:
+        - label: I removed private/security-sensitive data. / Eltávolítottam a bizalmas adatokat.
+          required: true
+        - label: This is not a private security vulnerability report. / Ez nem biztonsági sérülékenység publikus jelentése.
+          required: true

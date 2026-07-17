@@ -1,0 +1,13 @@
+target/
+*.class
+.DS_Store
+**/.DS_Store
+*.log
+*.jfr
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+.github/modernize/
+*.iml

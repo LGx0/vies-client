@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: JDK ${{ matrix.java }} verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        java: ['21', '25']
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          persist-credentials: false
+
+      - name: Set up Temurin JDK
+        uses: actions/setup-java@03ad4de0992f5dab5e18fcb136590ce7c4a0ac95 # v5
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.java }}
+          cache: maven
+
+      - name: Verify and package
+        run: ./mvnw --batch-mode --no-transfer-progress clean verify
+
+      - name: Resolve binary JAR safely
+        id: artifact
+        shell: bash
+        run: |
+          mapfile -t jars < <(find target -maxdepth 1 -type f -name 'vies-client-*.jar' \
+            ! -name '*-sources.jar' ! -name '*-javadoc.jar' -print)
+          test "${#jars[@]}" -eq 1
+          echo "jar=${jars[0]}" >> "$GITHUB_OUTPUT"
+
+      - name: Describe JPMS module
+        run: jar --describe-module --file "${{ steps.artifact.outputs.jar }}"
+
+      - name: Verify runtime module dependencies
+        run: test "$(jdeps --print-module-deps '${{ steps.artifact.outputs.jar }}')" = "java.base,java.net.http"

@@ -1,0 +1,5 @@
+# Suomi (fi) — Osallistuminen
+> [Kielivalitsin](../../LANGUAGES.md) · Englanninkielinen tekninen ja oikeudellinen alkuperä sekä juuren `LICENSE`/`NOTICE` ovat määrääviä.
+
+Avaa tai linkitä issue; keskustele suurista API-, lisenssi- ja arkkitehtuurimuutoksista ensin; ilmoita tietoturva yksityisesti. Käytä JDK 21+, Maven 3.9+ ja Git; aja `./mvnw --batch-mode --no-transfer-progress clean verify`. Forkkaa, tee lyhyt haara `main`ista, pidä muutos rajattuna ja lisää jokaiseen bugikorjaukseen deterministinen regressiotesti. Pidä julkinen API pieni ja tyyppiturvallinen, runtime dependency-free, tila säieturvallisena ja rajattuna; älä muuta `Unavailable`-tulosta `Invalid`-tulokseksi. Testit eivät kutsu julkista VIESiä, race testataan latch/barrierilla. Dokumentoi käytös ja breaking changes; perustele riippuvuudet ja suorituskykyväitteet. AI on sallittu, mutta tekijä tarkistaa, testaa ja lisensoi kaiken sekä kertoo merkittävästä käytöstä. Contributions toimitetaan Apache-2.0 §5:n mukaan; noudata `CODE_OF_CONDUCT.md`.
+
