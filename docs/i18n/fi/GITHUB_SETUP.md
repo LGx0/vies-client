@@ -1,0 +1,5 @@
+# Suomi (fi) — GitHub
+> [Kielivalitsin](../../LANGUAGES.md) · Englanninkielinen tekninen ja oikeudellinen alkuperä sekä juuren `LICENSE`/`NOTICE` ovat määrääviä.
+
+Varmista julkaisuoikeudet; skannaa hakemisto ja koko Git-historia salaisuuksista; poista asiakas/requester-data, tokenit, `.env` ja konekohtaiset tiedostot; tarkista Apache-2.0 ja notices; aja `./mvnw --batch-mode --no-transfer-progress clean verify`. Luo tyhjä julkinen `vies-client`-repo ilman uusia README/licenssitiedostoja, tarkista staged diff, suorita `git init -b main`, commit ja vasta `OWNER`-vaihdon jälkeen `gh repo create OWNER/vies-client --public --source . --remote origin --push`. Ota käyttöön Issues, Discussions, private vulnerability reporting, Dependabot, secret scanning/push protection ja ruleset: PR, approval, keskustelujen ratkaisu, CI/CodeQL/dependency checks, ei force push/delete. Lisää Java/VIES-topicit ja labelit. Vahvistettu donate URL kuuluu `.github/FUNDING.yml`:ään eikä osta SLA:ta. Ensimmäisen pushin jälkeen päivitä `pom.xml` URL/SCM/developers, badget, advisory URL ja release-tiedot; allekirjoita `v1.0.0` vain vihreästä commitista.
+

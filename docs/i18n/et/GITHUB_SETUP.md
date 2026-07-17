@@ -1,0 +1,5 @@
+# Eesti (et) — GitHub
+> [Keelevalik](../../LANGUAGES.md) · Määravad ingliskeelne tehniline ja õiguslik originaal ning juure `LICENSE`/`NOTICE`.
+
+Kinnita avaldamisõigused, skaneeri kataloog ja Git history saladuste suhtes, eemalda kliendi/requester andmed, tokenid, `.env` ja masinifailid, kontrolli Apache-2.0/notices ning käivita `./mvnw --batch-mode --no-transfer-progress clean verify`. Loo tühi public `vies-client` repo ilma uue README/litsentsita, vaata staged diff üle, `git init -b main`, commit, asenda `OWNER` ja alles siis `gh repo create OWNER/vies-client --public --source . --remote origin --push`. Lülita sisse Issues, Discussions, private vulnerability reporting, Dependabot, secret scanning/push protection ning PR/approval/resolution/CI/CodeQL/dependency ruleset; keela force push/delete. Lisa Java/VIES topicud ja labelid. Kinnitatud donate URL läheb `.github/FUNDING.yml`; ei osta SLA-d. Pärast pushi uuenda `pom.xml` URL/SCM/developers, badge, advisory URL ja release andmed; allkirjasta `v1.0.0` ainult rohelisest commit'ist.
+
