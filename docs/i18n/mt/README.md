@@ -29,7 +29,6 @@ huwa prodott uffiċjali tal-awtoritajiet tat-taxxa u mhuwiex approvat jew iċċe
 - [Testijiet tal-unità, tal-integrazzjoni u tal-kompetizzjoni / Ittestjar](TESTING.md)
 - [Kodiċi tas-sors miftuħ u deċiżjoni tal-liċenzja / Sors miftuħ](OPEN_SOURCE.md)
 - [Gwida tar-rilaxx / Ir-rilaxx ta'](RELEASING.md)
-- [Pubblikazzjoni GitHub / pubblikazzjoni GitHub](GITHUB_SETUP.md)
 - [Kontribut / Kontribut](CONTRIBUTING.md)
 - [Politika tas-sigurtà / Sigurtà](SECURITY.md)
 - [Kodiċi ta' Kondotta / Kodiċi ta' Kondotta](CODE_OF_CONDUCT.md)

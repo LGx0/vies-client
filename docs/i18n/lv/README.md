@@ -29,7 +29,6 @@ ir oficiāls nodokļu iestāžu produkts, un tās nav apstiprinājušas vai sert
 - [Vienība, integrācijas un sacensību testi /](TESTING.md) testēšana
 - [Atvērtā pirmkoda un licences lēmums / Atvērtā koda](OPEN_SOURCE.md)
 - [Atbrīvošanas vadotne /](RELEASING.md) atlaišana
-- [GitHub publikācija / GitHub publikācija](GITHUB_SETUP.md)
 - [Ieguldījums / Ieguldījums](CONTRIBUTING.md)
 - [Drošības politika / Drošība](SECURITY.md)
 - [Rīcības kodekss / Rīcības kodekss](CODE_OF_CONDUCT.md)

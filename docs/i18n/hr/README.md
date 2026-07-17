@@ -38,7 +38,6 @@ podržavaju niti certificiraju.
 - [Testiranje](TESTING.md)
 - [Otvoreni kod i licenca](OPEN_SOURCE.md)
 - [Izdavanje](RELEASING.md)
-- [Objava na GitHubu](GITHUB_SETUP.md)
 - [Doprinos projektu](CONTRIBUTING.md)
 - [Sigurnosna pravila](SECURITY.md)
 - [Kodeks ponašanja](CODE_OF_CONDUCT.md)

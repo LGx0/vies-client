@@ -31,7 +31,6 @@ is táirge oifigiúil de chuid na n-údarás cánach é agus níl sé formhuinit
 - [Trialacha aonaid, comhtháthú agus iomaíochta / Tástáil](TESTING.md)
 - [Cód foinse oscailte agus cinneadh ceadúnais / Foinse oscailte](OPEN_SOURCE.md)
 - [Treoir scaoileadh / Scaoileadh](RELEASING.md)
-- [Foilseachán GitHub / foilseachán GitHub](GITHUB_SETUP.md)
 - [Ag Cur / Ag Cur](CONTRIBUTING.md)
 - [Beartas slándála / Slándáil](SECURITY.md)
 - [Cód Iompair / Code of Conduct](CODE_OF_CONDUCT.md)

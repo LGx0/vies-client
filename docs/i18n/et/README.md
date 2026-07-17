@@ -31,7 +31,6 @@ on maksuameti ametlik toode ja see pole nende poolt kinnitatud ega sertifitseeri
 - [Ühiku-, integratsiooni- ja võistlustestid /](TESTING.md) testimine
 - [Avatud lähtekoodi ja litsentsiotsus / Avatud lähtekoodiga](OPEN_SOURCE.md)
 - [Vabastamisjuhend / Vabastamine](RELEASING.md)
-- [GitHubi väljaanne / GitHubi väljaanne](GITHUB_SETUP.md)
 - [Kaastöö / kaasaaitamine](CONTRIBUTING.md)
 - [Turvapoliitika / Turvalisus](SECURITY.md)
 - [Käitumiskoodeks / Käitumisjuhend](CODE_OF_CONDUCT.md)

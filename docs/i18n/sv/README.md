@@ -36,7 +36,6 @@ Oberoende öppen källkodsprojekt; inte EU-kommissionen, EU eller medlemsländer
 - [Enhets-, integrations- och samtidighetstester](TESTING.md)
 - [Öppen källkod och licensval](OPEN_SOURCE.md)
 - [Utgivningsguide](RELEASING.md)
-- [Publicering på GitHub](GITHUB_SETUP.md)
 - [Bidra](CONTRIBUTING.md)
 - [Säkerhetspolicy](SECURITY.md)
 - [Uppförandekod](CODE_OF_CONDUCT.md)

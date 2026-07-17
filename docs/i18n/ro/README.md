@@ -35,7 +35,6 @@ Comisiei Europene, al Uniunii Europene sau al vreunei autorități fiscale nați
 - [Testare](TESTING.md)
 - [Proiect open-source și licență](OPEN_SOURCE.md)
 - [Publicarea versiunilor](RELEASING.md)
-- [Publicarea pe GitHub](GITHUB_SETUP.md)
 - [Contribuții](CONTRIBUTING.md)
 - [Politica de securitate](SECURITY.md)
 - [Codul de conduită](CODE_OF_CONDUCT.md)

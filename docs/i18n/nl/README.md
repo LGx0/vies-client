@@ -36,7 +36,6 @@ is een officieel product van de belastingdienst en wordt niet door hen onderschr
 - [Eenheids-, integratie- en concurrentietests](TESTING.md)
 - [Open source en licentiekeuze](OPEN_SOURCE.md)
 - [Releasehandleiding](RELEASING.md)
-- [Publiceren op GitHub](GITHUB_SETUP.md)
 - [Bijdragen](CONTRIBUTING.md)
 - [Beveiligingsbeleid](SECURITY.md)
 - [Gedragscode](CODE_OF_CONDUCT.md)

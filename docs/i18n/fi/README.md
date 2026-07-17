@@ -31,7 +31,6 @@ on veroviranomaisten virallinen tuote, eikä se ole veroviranomaisten hyväksym�
 - [Yksikkö-, integraatio- ja kilpailutestit /](TESTING.md):n testaus
 - [Avoin lähdekoodi ja lisenssipäätös / Avoimen lähdekoodin](OPEN_SOURCE.md)
 - [Vapautusopas / Irrotus](RELEASING.md)
-- [GitHub-julkaisu / GitHub-julkaisu](GITHUB_SETUP.md)
 - [Osallistuminen / Osallistuminen](CONTRIBUTING.md)
 - [Turvallisuuspolitiikka / Turvallisuus](SECURITY.md)
 - [Käyttäytymissäännöt / Käytännesäännöt](CODE_OF_CONDUCT.md)

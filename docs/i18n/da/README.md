@@ -38,7 +38,6 @@ er et officielt produkt fra skattemyndighederne og er ikke godkendt eller certif
 - [Enheds-, integrations- og samtidighedstest](TESTING.md)
 - [Åben kildekode og licensvalg](OPEN_SOURCE.md)
 - [Udgivelsesvejledning](RELEASING.md)
-- [Udgivelse på GitHub](GITHUB_SETUP.md)
 - [Bidrag](CONTRIBUTING.md)
 - [Sikkerhedspolitik](SECURITY.md)
 - [Adfærdskodeks](CODE_OF_CONDUCT.md)

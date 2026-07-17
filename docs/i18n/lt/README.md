@@ -29,7 +29,6 @@ yra oficialus mokesčių institucijų produktas ir nėra jų patvirtintas ar ser
 - [Padalinys, integracijos ir konkurencijos testai /](TESTING.md) testavimas
 - [Atvirojo kodo ir licencijos sprendimas / Atvirojo kodo](OPEN_SOURCE.md)
 - [Atleidimo vadovas / Atleidimas](RELEASING.md)
-- [GitHub leidinys / GitHub leidinys](GITHUB_SETUP.md)
 - [Prideda / prisideda prie](CONTRIBUTING.md)
 - [Saugos politika / Sauga](SECURITY.md)
 - [Elgesio kodeksas / Elgesio kodeksas](CODE_OF_CONDUCT.md)

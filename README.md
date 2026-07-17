@@ -34,7 +34,6 @@ adóhatóság hivatalos terméke, és azok nem támogatják vagy hitelesítik.
 - [Unit-, integrációs és konkurenciatesztek / Testing](docs/TESTING.md)
 - [Nyílt forráskód és licencdöntés / Open source](docs/OPEN_SOURCE.md)
 - [Kiadási útmutató / Releasing](docs/RELEASING.md)
-- [GitHub közzététel / GitHub publication](docs/GITHUB_SETUP.md)
 - [Közreműködés / Contributing](CONTRIBUTING.md)
 - [Biztonsági szabályzat / Security](SECURITY.md)
 - [Magatartási kódex / Code of Conduct](CODE_OF_CONDUCT.md)

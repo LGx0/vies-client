@@ -36,7 +36,6 @@ Projeto independente de código aberto; não a Comissão Europeia, a UE ou os es
 - [Testes unitários, de integração e de concorrência](TESTING.md)
 - [Código aberto e decisão de licença](OPEN_SOURCE.md)
 - [Guia de lançamento](RELEASING.md)
-- [Publicação no GitHub](GITHUB_SETUP.md)
 - [Como contribuir](CONTRIBUTING.md)
 - [Política de segurança](SECURITY.md)
 - [Código de Conduta](CODE_OF_CONDUCT.md)

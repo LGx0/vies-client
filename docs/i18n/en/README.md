@@ -36,7 +36,6 @@ member-state tax authority.
 - [Testing](TESTING.md)
 - [Open-source and licensing notes](OPEN_SOURCE.md)
 - [Release guide](RELEASING.md)
-- [GitHub publication guide](GITHUB_SETUP.md)
 - [Contributing](CONTRIBUTING.md)
 - [Security policy](SECURITY.md)
 - [Code of Conduct](CODE_OF_CONDUCT.md)
