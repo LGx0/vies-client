@@ -10,6 +10,8 @@ Toate modificările notabile sunt documentate aici. Proiectul urmează versiunea
 
 ## [Nelansat]
 
+## [1.2.0] - 2026-07-17
+
 ### Adăugat
 
 - Fișiere de sănătate ale comunității GitHub, automatizare CI/securitate și guvernare open-source.

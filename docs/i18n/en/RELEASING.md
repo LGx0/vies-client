@@ -8,13 +8,13 @@ Prerequisites: clean reviewed `main`, green GitHub Actions, JDK 21/Maven 3.9+, r
 
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
-jar --describe-module --file target/vies-client-1.0.0.jar
-jdeps --print-module-deps target/vies-client-1.0.0.jar
+jar --describe-module --file target/vies-client-1.2.0.jar
+jdeps --print-module-deps target/vies-client-1.2.0.jar
 ```
 
 Before release, scan the complete Git history for secrets/personal data; verify `LICENSE`, `NOTICE`, `SECURITY.md`, translations and API docs; ensure binary/sources/Javadoc JARs exist; keep live VIES/load tests optional; document public changes and migration impact.
 
-Set the version in `pom.xml`, commit version/changelog, create a signed annotated tag (`git tag -s v1.0.0 -m "v1.0.0"`), then `git push origin main --follow-tags`. The release workflow must rerun verification and attach binary, sources and Javadoc JARs, ideally with SHA-256 checksums. Never release an unreviewed or failing commit.
+Set the version in `pom.xml`, commit version/changelog, create a signed annotated tag (`git tag -s v1.2.0 -m "v1.2.0"`), then `git push origin main --follow-tags`. The release workflow must rerun verification and attach binary, sources and Javadoc JARs, ideally with SHA-256 checksums. Never release an unreviewed or failing commit.
 
 Maven Central additionally requires an owned reverse-DNS `groupId`, project/SCM/developer metadata, Central Portal credentials, artifact signing and publishing setup. Never commit tokens or private signing keys; use least-privilege GitHub secrets.
 

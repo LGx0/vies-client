@@ -2,6 +2,8 @@
 > [Keelevalik](../../LANGUAGES.md) · Määravad ingliskeelne tehniline ja õiguslik originaal ning juure `LICENSE`/`NOTICE`.
 
 ## [Unreleased]
+
+## [1.2.0] - 2026-07-17
 - GitHub-yhteisötiedostot / GitHub kogukonnafailid, CI/security-automaatio, Apache-2.0 ja Maven-metadata.
 
 ## [1.0.0] — 2026-07-17

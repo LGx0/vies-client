@@ -10,6 +10,8 @@ Alla anmärkningsvärda förändringar dokumenteras här. Projektet följer Sema
 
 ## [Ej släppt]
 
+## [1.2.0] - 2026-07-17
+
 ### Tillagd
 
 - GitHub-gemenskapshälsofiler, CI/säkerhetsautomatisering och öppen källkodsstyrning.

@@ -26,7 +26,7 @@ Nejde o všeobecnú daňovú kalkulačku, ale o klienta na overovanie identifika
 ```
 
 ```xml
-<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.0.0</version></dependency>
+<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.2.0</version></dependency>
 ```
 
 JPMS modul je `vies.client` (`requires vies.client;`), funguje aj na classpath.

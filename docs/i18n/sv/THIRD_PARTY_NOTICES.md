@@ -4,7 +4,7 @@
 
 ## Distributed runtime JAR / Distributed runtime JAR
 
-`vies-client-1.0.0.jar`inkluderar eller kräver inga externa runtime-bibliotek.
+`vies-client-1.2.0.jar`inkluderar eller kräver inga externa runtime-bibliotek.
 Den använder endast modulerna`java.base`och`java.net.http`i JDK.
 
 Den distribuerade JAR innehåller och kräver inget runtime-bibliotek från tredje part. Det bara

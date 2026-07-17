@@ -47,7 +47,7 @@ is een officieel product van de belastingdienst en wordt niet door hen onderschr
 ## Bouw en verbinding
 
 ```bash
-./mvnw install    # tests + target/vies-client-1.0.0.jar (+ -sources.jar, -javadoc.jar)
+./mvnw install    # tests + target/vies-client-1.2.0.jar (+ -sources.jar, -javadoc.jar)
                # install into the local Maven repository
 ```
 
@@ -57,20 +57,20 @@ is een officieel product van de belastingdienst en wordt niet door hen onderschr
 <dependency>
     <groupId>vies.client</groupId>
     <artifactId>vies-client</artifactId>
-    <version>1.0.0</version>
+    <version>1.2.0</version>
 </dependency>
 ```
 
 **Grade:**
 
 ```kotlin
-implementation("vies.client:vies-client:1.0.0")
+implementation("vies.client:vies-client:1.2.0")
 ```
 
 **Echte JPMS-module.** De jar gedraagt ​​zich als een benoemde module (`jar --describe-module`):
 
 ```
-vies.client@1.0.0
+vies.client@1.2.0
 exports vies.client
 requires java.net.http
 contains vies.client.internal   ← non-exported internal package

@@ -4,7 +4,7 @@
 
 ## Distribuirani runtime JAR
 
-`vies-client-1.0.0.jar` ne uključuje niti zahtijeva vanjske biblioteke za vrijeme izvođenja.
+`vies-client-1.2.0.jar` ne uključuje niti zahtijeva vanjske biblioteke za vrijeme izvođenja.
 Koristi samo `java.base` i `java.net.http` module JDK-a.
 
 Distribuirani JAR sadrži i ne zahtijeva biblioteku vremena izvođenja treće strane. Samo to

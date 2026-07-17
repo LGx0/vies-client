@@ -10,6 +10,8 @@ Todas as mudanças notáveis ​​estão documentadas aqui. O projeto segue Ver
 
 ## [Não lançado]
 
+## [1.2.0] - 2026-07-17
+
 ### Adicionado
 
 - Arquivos de integridade da comunidade GitHub, automação de CI/segurança e governança de código aberto.

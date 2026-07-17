@@ -30,7 +30,7 @@ cd vies-client
 ./mvnw install
 ```
 
-Le répertoire `target/` contient le JAR, `-sources.jar` et `-javadoc.jar`. Pour Maven utilisez les coordonnées `vies.client:vies-client:1.0.0`; pour Gradle : `implementation("vies.client:vies-client:1.0.0")`.
+Le répertoire `target/` contient le JAR, `-sources.jar` et `-javadoc.jar`. Pour Maven utilisez les coordonnées `vies.client:vies-client:1.2.0`; pour Gradle : `implementation("vies.client:vies-client:1.2.0")`.
 
 Le module JPMS se déclare par `requires vies.client;`. En classpath aucune déclaration n’est nécessaire. Sans outil de build, utilisez le JAR avec `--module-path` ou `-cp`; si vous copiez les sources vers un projet non modulaire, omettez `module-info.java`.
 
@@ -39,7 +39,7 @@ Configurez le SDK du projet et le JDK Maven de l’IDE sur 21. Les proxys et cer
 ```bash
 ./mvnw -q clean test
 ./mvnw -q package
-jar --describe-module --file target/vies-client-1.0.0.jar
+jar --describe-module --file target/vies-client-1.2.0.jar
 ```
 
 Un test live doit rester manuel et minimal. Les erreurs fréquentes viennent d’un mauvais JDK, d’un proxy/TLS bloqué, d’une indisponibilité VIES/État membre ou de limites locales trop agressives.
@@ -51,9 +51,9 @@ macOS : persistez le chemin Homebrew et `JAVA_HOME="$(/usr/libexec/java_home -v 
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
 ./mvnw install
-ls -lh target/vies-client-1.0.0*.jar
-javac --release 21 -cp vies-client-1.0.0.jar MyApp.java
-java -cp .:vies-client-1.0.0.jar MyApp  # Windows : ;
+ls -lh target/vies-client-1.2.0*.jar
+javac --release 21 -cp vies-client-1.2.0.jar MyApp.java
+java -cp .:vies-client-1.2.0.jar MyApp  # Windows : ;
 ```
 
 Le JAR release n’a aucune dépendance runtime tierce ; JUnit et `jdk.httpserver` sont de test. IDE : SDK, language level, Maven JDK, `java.configuration.runtimes` et `java.jdt.ls.java.home` sur 21, puis rechargez Java/Maven. Ne commitez aucun chemin SDK machine.

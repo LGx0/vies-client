@@ -49,7 +49,7 @@ podržavaju niti certificiraju.
 ## Izgradnja i povezivanje
 
 ```bash
-./mvnw install    # testovi + target/vies-client-1.0.0.jar (+ -sources.jar, -javadoc.jar)
+./mvnw install    # testovi + target/vies-client-1.2.0.jar (+ -sources.jar, -javadoc.jar)
                # i instalacija u lokalni Maven repozitorij
 ```
 
@@ -59,20 +59,20 @@ podržavaju niti certificiraju.
 <dependency>
     <groupId>vies.client</groupId>
     <artifactId>vies-client</artifactId>
-    <version>1.0.0</version>
+    <version>1.2.0</version>
 </dependency>
 ```
 
 **Gradle:**
 
 ```kotlin
-implementation("vies.client:vies-client:1.0.0")
+implementation("vies.client:vies-client:1.2.0")
 ```
 
 **Pravi JPMS modul.** Jar se ponaša kao imenovani modul (`jar --describe-module`):
 
 ```
-vies.client@1.0.0
+vies.client@1.2.0
 exports vies.client
 requires java.net.http
 contains vies.client.internal   ← neizvezeni zatvoreni interni paket

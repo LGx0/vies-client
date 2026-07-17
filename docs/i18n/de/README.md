@@ -32,7 +32,7 @@ Dies ist kein allgemeiner Steuerrechner, sondern ein Client zur Prüfung von EU-
 <dependency>
   <groupId>vies.client</groupId>
   <artifactId>vies-client</artifactId>
-  <version>1.0.0</version>
+  <version>1.2.0</version>
 </dependency>
 ```
 
@@ -57,7 +57,7 @@ Fehlerberichte und Beiträge sind willkommen. Wenn Ihnen das Projekt Zeit spart,
 
 ## Build, JPMS und vollständiges Beispiel
 
-Das Artefakt hat die Maven-Koordinaten `vies.client:vies-client:1.0.0`. Das JPMS-Modul `vies.client` exportiert `vies.client`, benötigt `java.net.http` und kapselt `vies.client.internal`. Im Modulprojekt: `module my.api { requires vies.client; }`; im Classpath ist keine Deklaration nötig.
+Das Artefakt hat die Maven-Koordinaten `vies.client:vies-client:1.2.0`. Das JPMS-Modul `vies.client` exportiert `vies.client`, benötigt `java.net.http` und kapselt `vies.client.internal`. Im Modulprojekt: `module my.api { requires vies.client; }`; im Classpath ist keine Deklaration nötig.
 
 ```java
 try (var vies = ViesClient.builder()
@@ -152,7 +152,7 @@ VAT-ID, Firmenname, Adresse, Requester und Consultation-ID können sensible Gesc
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
 ./mvnw package
-jar --describe-module --file target/vies-client-1.0.0.jar
+jar --describe-module --file target/vies-client-1.2.0.jar
 java -cp target/classes examples/ViesDemoServer.java
 ```
 

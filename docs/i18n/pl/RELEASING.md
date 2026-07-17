@@ -10,15 +10,15 @@ Czysty `main`, zielone GitHub Actions, uprawnienia do tag/release, JDK 21, Maven
 
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
-jar --describe-module --file target/vies-client-1.0.0.jar
-jdeps --print-module-deps target/vies-client-1.0.0.jar
+jar --describe-module --file target/vies-client-1.2.0.jar
+jdeps --print-module-deps target/vies-client-1.2.0.jar
 ```
 
 Sprawdź pełną historię bez sekretów/danych osobowych, aktualne `LICENSE`, `NOTICE`, `SECURITY.md` i dokumentację, sources/Javadoc JAR, brak obowiązkowego live/load w CI oraz changelog zmian API.
 
 ## GitHub Release
 
-Ustaw wersję w `pom.xml`, commitnij wersję/changelog, utwórz najlepiej podpisany tag `git tag -s v1.0.0 -m "v1.0.0"`, potem `git push origin main --follow-tags`. `release.yml` ponownie testuje i dołącza binary/sources/Javadoc. Nie wydawaj nieprzejrzanego lub failing commita.
+Ustaw wersję w `pom.xml`, commitnij wersję/changelog, utwórz najlepiej podpisany tag `git tag -s v1.2.0 -m "v1.2.0"`, potem `git push origin main --follow-tags`. `release.yml` ponownie testuje i dołącza binary/sources/Javadoc. Nie wydawaj nieprzejrzanego lub failing commita.
 
 ## Central/Packages i działania po wydaniu
 

@@ -10,6 +10,8 @@ Alle bemærkelsesværdige ændringer er dokumenteret her. Projektet følger Sema
 
 ## [Ikke udgivet]
 
+## [1.2.0] - 2026-07-17
+
 ### Tilføjet
 
 - GitHub-samfundssundhedsfiler, CI/sikkerhedsautomatisering og open source-styring.

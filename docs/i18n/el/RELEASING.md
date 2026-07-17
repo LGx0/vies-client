@@ -8,11 +8,11 @@
 
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
-jar --describe-module --file target/vies-client-1.0.0.jar
-jdeps --print-module-deps target/vies-client-1.0.0.jar
+jar --describe-module --file target/vies-client-1.2.0.jar
+jdeps --print-module-deps target/vies-client-1.2.0.jar
 ```
 
-Ελέγξτε το Git history για secrets/data, τα ενημερωμένα LICENSE/NOTICE/SECURITY/docs, τη δημιουργία sources/Javadoc JAR, την απουσία υποχρεωτικού live/load CI και το API changelog. Ρυθμίστε το `pom.xml`, κάντε commit, δημιουργήστε signed tag με `git tag -s v1.0.0 -m v1.0.0` και εκτελέστε `git push origin main --follow-tags`. Το `release.yml` επαναλαμβάνει τις δοκιμές και επισυνάπτει τα JARs.
+Ελέγξτε το Git history για secrets/data, τα ενημερωμένα LICENSE/NOTICE/SECURITY/docs, τη δημιουργία sources/Javadoc JAR, την απουσία υποχρεωτικού live/load CI και το API changelog. Ρυθμίστε το `pom.xml`, κάντε commit, δημιουργήστε signed tag με `git tag -s v1.2.0 -m v1.2.0` και εκτελέστε `git push origin main --follow-tags`. Το `release.yml` επαναλαμβάνει τις δοκιμές και επισυνάπτει τα JARs.
 
 Το Maven Central απαιτεί επιπλέον ιδιόκτητο reverse-DNS `groupId`, metadata `url`/`scm`/`developers`/distribution, Portal token, GPG και publishing configuration. Τα secrets αποθηκεύονται μόνο στα Actions. Μετά το release ελέγξτε downloads/SHA-256, ανοίξτε νέο `Unreleased`, δημοσιεύστε Security Advisory όταν χρειάζεται και ενημερώστε τις dependency versions.
 

@@ -47,7 +47,7 @@ Oberoende öppen källkodsprojekt; inte EU-kommissionen, EU eller medlemsländer
 ## Bygg och anslutning
 
 ```bash
-./mvnw install    # tests + target/vies-client-1.0.0.jar (+ -sources.jar, -javadoc.jar)
+./mvnw install    # tests + target/vies-client-1.2.0.jar (+ -sources.jar, -javadoc.jar)
                # install into the local Maven repository
 ```
 
@@ -57,20 +57,20 @@ Oberoende öppen källkodsprojekt; inte EU-kommissionen, EU eller medlemsländer
 <dependency>
     <groupId>vies.client</groupId>
     <artifactId>vies-client</artifactId>
-    <version>1.0.0</version>
+    <version>1.2.0</version>
 </dependency>
 ```
 
 **Grale:**
 
 ```kotlin
-implementation("vies.client:vies-client:1.0.0")
+implementation("vies.client:vies-client:1.2.0")
 ```
 
 **Riktig JPMS-modul.** Burken fungerar som en namngiven modul (`jar --describe-module`):
 
 ```
-vies.client@1.0.0
+vies.client@1.2.0
 exports vies.client
 requires java.net.http
 contains vies.client.internal   ← non-exported internal package

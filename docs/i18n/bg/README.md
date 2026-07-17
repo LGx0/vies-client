@@ -24,7 +24,7 @@ VIES: <https://ec.europa.eu/taxation_customs/vies/#/technical-information>
 ```
 
 ```xml
-<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.0.0</version></dependency>
+<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.2.0</version></dependency>
 ```
 
 JPMS: `requires vies.client;`; работи и на classpath.

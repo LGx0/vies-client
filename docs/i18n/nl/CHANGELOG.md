@@ -10,6 +10,8 @@ Alle opmerkelijke wijzigingen worden hier gedocumenteerd. Het project volgt sema
 
 ## [Niet uitgebracht]
 
+## [1.2.0] - 2026-07-17
+
 ### Toegevoegd
 
 - GitHub-communitygezondheidsbestanden, CI/beveiligingsautomatisering en open-sourcebeheer.

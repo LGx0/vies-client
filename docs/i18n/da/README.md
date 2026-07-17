@@ -49,7 +49,7 @@ er et officielt produkt fra skattemyndighederne og er ikke godkendt eller certif
 ## Byg og tilslutning
 
 ```bash
-./mvnw install    # tests + target/vies-client-1.0.0.jar (+ -sources.jar, -javadoc.jar)
+./mvnw install    # tests + target/vies-client-1.2.0.jar (+ -sources.jar, -javadoc.jar)
                # install into the local Maven repository
 ```
 
@@ -59,20 +59,20 @@ er et officielt produkt fra skattemyndighederne og er ikke godkendt eller certif
 <dependency>
     <groupId>vies.client</groupId>
     <artifactId>vies-client</artifactId>
-    <version>1.0.0</version>
+    <version>1.2.0</version>
 </dependency>
 ```
 
 **Gradel:**
 
 ```kotlin
-implementation("vies.client:vies-client:1.0.0")
+implementation("vies.client:vies-client:1.2.0")
 ```
 
 **Ægte JPMS-modul.** Krukken opfører sig som et navngivet modul (`jar --describe-module`):
 
 ```
-vies.client@1.0.0
+vies.client@1.2.0
 exports vies.client
 requires java.net.http
 contains vies.client.internal   ← non-exported internal package

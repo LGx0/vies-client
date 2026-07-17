@@ -5,6 +5,8 @@
 > Traduzione informativa; prevale inglese. `LICENSE` non tradotto. SemVer `MAJOR.MINOR.PATCH`.
 
 ## [Unreleased]
+
+## [1.2.0] - 2026-07-17
 ### Aggiunto
 - File community GitHub, automazione CI/security e governance open source.
 - Licenza Apache-2.0 e metadata Maven.

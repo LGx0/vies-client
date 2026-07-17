@@ -2,6 +2,8 @@
 > [Language selector](../../LANGUAGES.md) · English canonical changelog governs.
 
 ## [Unreleased]
+
+## [1.2.0] - 2026-07-17
 #
 
 ## Added

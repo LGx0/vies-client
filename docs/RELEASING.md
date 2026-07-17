@@ -22,8 +22,8 @@ features, and major for breaking API or semantic changes.
 
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
-jar --describe-module --file target/vies-client-1.0.0.jar
-jdeps --print-module-deps target/vies-client-1.0.0.jar
+jar --describe-module --file target/vies-client-1.2.0.jar
+jdeps --print-module-deps target/vies-client-1.2.0.jar
 ```
 
 Ellenőrizd még:
@@ -38,7 +38,7 @@ Ellenőrizd még:
 
 1. Állítsd be a verziót a `pom.xml` fájlban.
 2. Commitold a changelogot és a verziót.
-3. Hozz létre kötelezően aláírt annotált taget: `git tag -s v1.0.0 -m "v1.0.0"`.
+3. Hozz létre kötelezően aláírt annotált taget: `git tag -s v1.2.0 -m "v1.2.0"`.
 4. Pushold a commitot és a taget: `git push origin main --follow-tags`.
 5. A `release.yml` workflow újrafuttatja a teszteket, majd csatolja a binary,
    sources és Javadoc JAR fájlokat a GitHub Release-hez.
@@ -78,9 +78,9 @@ Consumer verification / Fogyasztói ellenőrzés:
 
 ```bash
 sha256sum -c SHA256SUMS
-gh attestation verify vies-client-1.0.0.jar --repo LGx0/vies-client
-gh attestation verify vies-client-1.0.0-sources.jar --repo LGx0/vies-client
-gh attestation verify vies-client-1.0.0-javadoc.jar --repo LGx0/vies-client
+gh attestation verify vies-client-1.2.0.jar --repo LGx0/vies-client
+gh attestation verify vies-client-1.2.0-sources.jar --repo LGx0/vies-client
+gh attestation verify vies-client-1.2.0-javadoc.jar --repo LGx0/vies-client
 ```
 
 The checksum detects transfer/storage corruption; the GitHub CLI command verifies

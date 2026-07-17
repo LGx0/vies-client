@@ -4,7 +4,7 @@
 
 > Informativni prevod. Angleški [LICENSE](../../../LICENSE) in [NOTICE](../../../NOTICE) sta pravno veljavna in ostaneta nespremenjena; ta prevod ni licenca ali notice.
 
-`vies-client-1.0.0.jar` nima third-party runtime knjižnic; uporablja le JDK `java.base` in `java.net.http`.
+`vies-client-1.2.0.jar` nima third-party runtime knjižnic; uporablja le JDK `java.base` in `java.net.http`.
 
 | Komponenta | Verzija | Obseg | Licenca |
 |---|---:|---|---|

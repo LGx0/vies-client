@@ -24,8 +24,8 @@ funktioner och stora för att bryta API eller semantiska förändringar.
 
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
-jar --describe-module --file target/vies-client-1.0.0.jar
-jdeps --print-module-deps target/vies-client-1.0.0.jar
+jar --describe-module --file target/vies-client-1.2.0.jar
+jdeps --print-module-deps target/vies-client-1.2.0.jar
 ```
 
 Kontrollera även:
@@ -40,7 +40,7 @@ Kontrollera även:
 
 1. Ställ in versionen i filen`pom.xml`.
 2. Ange ändringsloggen och versionen.
-3. Skapa en signerad kommenterad tagg:`git tag -s v1.0.0 -m "v1.0.0"`.
+3. Skapa en signerad kommenterad tagg:`git tag -s v1.2.0 -m "v1.2.0"`.
 4. Push commit och tagga:`git push origin main --follow-tags`. 5.`release.yml`-arbetsflödet kör om testerna och bifogar sedan den binära,
    källor och Javadoc JAR-filer för GitHub Release.
 

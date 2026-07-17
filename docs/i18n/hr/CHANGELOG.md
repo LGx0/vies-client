@@ -10,6 +10,8 @@ Ovdje su dokumentirane sve značajne promjene. Projekt slijedi semantičko verzi
 
 ## [Neobjavljeno]
 
+## [1.2.0] - 2026-07-17
+
 ### Dodano
 
 - Zdravstvene datoteke GitHub zajednice, CI/sigurnosna automatizacija i upravljanje otvorenim kodom.

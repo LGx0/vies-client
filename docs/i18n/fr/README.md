@@ -25,7 +25,7 @@ Ce projet n’est pas un calculateur fiscal général, mais un client de validat
 ```
 
 ```xml
-<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.0.0</version></dependency>
+<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.2.0</version></dependency>
 ```
 
 ```java
@@ -42,7 +42,7 @@ Les contributions et signalements sont bienvenus. Le lien Sponsor/café du READM
 
 ## Build, JPMS et exemple complet
 
-Coordonnées Maven : `vies.client:vies-client:1.0.0`. Le module JPMS `vies.client` exporte `vies.client`, requiert `java.net.http` et encapsule `vies.client.internal`. En module : `module my.api { requires vies.client; }`; rien à déclarer en classpath.
+Coordonnées Maven : `vies.client:vies-client:1.2.0`. Le module JPMS `vies.client` exporte `vies.client`, requiert `java.net.http` et encapsule `vies.client.internal`. En module : `module my.api { requires vies.client; }`; rien à déclarer en classpath.
 
 ```java
 try (var vies = ViesClient.builder()
@@ -124,7 +124,7 @@ Avant production, un staging avec données synthétiques simule hits/misses cach
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
 ./mvnw package
-jar --describe-module --file target/vies-client-1.0.0.jar
+jar --describe-module --file target/vies-client-1.2.0.jar
 java -cp target/classes examples/ViesDemoServer.java
 ```
 

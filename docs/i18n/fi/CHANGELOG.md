@@ -2,6 +2,8 @@
 > [Kielivalitsin](../../LANGUAGES.md) · Englanninkielinen tekninen ja oikeudellinen alkuperä sekä juuren `LICENSE`/`NOTICE` ovat määrääviä.
 
 ## [Unreleased]
+
+## [1.2.0] - 2026-07-17
 - GitHub-yhteisötiedostot / GitHub kogukonnafailid, CI/security-automaatio, Apache-2.0 ja Maven-metadata.
 
 ## [1.0.0] — 2026-07-17

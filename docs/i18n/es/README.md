@@ -32,7 +32,7 @@ Para millones de trabajos, añada una cola persistente particionada, caché comp
 
 ## Build, JPMS y semántica completa
 
-Maven: `vies.client:vies-client:1.0.0`. El módulo JPMS `vies.client` exporta `vies.client`, requiere `java.net.http`, encapsula internals y se declara `module my.api { requires vies.client; }`; classpath funciona sin declaración.
+Maven: `vies.client:vies-client:1.2.0`. El módulo JPMS `vies.client` exporta `vies.client`, requiere `java.net.http`, encapsula internals y se declara `module my.api { requires vies.client; }`; classpath funciona sin declaración.
 
 ```java
 try (var vies = ViesClient.builder().defaultRequester(ViesRequester.of(System.getenv("MY_EU_VAT_NUMBER"))).retries(1).build()) {
@@ -97,7 +97,7 @@ Staging simula hit/down cache, 429/5xx, timeout, backlog, cancel y shutdown. Cri
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
 ./mvnw package
-jar --describe-module --file target/vies-client-1.0.0.jar
+jar --describe-module --file target/vies-client-1.2.0.jar
 java -cp target/classes examples/ViesDemoServer.java
 ```
 

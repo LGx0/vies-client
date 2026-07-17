@@ -4,7 +4,7 @@
 
 ## JAR de execuție distribuită
 
-`vies-client-1.0.0.jar` nu include și nu necesită biblioteci de rulare externe.
+`vies-client-1.2.0.jar` nu include și nu necesită biblioteci de rulare externe.
 Utilizează numai modulele `java.base` și `java.net.http` ale JDK.
 
 JAR-ul distribuit conține și nu necesită nicio bibliotecă de execuție terță parte. Doar asta

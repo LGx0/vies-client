@@ -4,7 +4,7 @@
 
 > Ενημερωτική μετάφραση. Σε περίπτωση διαφοράς υπερισχύει το αγγλικό τεχνικό και νομικό πρωτότυπο. Μόνο τα ριζικά LICENSE και NOTICE είναι νομικά έγκυρα· η μετάφραση δεν αποτελεί άδεια. [LICENSE](../../../LICENSE), [NOTICE](../../../NOTICE).
 
-vies-client-1.0.0.jar contains/requires no third-party runtime library; only JDK java.base and java.net.http.
+vies-client-1.2.0.jar contains/requires no third-party runtime library; only JDK java.base and java.net.http.
 
 | Component | Version | Scope | License |
 |---|---:|---|---|

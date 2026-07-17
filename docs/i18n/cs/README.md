@@ -32,12 +32,12 @@ Nejde o obecnou daňovou kalkulačku, ale o klienta pro ověřování identifika
 
 ```xml
 <dependency>
-  <groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.0.0</version>
+  <groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.2.0</version>
 </dependency>
 ```
 
 ```kotlin
-implementation("vies.client:vies-client:1.0.0")
+implementation("vies.client:vies-client:1.2.0")
 ```
 
 Jde o skutečný JPMS modul `vies.client`; v `module-info.java` použijte `requires vies.client;`. Funguje i na classpath.

@@ -47,12 +47,12 @@ Artefakte liegen unter `target/`: Haupt-JAR, `-sources.jar` und `-javadoc.jar`. 
 
 ```xml
 <dependency>
-  <groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.0.0</version>
+  <groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.2.0</version>
 </dependency>
 ```
 
 ```kotlin
-implementation("vies.client:vies-client:1.0.0")
+implementation("vies.client:vies-client:1.2.0")
 ```
 
 ```java
@@ -70,7 +70,7 @@ Stellen Sie in IntelliJ IDEA, VS Code oder Windsurf Project SDK und Maven-JDK au
 ```bash
 ./mvnw -q clean test
 ./mvnw -q package
-jar --describe-module --file target/vies-client-1.0.0.jar
+jar --describe-module --file target/vies-client-1.2.0.jar
 ```
 
 Ein Live-Aufruf ist optional und darf nicht als Lasttest verwendet werden. Häufige Ursachen: falsches JDK (`release version 21 not supported`), blockierter Proxy/TLS, VIES- oder Mitgliedstaat-Ausfall und zu aggressive lokale Parallelität.
@@ -82,9 +82,9 @@ macOS dauerhaft: Homebrew-JDK-Pfad und `JAVA_HOME="$(/usr/libexec/java_home -v 2
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
 ./mvnw install
-ls -lh target/vies-client-1.0.0*.jar
-javac --release 21 -cp vies-client-1.0.0.jar MyApp.java
-java -cp .:vies-client-1.0.0.jar MyApp   # Windows: ; statt :
+ls -lh target/vies-client-1.2.0*.jar
+javac --release 21 -cp vies-client-1.2.0.jar MyApp.java
+java -cp .:vies-client-1.2.0.jar MyApp   # Windows: ; statt :
 ```
 
 Das Release-JAR hat keine Drittanbieter-Runtimeabhängigkeit; JUnit und `jdk.httpserver` sind testseitig. IDE: Project SDK, Language Level, Maven JDK, `java.configuration.runtimes` und `java.jdt.ls.java.home` auf 21, Language Server/Maven neu laden. Keine absoluten maschinenspezifischen SDK-Pfade committen.

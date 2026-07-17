@@ -6,6 +6,8 @@
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-07-17
+
 ### Dodano
 
 - GitHub community health datoteke, CI/security avtomatizacija in open-source upravljanje.

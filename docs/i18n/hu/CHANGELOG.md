@@ -2,6 +2,8 @@
 > [Nyelvválasztó](../../LANGUAGES.md) · A kanonikus angol changelog irányadó.
 
 ## [Unreleased]
+
+## [1.2.0] - 2026-07-17
 #
 
 ## Hozzáadva

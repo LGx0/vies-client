@@ -8,7 +8,7 @@ Právně směrodatné anglické soubory [LICENSE](../../../LICENSE) a [NOTICE](.
 
 ## Distribuovaný runtime JAR
 
-`vies-client-1.0.0.jar` neobsahuje ani nevyžaduje knihovny třetích stran; používá pouze JDK moduly `java.base` a `java.net.http`.
+`vies-client-1.2.0.jar` neobsahuje ani nevyžaduje knihovny třetích stran; používá pouze JDK moduly `java.base` a `java.net.http`.
 
 ## Build a test
 

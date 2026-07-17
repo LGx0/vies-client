@@ -40,7 +40,7 @@ yra oficialus mokesčių institucijų produktas ir nėra jų patvirtintas ar ser
 ## Sukurti ir prijungti
 
 ```bash
-./mvnw install    # tesztek + target/vies-client-1.0.0.jar (+ -sources.jar, -javadoc.jar)
+./mvnw install    # tesztek + target/vies-client-1.2.0.jar (+ -sources.jar, -javadoc.jar)
                # és telepítés a lokális Maven-repóba
 ```
 
@@ -50,20 +50,20 @@ yra oficialus mokesčių institucijų produktas ir nėra jų patvirtintas ar ser
 <dependency>
     <groupId>vies.client</groupId>
     <artifactId>vies-client</artifactId>
-    <version>1.0.0</version>
+    <version>1.2.0</version>
 </dependency>
 ```
 
 **Gradle:**
 
 ```kotlin
-implementation("vies.client:vies-client:1.0.0")
+implementation("vies.client:vies-client:1.2.0")
 ```
 
 **Tikrasis JPMS modulis.** Stiklainis veikia kaip pavadintas modulis (`jar --describe-module`):
 
 ```
-vies.client@1.0.0
+vies.client@1.2.0
 exports vies.client
 requires java.net.http
 contains vies.client.internal   ← nem exportált, zárt belső csomag

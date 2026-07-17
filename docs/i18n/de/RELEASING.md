@@ -13,7 +13,7 @@ Releases werden aus einem sauberen, überprüften Commit erstellt. JDK 21, Maven
 ```bash
 ./mvnw clean verify
 ./mvnw package
-jar --describe-module --file target/vies-client-1.0.0.jar
+jar --describe-module --file target/vies-client-1.2.0.jar
 ```
 
 Prüfen Sie Version in `pom.xml`, Changelog, README-Beispiele, alle Sprachlinks, Javadocs, Quellen-JAR, Lizenz-/Security-Dateien und dass keine Secrets oder Build-Artefakte eingecheckt sind. Führen Sie deterministische Konkurrenztests wiederholt aus. Live-VIES nur als minimalen Smoke-Test nutzen.
