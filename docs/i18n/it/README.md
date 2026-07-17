@@ -30,7 +30,7 @@ Per milioni di attività servono inoltre coda persistente partizionata, cache co
 
 ## Build, JPMS e semantica completa
 
-Maven `vies.client:vies-client:1.0.0`; modulo JPMS `vies.client`, export `vies.client`, require `java.net.http`, internals chiusi. Usare `module my.api { requires vies.client; }` o classpath.
+Maven `vies.client:vies-client:1.2.0`; modulo JPMS `vies.client`, export `vies.client`, require `java.net.http`, internals chiusi. Usare `module my.api { requires vies.client; }` o classpath.
 
 ```java
 try (var vies = ViesClient.builder().defaultRequester(ViesRequester.of(System.getenv("MY_EU_VAT_NUMBER"))).retries(1).build()) {

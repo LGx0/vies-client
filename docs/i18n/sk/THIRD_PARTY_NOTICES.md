@@ -8,7 +8,7 @@ Právne smerodajné anglické súbory [LICENSE](../../../LICENSE) a [NOTICE](../
 
 ## Distribuovaný runtime JAR
 
-`vies-client-1.0.0.jar` neobsahuje ani nevyžaduje third-party runtime library; iba JDK `java.base`, `java.net.http`.
+`vies-client-1.2.0.jar` neobsahuje ani nevyžaduje third-party runtime library; iba JDK `java.base`, `java.net.http`.
 
 ## Závislosti pre build a testy
 

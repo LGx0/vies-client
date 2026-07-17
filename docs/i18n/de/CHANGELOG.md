@@ -6,6 +6,8 @@
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-07-17
+
 ### Hinzugefügt
 
 - GitHub-Communitydateien, CI-/Security-Automatisierung und Open-Source-Governance.

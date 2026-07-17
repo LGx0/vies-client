@@ -2,6 +2,8 @@
 > [Kalbų pasirinkimas](../../LANGUAGES.md) · Pirmenybę turi angliškas techninis/teisinis originalas ir šakniniai `LICENSE`/`NOTICE`.
 
 ## [Unreleased]
+
+## [1.2.0] - 2026-07-17
 - GitHub community files, CI/security automation, Apache-2.0 un Maven/Maven metadata.
 
 ## [1.0.0] — 2026-07-17

@@ -123,6 +123,6 @@ După ce cunoașteți adresa URL GitHub reală, actualizați:
 
 ## 8. Prima lansare
 
-Creați o etichetă `v1.0.0` semnată numai după CI/CodeQL verde. Testele fluxului de lucru de lansare,
+Creați o etichetă `v1.2.0` semnată numai după CI/CodeQL verde. Testele fluxului de lucru de lansare,
 construiți JAR-urile binare/sursele/Javadoc și suma de control SHA-256, apoi GitHub
 Creează o eliberare. Detalii: [RELEASING.md](RELEASING.md).

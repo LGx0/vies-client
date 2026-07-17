@@ -42,7 +42,7 @@ on veroviranomaisten virallinen tuote, eikä se ole veroviranomaisten hyväksym�
 ## Rakenna ja liitä
 
 ```bash
-./mvnw install    # tesztek + target/vies-client-1.0.0.jar (+ -sources.jar, -javadoc.jar)
+./mvnw install    # tesztek + target/vies-client-1.2.0.jar (+ -sources.jar, -javadoc.jar)
                # és telepítés a lokális Maven-repóba
 ```
 
@@ -52,20 +52,20 @@ on veroviranomaisten virallinen tuote, eikä se ole veroviranomaisten hyväksym�
 <dependency>
     <groupId>vies.client</groupId>
     <artifactId>vies-client</artifactId>
-    <version>1.0.0</version>
+    <version>1.2.0</version>
 </dependency>
 ```
 
 **Gradle:**
 
 ```kotlin
-implementation("vies.client:vies-client:1.0.0")
+implementation("vies.client:vies-client:1.2.0")
 ```
 
 **Todellinen JPMS-moduuli.** Purkki toimii nimettynä moduulina (`jar --describe-module`):
 
 ```
-vies.client@1.0.0
+vies.client@1.2.0
 exports vies.client
 requires java.net.http
 contains vies.client.internal   ← nem exportált, zárt belső csomag

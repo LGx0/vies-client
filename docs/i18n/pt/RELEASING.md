@@ -24,8 +24,8 @@ recursos e principais para quebrar API ou alterações semânticas.
 
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
-jar --describe-module --file target/vies-client-1.0.0.jar
-jdeps --print-module-deps target/vies-client-1.0.0.jar
+jar --describe-module --file target/vies-client-1.2.0.jar
+jdeps --print-module-deps target/vies-client-1.2.0.jar
 ```
 
 Verifique também:
@@ -40,7 +40,7 @@ Verifique também:
 
 1. Defina a versão no arquivo`pom.xml`.
 2. Confirme o changelog e a versão.
-3. Crie uma tag anotada assinada:`git tag -s v1.0.0 -m "v1.0.0"`.
+3. Crie uma tag anotada assinada:`git tag -s v1.2.0 -m "v1.2.0"`.
 4. Envie commit e tag:`git push origin main --follow-tags`.
 5. O fluxo de trabalho`release.yml`executa novamente os testes e, em seguida, anexa o binário,
    fontes e arquivos Javadoc JAR para GitHub Release.

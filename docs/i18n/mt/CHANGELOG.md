@@ -2,6 +2,8 @@
 > [Għażla tal-lingwa](../../LANGUAGES.md) · L-oriġinal Ingliż u `LICENSE`/`NOTICE` fir-root jipprevalu.
 
 ## [Unreleased]
+
+## [1.2.0] - 2026-07-17
 - GitHub community files, CI/security automation, Apache-2.0 licensing agus/u Maven metadata.
 
 ## [1.0.0] — 2026-07-17

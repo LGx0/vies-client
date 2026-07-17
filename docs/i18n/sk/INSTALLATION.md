@@ -39,12 +39,12 @@ Trvalé nastavenie dajte do shell profilu/Windows Environment Variables. Intel M
 Vzniknú binary, sources a Javadoc JAR v `target/`; `install` ich uloží do lokálneho Maven repo.
 
 ```xml
-<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.0.0</version></dependency>
+<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.2.0</version></dependency>
 ```
 
 ```kotlin
 repositories { mavenLocal() }
-dependencies { implementation("vies.client:vies-client:1.0.0") }
+dependencies { implementation("vies.client:vies-client:1.2.0") }
 java { toolchain { languageVersion.set(JavaLanguageVersion.of(21)) } }
 ```
 
@@ -68,15 +68,15 @@ Live smoke nesmie blokovať CI. Typické chyby: starý JDK (`release version 21`
 <dependency>
   <groupId>vies.client</groupId>
   <artifactId>vies-client</artifactId>
-  <version>1.0.0</version>
+  <version>1.2.0</version>
 </dependency>
 ```
 
 ### Без build tool / Fără instrument de build
 
 ```bash
-javac -cp /path/to/vies-client-1.0.0.jar MyApplication.java
-java -cp "/path/to/vies-client-1.0.0.jar:." MyApplication
+javac -cp /path/to/vies-client-1.2.0.jar MyApplication.java
+java -cp "/path/to/vies-client-1.2.0.jar:." MyApplication
 ```
 
 ### JPMS
@@ -88,8 +88,8 @@ module my.application {
 ```
 
 ```bash
-javac --module-path vies-client-1.0.0.jar -d out src/module-info.java src/my/application/Main.java
-java --module-path "vies-client-1.0.0.jar:out" -m my.application/my.application.Main
+javac --module-path vies-client-1.2.0.jar -d out src/module-info.java src/my/application/Main.java
+java --module-path "vies-client-1.2.0.jar:out" -m my.application/my.application.Main
 ```
 
 | Problém | Riešenie |

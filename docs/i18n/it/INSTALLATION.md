@@ -17,14 +17,14 @@ cd vies-client
 
 macOS: `brew install openjdk@21`; Linux: pacchetto JDK 21 della distribuzione; Windows: impostare `JAVA_HOME` e aggiungere `%JAVA_HOME%\bin` a `Path`. Impostare anche SDK e Maven JDK dell’IDE a 21.
 
-In `target/` vengono prodotti JAR, sources e Javadocs. Maven: `vies.client:vies-client:1.0.0`; Gradle: `implementation("vies.client:vies-client:1.0.0")`. JPMS: `requires vies.client;`; su classpath non serve. Senza build tool usare `--module-path`/`-cp`; copiando i sorgenti in progetto non modulare omettere `module-info.java`.
+In `target/` vengono prodotti JAR, sources e Javadocs. Maven: `vies.client:vies-client:1.2.0`; Gradle: `implementation("vies.client:vies-client:1.2.0")`. JPMS: `requires vies.client;`; su classpath non serve. Senza build tool usare `--module-path`/`-cp`; copiando i sorgenti in progetto non modulare omettere `module-info.java`.
 
 Gestire proxy/certificati nell’infrastruttura senza credenziali nel repository. Verifica:
 
 ```bash
 ./mvnw -q clean test
 ./mvnw -q package
-jar --describe-module --file target/vies-client-1.0.0.jar
+jar --describe-module --file target/vies-client-1.2.0.jar
 ```
 
 Le chiamate live devono essere smoke manuali minimi. In caso di errore controllare JDK, proxy/TLS, indisponibilità VIES/Stato membro e limiti locali.
@@ -36,9 +36,9 @@ macOS: persistere Homebrew e `JAVA_HOME="$(/usr/libexec/java_home -v 21)"`; Linu
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
 ./mvnw install
-ls -lh target/vies-client-1.0.0*.jar
-javac --release 21 -cp vies-client-1.0.0.jar MyApp.java
-java -cp .:vies-client-1.0.0.jar MyApp # Windows ;
+ls -lh target/vies-client-1.2.0*.jar
+javac --release 21 -cp vies-client-1.2.0.jar MyApp.java
+java -cp .:vies-client-1.2.0.jar MyApp # Windows ;
 ```
 
 JAR senza runtime terzi; JUnit/`jdk.httpserver` solo test. IDE SDK/language/Maven JDK e impostazioni Java a 21, reload, niente path locali committati. HTTPS verso `https://ec.europa.eu/taxation_customs/vies/`, proxy/truststore centrali, mai disabilitare TLS. Container JDK/JRE21, CA, non-root e limiti.

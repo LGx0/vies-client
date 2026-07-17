@@ -78,9 +78,9 @@ Le haghaidh socruithe buana, bain úsáid as comhéadan Athróga Comhshaoil ​�
   Déantáin ghinte:
 
 ```text
-target/vies-client-1.0.0.jar
-target/vies-client-1.0.0-sources.jar
-target/vies-client-1.0.0-javadoc.jar
+target/vies-client-1.2.0.jar
+target/vies-client-1.2.0-sources.jar
+target/vies-client-1.2.0-javadoc.jar
 ```
 
 ## 4. Ceangal Maven / spleáchas Maven
@@ -91,7 +91,7 @@ Má ritheadh ​​`./mvnw install`/ Tar éis`./mvnw install` a rith roimhe seo:
 <dependency>
     <groupId>vies.client</groupId>
     <artifactId>vies-client</artifactId>
-    <version>1.0.0</version>
+    <version>1.2.0</version>
 </dependency>
 ```
 
@@ -108,7 +108,7 @@ repositories {
 }
 
 dependencies {
-    implementation("vies.client:vies-client:1.0.0")
+    implementation("vies.client:vies-client:1.2.0")
 }
 
 java {
@@ -123,8 +123,8 @@ java {
 Feidhmchlár Classpath / Feidhmchlár Classpath:
 
 ```bash
-javac -cp /path/to/vies-client-1.0.0.jar MyApplication.java
-java -cp "/path/to/vies-client-1.0.0.jar:." MyApplication
+javac -cp /path/to/vies-client-1.2.0.jar MyApplication.java
+java -cp "/path/to/vies-client-1.2.0.jar:." MyApplication
 ```
 
 Faoi Windows is é an deighilteoir rangchosán ná `;`, faoi Unix/macOS `:`.
@@ -143,8 +143,8 @@ module my.application {
 Tiomsaigh agus rith:
 
 ```bash
-javac --module-path vies-client-1.0.0.jar -d out src/module-info.java src/my/application/Main.java
-java --module-path "vies-client-1.0.0.jar:out" -m my.application/my.application.Main
+javac --module-path vies-client-1.2.0.jar -d out src/module-info.java src/my/application/Main.java
+java --module-path "vies-client-1.2.0.jar:out" -m my.application/my.application.Main
 ```
 
 ## 8. Cód Windsurf / USA

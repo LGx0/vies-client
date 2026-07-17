@@ -122,6 +122,6 @@ Zodra je de daadwerkelijke GitHub-URL kent, update je:
 
 ## 8. Eerste release / Eerste release
 
-Maak pas een ondertekende`v1.0.0`-tag na groene CI/CodeQL. De release-workflowtests,
+Maak pas een ondertekende`v1.2.0`-tag na groene CI/CodeQL. De release-workflowtests,
 bouw de binaire/sources/Javadoc JAR's en SHA-256 checksum, en vervolgens GitHub
 Creëert een release. Details: [RELEASING.md](RELEASING.md).

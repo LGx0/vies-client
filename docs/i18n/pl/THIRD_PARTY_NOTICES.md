@@ -8,7 +8,7 @@ Prawnie rozstrzygające angielskie pliki [LICENSE](../../../LICENSE) i [NOTICE](
 
 ## Runtime JAR
 
-`vies-client-1.0.0.jar` nie zawiera ani nie wymaga bibliotek stron trzecich; używa tylko JDK `java.base` i `java.net.http`.
+`vies-client-1.2.0.jar` nie zawiera ani nie wymaga bibliotek stron trzecich; używa tylko JDK `java.base` i `java.net.http`.
 
 ## Build/test
 

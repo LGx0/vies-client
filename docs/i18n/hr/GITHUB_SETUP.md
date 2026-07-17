@@ -123,6 +123,6 @@ Kada saznate stvarni GitHub URL, ažurirajte:
 
 ## 8. Prvo izdanje
 
-Stvorite potpisanu oznaku `v1.0.0` tek nakon zelenog CI/CodeQL. Testovi tijeka rada izdanja,
+Stvorite potpisanu oznaku `v1.2.0` tek nakon zelenog CI/CodeQL. Testovi tijeka rada izdanja,
 izgraditi binarne/izvore/Javadoc JAR-ove i SHA-256 kontrolni zbroj, zatim GitHub
 Stvara izdanje. Detalji: [OSLOBAĐANJE.md](RELEASING.md).

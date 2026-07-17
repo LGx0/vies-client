@@ -8,6 +8,8 @@ Významné změny jsou zde dokumentovány podle `MAJOR.MINOR.PATCH`.
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-07-17
+
 ### Přidáno
 
 - GitHub community health soubory, CI/security automatizace a open-source governance.

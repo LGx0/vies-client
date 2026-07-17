@@ -17,7 +17,7 @@ gh repo create OWNER/vies-client --public --source . --remote origin --push
 
 Zapnite Issues, Discussions, private vulnerability, Dependabot, secret scanning/push protection, auto-delete. `main`: PR, approval, stale dismissal, CI/CodeQL/dependency review, resolved conversations, no force/delete. Checks po prvom workflow.
 
-Labels/topics podľa anglického originálu. Sponsor cez `.github/FUNDING.yml`, napr. `custom: [https://buymeacoffee.com/ACCOUNT]`; verified URL, no SLA/governance. Po push aktualizujte pom metadata, badges, advisory, release/Central, funding. Signed `v1.0.0` až po green CI/CodeQL.
+Labels/topics podľa anglického originálu. Sponsor cez `.github/FUNDING.yml`, napr. `custom: [https://buymeacoffee.com/ACCOUNT]`; verified URL, no SLA/governance. Po push aktualizujte pom metadata, badges, advisory, release/Central, funding. Signed `v1.2.0` až po green CI/CodeQL.
 
 ## Podrobné pravidlá správy projektu
 

@@ -30,7 +30,7 @@ export PATH="$JAVA_HOME/bin:$PATH"
 
 ```kotlin
 repositories { mavenLocal() }
-dependencies { implementation("vies.client:vies-client:1.0.0") }
+dependencies { implementation("vies.client:vies-client:1.2.0") }
 java { toolchain { languageVersion.set(JavaLanguageVersion.of(21)) } }
 ```
 
@@ -56,15 +56,15 @@ curl "http://localhost:8085/vat-check?number=DE000000000"
 <dependency>
   <groupId>vies.client</groupId>
   <artifactId>vies-client</artifactId>
-  <version>1.0.0</version>
+  <version>1.2.0</version>
 </dependency>
 ```
 
 ### Χρήση χωρίς build tool
 
 ```bash
-javac -cp /path/to/vies-client-1.0.0.jar MyApplication.java
-java -cp "/path/to/vies-client-1.0.0.jar:." MyApplication
+javac -cp /path/to/vies-client-1.2.0.jar MyApplication.java
+java -cp "/path/to/vies-client-1.2.0.jar:." MyApplication
 ```
 
 ### JPMS
@@ -76,8 +76,8 @@ module my.application {
 ```
 
 ```bash
-javac --module-path vies-client-1.0.0.jar -d out src/module-info.java src/my/application/Main.java
-java --module-path "vies-client-1.0.0.jar:out" -m my.application/my.application.Main
+javac --module-path vies-client-1.2.0.jar -d out src/module-info.java src/my/application/Main.java
+java --module-path "vies-client-1.2.0.jar:out" -m my.application/my.application.Main
 ```
 
 | Πρόβλημα | Λύση |

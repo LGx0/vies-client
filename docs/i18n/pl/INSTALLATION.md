@@ -43,23 +43,23 @@ $env:Path = "$env:JAVA_HOME\bin;$env:Path"
 ./mvnw install
 ```
 
-Powstają `target/vies-client-1.0.0.jar`, `-sources.jar`, `-javadoc.jar`; `install` kopiuje je też do lokalnego repo Maven.
+Powstają `target/vies-client-1.2.0.jar`, `-sources.jar`, `-javadoc.jar`; `install` kopiuje je też do lokalnego repo Maven.
 
 ```xml
-<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.0.0</version></dependency>
+<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.2.0</version></dependency>
 ```
 
 ```kotlin
 repositories { mavenLocal() }
-dependencies { implementation("vies.client:vies-client:1.0.0") }
+dependencies { implementation("vies.client:vies-client:1.2.0") }
 java { toolchain { languageVersion.set(JavaLanguageVersion.of(21)) } }
 ```
 
 Bez narzędzia build:
 
 ```bash
-javac -cp /path/to/vies-client-1.0.0.jar MyApplication.java
-java -cp "/path/to/vies-client-1.0.0.jar:." MyApplication
+javac -cp /path/to/vies-client-1.2.0.jar MyApplication.java
+java -cp "/path/to/vies-client-1.2.0.jar:." MyApplication
 ```
 
 Separator classpath: Windows `;`, Unix/macOS `:`. W JPMS dodaj `requires vies.client;` i używaj `--module-path`.

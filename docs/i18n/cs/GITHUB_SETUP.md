@@ -19,7 +19,7 @@ Zapněte Issues, Discussions, private vulnerability reporting, Dependabot, secre
 
 Labels: `bug, enhancement, documentation, localization, security, dependencies, performance, concurrency, breaking-change, good-first-issue, help-wanted, triage`. Topics: `java, java21, vies, vat, vat-validation, eu, rest-client, virtual-threads, single-flight, jpms, zero-dependency`.
 
-Sponsor tlačítko řídí `.github/FUNDING.yml`, např. `custom: [https://buymeacoffee.com/ACCOUNT]`; jen ověřený URL, bez SLA/governance. Po push aktualizujte pom.xml metadata, badges, advisory, release/Central a funding. První signed `v1.0.0` až po green CI/CodeQL.
+Sponsor tlačítko řídí `.github/FUNDING.yml`, např. `custom: [https://buymeacoffee.com/ACCOUNT]`; jen ověřený URL, bez SLA/governance. Po push aktualizujte pom.xml metadata, badges, advisory, release/Central a funding. První signed `v1.2.0` až po green CI/CodeQL.
 
 ## Podrobná pravidla správy projektu
 

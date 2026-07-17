@@ -21,7 +21,7 @@ Labels: `bug, enhancement, documentation, localization, security, dependencies, 
 
 Sponsor gumb nastavi `.github/FUNDING.yml`, npr. `custom: [https://buymeacoffee.com/ACCOUNT]`; le preverjeni URL, donacija ne kupi SLA/governance.
 
-Po prvem pushu posodobite `pom.xml` url/scm/developers, README badges, advisory URL, release/Central koordinate in funding URL. Prvi signed `v1.0.0` šele po green CI/CodeQL; workflow ustvari binary/sources/Javadoc JAR in SHA-256.
+Po prvem pushu posodobite `pom.xml` url/scm/developers, README badges, advisory URL, release/Central koordinate in funding URL. Prvi signed `v1.2.0` šele po green CI/CodeQL; workflow ustvari binary/sources/Javadoc JAR in SHA-256.
 
 ## Podrobna pravila upravljanja projekta
 

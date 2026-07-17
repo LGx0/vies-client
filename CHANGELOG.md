@@ -8,6 +8,8 @@ All notable changes are documented here. The project follows Semantic Versioning
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-07-17
+
 ### Added
 
 - GitHub community health files, CI/security automation, and open-source governance.

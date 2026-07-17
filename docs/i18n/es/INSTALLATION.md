@@ -17,14 +17,14 @@ cd vies-client
 
 En macOS instale `brew install openjdk@21`; en Linux use el paquete JDK 21 de su distribución; en Windows configure `JAVA_HOME` y añada `%JAVA_HOME%\bin` a `Path`. Configure también el SDK y Maven JDK del IDE en 21.
 
-Los artefactos se generan en `target/`: JAR principal, fuentes y Javadocs. Maven usa `vies.client:vies-client:1.0.0`; Gradle usa `implementation("vies.client:vies-client:1.0.0")`. En JPMS declare `requires vies.client;`; en classpath no hace falta. Sin build tool use `--module-path`/`-cp`; al copiar fuentes a un proyecto no modular omita `module-info.java`.
+Los artefactos se generan en `target/`: JAR principal, fuentes y Javadocs. Maven usa `vies.client:vies-client:1.2.0`; Gradle usa `implementation("vies.client:vies-client:1.2.0")`. En JPMS declare `requires vies.client;`; en classpath no hace falta. Sin build tool use `--module-path`/`-cp`; al copiar fuentes a un proyecto no modular omita `module-info.java`.
 
 Gestione proxy y certificados en JVM/infraestructura, nunca con credenciales en Git. Verificación:
 
 ```bash
 ./mvnw -q clean test
 ./mvnw -q package
-jar --describe-module --file target/vies-client-1.0.0.jar
+jar --describe-module --file target/vies-client-1.2.0.jar
 ```
 
 Reserve las llamadas reales para un smoke manual mínimo. Revise JDK incorrecto, proxy/TLS, indisponibilidad de VIES/Estado miembro y límites locales si falla.
@@ -36,9 +36,9 @@ macOS: persista Homebrew y `JAVA_HOME="$(/usr/libexec/java_home -v 21)"`. Linux:
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
 ./mvnw install
-ls -lh target/vies-client-1.0.0*.jar
-javac --release 21 -cp vies-client-1.0.0.jar MyApp.java
-java -cp .:vies-client-1.0.0.jar MyApp # Windows: ;
+ls -lh target/vies-client-1.2.0*.jar
+javac --release 21 -cp vies-client-1.2.0.jar MyApp.java
+java -cp .:vies-client-1.2.0.jar MyApp # Windows: ;
 ```
 
 JAR sin runtime de terceros; JUnit/`jdk.httpserver` solo test. IDE: SDK, language level, Maven JDK, `java.configuration.runtimes` y `java.jdt.ls.java.home` a 21; recargar y no commitear rutas locales. HTTPS a `https://ec.europa.eu/taxation_customs/vies/`; proxy/truststore central, nunca TLS off. Contenedor con JDK/JRE 21, CA, non-root y límites.
@@ -64,11 +64,11 @@ Archive reports/checksum. Actualice staging con rollback. Live solo conectividad
 
 ## Maven, Gradle, JPMS e IDE
 
-La dependencia Maven utiliza group `vies.client`, artifact `vies-client` y versión fija. Gradle usa `implementation("vies.client:vies-client:1.0.0")`. En módulos declare `requires vies.client`; en classpath no elimine el JAR de runtime. Sin build tool, compile con `javac --release 21 -cp ...` y use `:` o `;` según sistema.
+La dependencia Maven utiliza group `vies.client`, artifact `vies-client` y versión fija. Gradle usa `implementation("vies.client:vies-client:1.2.0")`. En módulos declare `requires vies.client`; en classpath no elimine el JAR de runtime. Sin build tool, compile con `javac --release 21 -cp ...` y use `:` o `;` según sistema.
 
 VS Code/Windsurf e IntelliJ deben usar JDK 21 tanto para project SDK como Maven importer/language server. Después de cambiarlo, limpie workspace y recargue Maven. No commit de `.vscode` machine-specific, `.idea`, credentials o paths absolutos.
 
-El paquete genera `vies-client-1.0.0.jar`, `-sources.jar` y `-javadoc.jar`. `jar --describe-module` confirma exports/requires. El JAR runtime no incluye JUnit ni plugins. Verifique `THIRD_PARTY_NOTICES.md` y checksum antes de distribuir.
+El paquete genera `vies-client-1.2.0.jar`, `-sources.jar` y `-javadoc.jar`. `jar --describe-module` confirma exports/requires. El JAR runtime no incluye JUnit ni plugins. Verifique `THIRD_PARTY_NOTICES.md` y checksum antes de distribuir.
 
 Troubleshooting debe conservar el error original y machine code. `NETWORK_ERROR` exige DNS/proxy/firewall/TLS; `TIMEOUT` distingue connect/request/admission; `CLIENT_OVERLOADED` pide backpressure, no loop inmediato; `CACHE_ERROR` investiga Redis sin bypass masivo. `UnsupportedClassVersionError` indica JVM vieja, no bug VIES.
 

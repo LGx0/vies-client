@@ -124,7 +124,7 @@ A tényleges GitHub URL ismeretében frissítsd:
 
 ## 8. Első kiadás / First release
 
-Csak zöld CI/CodeQL után készíts aláírt `v1.0.0` taget. A release workflow tesztel,
+Csak zöld CI/CodeQL után készíts aláírt `v1.2.0` taget. A release workflow tesztel,
 elkészíti a binary/sources/Javadoc JAR-okat és SHA-256 checksumot, majd GitHub
 Release-t hoz létre. Részletek: [RELEASING.md](RELEASING.md).
 

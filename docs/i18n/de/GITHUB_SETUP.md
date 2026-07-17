@@ -10,7 +10,7 @@ Erstellen Sie das öffentliche Repository `vies-client` mit `main`, ohne GitHub-
 
 Aktivieren: Issues, Discussions, branch/ruleset mit PR+Approval+erforderlichen `CI`/`CodeQL`/Dependency-Checks, Conversation Resolution, kein Force-Push/Delete; private vulnerability reporting, Dependabot, secret scanning/push protection. Themen: Java 21, VIES, VAT, REST, virtual threads, JPMS.
 
-Der Sponsor-Button kommt aus `.github/FUNDING.yml`, z. B. `custom: https://buymeacoffee.com/ACCOUNT`; nur verifizierten Link verwenden, Spende ohne SLA/Governance-Recht. Nach erstem Push `pom.xml`, Badge-URLs, Security-Link, Release-Doku und Funding-URL aktualisieren. Erst bei grünem CI/CodeQL signiertes `v1.0.0`; Workflow erzeugt JAR, Sources, Javadocs, SHA-256 und Release.
+Der Sponsor-Button kommt aus `.github/FUNDING.yml`, z. B. `custom: https://buymeacoffee.com/ACCOUNT`; nur verifizierten Link verwenden, Spende ohne SLA/Governance-Recht. Nach erstem Push `pom.xml`, Badge-URLs, Security-Link, Release-Doku und Funding-URL aktualisieren. Erst bei grünem CI/CodeQL signiertes `v1.2.0`; Workflow erzeugt JAR, Sources, Javadocs, SHA-256 und Release.
 
 ## Repository-Einstellungen im Detail
 

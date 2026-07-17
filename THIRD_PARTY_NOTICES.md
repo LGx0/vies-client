@@ -2,7 +2,7 @@
 
 ## Terjesztett futásidejű JAR / Distributed runtime JAR
 
-A `vies-client-1.0.0.jar` nem tartalmaz és nem igényel külső futásidejű könyvtárat.
+A `vies-client-1.2.0.jar` nem tartalmaz és nem igényel külső futásidejű könyvtárat.
 Csak a JDK `java.base` és `java.net.http` moduljait használja.
 
 The distributed JAR contains and requires no third-party runtime library. It only

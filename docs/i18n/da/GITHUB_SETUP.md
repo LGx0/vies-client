@@ -122,6 +122,6 @@ Når du kender den faktiske GitHub-URL, skal du opdatere:
 
 ## 8. Første udgivelse / Første udgivelse
 
-Opret kun et signeret`v1.0.0`-tag efter grøn CI/CodeQL. Udgivelsens workflowtest,
+Opret kun et signeret`v1.2.0`-tag efter grøn CI/CodeQL. Udgivelsens workflowtest,
 byg binære/kilder/Javadoc JAR'er og SHA-256 kontrolsum, derefter GitHub
 Opretter en udgivelse. Detaljer: [RELEASING.md](RELEASING.md).

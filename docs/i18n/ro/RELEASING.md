@@ -25,8 +25,8 @@ caracteristici și majore pentru întreruperea modificărilor API sau semantice.
 
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
-jar --describe-module --file target/vies-client-1.0.0.jar
-jdeps --print-module-deps target/vies-client-1.0.0.jar
+jar --describe-module --file target/vies-client-1.2.0.jar
+jdeps --print-module-deps target/vies-client-1.2.0.jar
 ```
 
 De asemenea, verificați:
@@ -41,7 +41,7 @@ De asemenea, verificați:
 
 1. Setați versiunea în fișierul `pom.xml`.
 2. Commiteți jurnalul de modificări și versiunea.
-3. Creați o etichetă adnotată semnată:`git tag -s v1.0.0 -m "v1.0.0"`.
+3. Creați o etichetă adnotată semnată:`git tag -s v1.2.0 -m "v1.2.0"`.
 4. Apăsați commit și etichetați:`git push origin main --follow-tags`.
 5. Fluxul de lucru `release.yml` reluează testele și apoi atașează fișierul binar,
    surse și fișiere JAR Javadoc pentru lansarea GitHub.

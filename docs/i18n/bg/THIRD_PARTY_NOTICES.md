@@ -4,7 +4,7 @@
 
 > Информационен превод. При различие водещ е английският технически и правен оригинал. Само кореновите LICENSE и NOTICE са правно меродавни; преводът не е лиценз. [LICENSE](../../../LICENSE), [NOTICE](../../../NOTICE).
 
-vies-client-1.0.0.jar contains/requires no third-party runtime library; only JDK java.base and java.net.http.
+vies-client-1.2.0.jar contains/requires no third-party runtime library; only JDK java.base and java.net.http.
 
 | Component | Version | Scope | License |
 |---|---:|---|---|

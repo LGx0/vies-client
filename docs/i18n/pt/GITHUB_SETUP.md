@@ -122,6 +122,6 @@ Depois de saber o URL real do GitHub, atualize:
 
 ## 8. Primeiro lançamento / Primeiro lançamento
 
-Crie uma tag`v1.0.0`assinada somente após CI/CodeQL verde. Os testes de fluxo de trabalho de lançamento,
+Crie uma tag`v1.2.0`assinada somente após CI/CodeQL verde. Os testes de fluxo de trabalho de lançamento,
 construa os JARs binários/sources/Javadoc e a soma de verificação SHA-256 e, em seguida, GitHub
 Cria uma versão. Detalhes: [RELEASING.md](RELEASING.md).

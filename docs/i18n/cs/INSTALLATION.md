@@ -50,25 +50,25 @@ $env:Path = "$env:JAVA_HOME\bin;$env:Path"
 ./mvnw install
 ```
 
-`verify` kompiluje, spustí unit a lokální integrační testy a vytvoří `target/vies-client-1.0.0.jar`, `-sources.jar` a `-javadoc.jar`. `install` je navíc uloží do lokálního Maven repozitáře.
+`verify` kompiluje, spustí unit a lokální integrační testy a vytvoří `target/vies-client-1.2.0.jar`, `-sources.jar` a `-javadoc.jar`. `install` je navíc uloží do lokálního Maven repozitáře.
 
 ## 4. Maven, Gradle a classpath
 
 ```xml
-<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.0.0</version></dependency>
+<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.2.0</version></dependency>
 ```
 
 ```kotlin
 repositories { mavenLocal() }
-dependencies { implementation("vies.client:vies-client:1.0.0") }
+dependencies { implementation("vies.client:vies-client:1.2.0") }
 java { toolchain { languageVersion.set(JavaLanguageVersion.of(21)) } }
 ```
 
 Bez build nástroje:
 
 ```bash
-javac -cp /path/to/vies-client-1.0.0.jar MyApplication.java
-java -cp "/path/to/vies-client-1.0.0.jar:." MyApplication
+javac -cp /path/to/vies-client-1.2.0.jar MyApplication.java
+java -cp "/path/to/vies-client-1.2.0.jar:." MyApplication
 ```
 
 Ve Windows odděluje classpath `;`, v Unix/macOS `:`. Pro JPMS přidejte `requires vies.client;` a použijte `--module-path`.

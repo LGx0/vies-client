@@ -42,7 +42,7 @@ is táirge oifigiúil de chuid na n-údarás cánach é agus níl sé formhuinit
 ## Tógáil agus ceangail
 
 ```bash
-./mvnw install    # tesztek + target/vies-client-1.0.0.jar (+ -sources.jar, -javadoc.jar)
+./mvnw install    # tesztek + target/vies-client-1.2.0.jar (+ -sources.jar, -javadoc.jar)
                # és telepítés a lokális Maven-repóba
 ```
 
@@ -52,20 +52,20 @@ is táirge oifigiúil de chuid na n-údarás cánach é agus níl sé formhuinit
 <dependency>
     <groupId>vies.client</groupId>
     <artifactId>vies-client</artifactId>
-    <version>1.0.0</version>
+    <version>1.2.0</version>
 </dependency>
 ```
 
 **Gradle:**
 
 ```kotlin
-implementation("vies.client:vies-client:1.0.0")
+implementation("vies.client:vies-client:1.2.0")
 ```
 
 **Modúl fíor JPMS.** Iompraíonn an próca mar mhodúl ainmnithe (`jar --describe-module`):
 
 ```
-vies.client@1.0.0
+vies.client@1.2.0
 exports vies.client
 requires java.net.http
 contains vies.client.internal   ← nem exportált, zárt belső csomag

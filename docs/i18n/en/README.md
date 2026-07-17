@@ -47,7 +47,7 @@ member-state tax authority.
 ## Build and integration
 
 ```bash
-./mvnw install    # tests + target/vies-client-1.0.0.jar (+ -sources.jar, -javadoc.jar)
+./mvnw install    # tests + target/vies-client-1.2.0.jar (+ -sources.jar, -javadoc.jar)
                # and installation into the local Maven repository
 ```
 
@@ -57,21 +57,21 @@ member-state tax authority.
 <dependency>
     <groupId>vies.client</groupId>
     <artifactId>vies-client</artifactId>
-    <version>1.0.0</version>
+    <version>1.2.0</version>
 </dependency>
 ```
 
 **Gradle:**
 
 ```kotlin
-implementation("vies.client:vies-client:1.0.0")
+implementation("vies.client:vies-client:1.2.0")
 ```
 
 **Named JPMS module.** The JAR exposes the following module descriptor
 (`jar --describe-module`):
 
 ```
-vies.client@1.0.0
+vies.client@1.2.0
 exports vies.client
 requires java.net.http
 contains vies.client.internal   ← non-exported internal package

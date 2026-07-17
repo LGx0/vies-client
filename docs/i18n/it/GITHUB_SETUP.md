@@ -10,7 +10,7 @@ Creare repo pubblico `vies-client`, branch `main`, senza duplicati generati. Dop
 
 Abilitare Issues, Discussions, PR+approval, check `CI`/`CodeQL`/dependencies, resolution, no force-push/delete, private vulnerability, Dependabot, secret scanning. Sponsor da `.github/FUNDING.yml` con URL verificato (Buy Me a Coffee), senza SLA/governance.
 
-Dopo push aggiornare `pom.xml`, badge, Security, release e funding. Solo con CI/CodeQL verdi creare `v1.0.0` firmato e pubblicare JAR, sources, Javadocs, SHA-256.
+Dopo push aggiornare `pom.xml`, badge, Security, release e funding. Solo con CI/CodeQL verdi creare `v1.2.0` firmato e pubblicare JAR, sources, Javadocs, SHA-256.
 
 ## Procedura completa di sviluppo e pubblicazione
 

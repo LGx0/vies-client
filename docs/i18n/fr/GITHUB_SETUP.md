@@ -10,7 +10,7 @@ Créez le dépôt public `vies-client`, branche `main`, sans README/licence/igno
 
 Activez Issues, Discussions, PR+approbation, checks `CI`/`CodeQL`/dependencies, résolution des conversations, interdiction force-push/suppression, private vulnerability reporting, Dependabot et secret scanning. Le bouton Sponsor vient de `.github/FUNDING.yml` avec une URL vérifiée (p. ex. Buy Me a Coffee), sans SLA ni droit de gouvernance.
 
-Après le push, mettez à jour `pom.xml`, badges, Security, release et funding. Créez `v1.0.0` signé uniquement après CI/CodeQL verts ; publiez JAR, sources, Javadocs et SHA-256.
+Après le push, mettez à jour `pom.xml`, badges, Security, release et funding. Créez `v1.2.0` signé uniquement après CI/CodeQL verts ; publiez JAR, sources, Javadocs et SHA-256.
 
 ## Réglages détaillés
 

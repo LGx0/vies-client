@@ -4,7 +4,7 @@
 
 ## Gedistribueerde runtime-JAR / Gedistribueerde runtime-JAR
 
-`vies-client-1.0.0.jar`bevat of vereist geen externe runtime-bibliotheken.
+`vies-client-1.2.0.jar`bevat of vereist geen externe runtime-bibliotheken.
 Het maakt alleen gebruik van de`java.base`- en`java.net.http`-modules van de JDK.
 
 De gedistribueerde JAR bevat en vereist geen runtimebibliotheek van derden. Het alleen

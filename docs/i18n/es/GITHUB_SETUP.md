@@ -10,7 +10,7 @@ Cree repo público `vies-client`, rama `main`, sin duplicados generados. Tras su
 
 Active Issues, Discussions, PR+approval, checks `CI`/`CodeQL`/dependencies, resolución, sin force-push/delete, private vulnerability, Dependabot y secret scanning. Sponsor usa `.github/FUNDING.yml` y URL verificada (Buy Me a Coffee), sin SLA/gobernanza.
 
-Después actualice `pom.xml`, badges, Security, releases y funding. Solo con CI/CodeQL verdes cree `v1.0.0` firmado y publique JAR, sources, Javadocs y SHA-256.
+Después actualice `pom.xml`, badges, Security, releases y funding. Solo con CI/CodeQL verdes cree `v1.2.0` firmado y publique JAR, sources, Javadocs y SHA-256.
 
 No genere README/license/gitignore duplicados. Antes de add: status, secret scan, excluir target/IDE/.env/archive/token/customer. Confirme owner, Public y main.
 

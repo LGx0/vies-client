@@ -9,7 +9,7 @@ Publiez depuis un commit propre et vérifié avec JDK 21, Maven et les accès n�
 ```bash
 ./mvnw clean verify
 ./mvnw package
-jar --describe-module --file target/vies-client-1.0.0.jar
+jar --describe-module --file target/vies-client-1.2.0.jar
 ```
 
 Avant release, contrôlez version du `pom.xml`, changelog, exemples, liens de langues, Javadocs, sources, licence/sécurité, absence de secrets et répétition des tests concurrents. Un appel VIES live ne peut être qu’un smoke minimal.

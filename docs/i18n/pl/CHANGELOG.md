@@ -8,6 +8,8 @@ Ważne zmiany dokumentujemy według `MAJOR.MINOR.PATCH`.
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-07-17
+
 ### Dodano
 
 - GitHub community health, automatyzację CI/security i open-source governance.

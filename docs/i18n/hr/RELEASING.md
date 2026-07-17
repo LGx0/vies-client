@@ -25,8 +25,8 @@ značajke i glavne za razbijanje API-ja ili semantičke promjene.
 
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
-jar --describe-module --file target/vies-client-1.0.0.jar
-jdeps --print-module-deps target/vies-client-1.0.0.jar
+jar --describe-module --file target/vies-client-1.2.0.jar
+jdeps --print-module-deps target/vies-client-1.2.0.jar
 ```
 
 Također provjerite:
@@ -41,7 +41,7 @@ Također provjerite:
 
 1. Postavite verziju u datoteci `pom.xml`.
 2. Utvrdite dnevnik promjena i verziju.
-3. Napravite potpisanu označenu oznaku:`git tag -s v1.0.0 -m "v1.0.0"`.
+3. Napravite potpisanu označenu oznaku:`git tag -s v1.2.0 -m "v1.2.0"`.
 4. Push commit i tag:`git push origin main --follow-tags`.
 5. Tijek rada `release.yml` ponovno pokreće testove i zatim prilaže binarnu datoteku,
    izvori i Javadoc JAR datoteke za GitHub izdanje.

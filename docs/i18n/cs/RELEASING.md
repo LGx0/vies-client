@@ -12,8 +12,8 @@ Potřebujete čistou větev `main`, zelené GitHub Actions, oprávnění pro tag
 
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
-jar --describe-module --file target/vies-client-1.0.0.jar
-jdeps --print-module-deps target/vies-client-1.0.0.jar
+jar --describe-module --file target/vies-client-1.2.0.jar
+jdeps --print-module-deps target/vies-client-1.2.0.jar
 ```
 
 Ověřte celý Git history bez tajemství/osobních dat, aktuální `LICENSE`, `NOTICE`, `SECURITY.md` a dokumentaci, vznik sources/Javadoc JAR, žádný povinný live/load test v CI a changelog všech veřejných změn.
@@ -21,7 +21,7 @@ Ověřte celý Git history bez tajemství/osobních dat, aktuální `LICENSE`, `
 ## 3. GitHub Release
 
 1. Nastavte verzi v `pom.xml` a commitněte ji s changelogem.
-2. Vytvořte pokud možno podepsaný anotovaný tag: `git tag -s v1.0.0 -m "v1.0.0"`.
+2. Vytvořte pokud možno podepsaný anotovaný tag: `git tag -s v1.2.0 -m "v1.2.0"`.
 3. Push: `git push origin main --follow-tags`.
 4. `release.yml` znovu testuje a přiloží binary, sources a Javadoc JAR.
 

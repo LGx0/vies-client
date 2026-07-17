@@ -9,7 +9,7 @@ Publique desde un commit limpio y verificado con JDK 21, Maven y accesos seguros
 ```bash
 ./mvnw clean verify
 ./mvnw package
-jar --describe-module --file target/vies-client-1.0.0.jar
+jar --describe-module --file target/vies-client-1.2.0.jar
 ```
 
 Revise versión del POM, changelog, ejemplos, enlaces de idiomas, Javadocs/fuentes, licencia/seguridad, ausencia de secretos y repetición de tests concurrentes. VIES live solo como smoke mínimo.

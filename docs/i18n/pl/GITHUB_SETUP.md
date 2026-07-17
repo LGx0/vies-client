@@ -19,7 +19,7 @@ Włącz Issues, Discussions, private vulnerability, Dependabot, secret scanning/
 
 Labels: `bug, enhancement, documentation, localization, security, dependencies, performance, concurrency, breaking-change, good-first-issue, help-wanted, triage`. Topics: `java, java21, vies, vat, vat-validation, eu, rest-client, virtual-threads, single-flight, jpms, zero-dependency`.
 
-Sponsor przez `.github/FUNDING.yml`, np. `custom: [https://buymeacoffee.com/ACCOUNT]`; tylko zweryfikowany URL, bez SLA/governance. Po push popraw pom metadata, badges, advisory, release/Central i funding. Signed `v1.0.0` dopiero po green CI/CodeQL.
+Sponsor przez `.github/FUNDING.yml`, np. `custom: [https://buymeacoffee.com/ACCOUNT]`; tylko zweryfikowany URL, bez SLA/governance. Po push popraw pom metadata, badges, advisory, release/Central i funding. Signed `v1.2.0` dopiero po green CI/CodeQL.
 
 ## Szczegółowe zasady zarządzania projektem
 

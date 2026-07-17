@@ -122,6 +122,6 @@ När du känner till den faktiska GitHub URL, uppdatera:
 
 ## 8. Första utgåvan / Första utgåvan
 
-Skapa en signerad`v1.0.0`-tagg först efter grön CI/CodeQL. Utgivningens arbetsflödestester,
+Skapa en signerad`v1.2.0`-tagg först efter grön CI/CodeQL. Utgivningens arbetsflödestester,
 bygg binary/sources/Javadoc JARs och SHA-256 checksumma, sedan GitHub
 Skapar en release. Detaljer: [RELEASING.md](RELEASING.md).

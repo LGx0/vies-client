@@ -8,13 +8,13 @@ Požiadavky: čistý `main`, green Actions, release práva, JDK 21, Maven 3.9+, 
 
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
-jar --describe-module --file target/vies-client-1.0.0.jar
-jdeps --print-module-deps target/vies-client-1.0.0.jar
+jar --describe-module --file target/vies-client-1.2.0.jar
+jdeps --print-module-deps target/vies-client-1.2.0.jar
 ```
 
 Skontrolujte Git history bez secretov/dát, aktuálne LICENSE/NOTICE/SECURITY/docs, sources/Javadoc JAR, žiadny povinný live/load CI test a changelog API.
 
-Nastavte `pom.xml`, commitnite changelog/verziu, vytvorte signed annotated tag `git tag -s v1.0.0 -m "v1.0.0"`, pushnite `git push origin main --follow-tags`; `release.yml` testuje a pripojí 3 JARy. Nevydávajte failing/unreviewed commit.
+Nastavte `pom.xml`, commitnite changelog/verziu, vytvorte signed annotated tag `git tag -s v1.2.0 -m "v1.2.0"`, pushnite `git push origin main --follow-tags`; `release.yml` testuje a pripojí 3 JARy. Nevydávajte failing/unreviewed commit.
 
 Maven Central navyše potrebuje owned reverse-DNS `groupId`, url/scm/developers/distribution metadata, Central Portal token, GPG signing a publishing config. Secrets/keys necommitujte. Po release overte download/SHA-256, otvorte `[Unreleased]`, security advisory a aktualizujte dependency verzie.
 

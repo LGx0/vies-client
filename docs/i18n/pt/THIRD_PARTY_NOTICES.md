@@ -4,7 +4,7 @@
 
 ## JAR de tempo de execução distribuído / JAR de tempo de execução distribuído
 
-`vies-client-1.0.0.jar`não inclui nem requer nenhuma biblioteca de tempo de execução externa.
+`vies-client-1.2.0.jar`não inclui nem requer nenhuma biblioteca de tempo de execução externa.
 Ele usa apenas os módulos`java.base`e`java.net.http`do JDK.
 
 O JAR distribuído não contém e não requer nenhuma biblioteca de tempo de execução de terceiros. É apenas

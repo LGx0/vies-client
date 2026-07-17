@@ -24,8 +24,8 @@ functies, en belangrijk voor het doorbreken van API- of semantische wijzigingen.
 
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
-jar --describe-module --file target/vies-client-1.0.0.jar
-jdeps --print-module-deps target/vies-client-1.0.0.jar
+jar --describe-module --file target/vies-client-1.2.0.jar
+jdeps --print-module-deps target/vies-client-1.2.0.jar
 ```
 
 Controleer ook:
@@ -40,7 +40,7 @@ Controleer ook:
 
 1. Stel de versie in het bestand`pom.xml`in.
 2. Voer de changelog en versie door.
-3. Maak een ondertekende geannoteerde tag:`git tag -s v1.0.0 -m "v1.0.0"`.
+3. Maak een ondertekende geannoteerde tag:`git tag -s v1.2.0 -m "v1.2.0"`.
 4. Push commit en tag:`git push origin main --follow-tags`.
 5. De`release.yml`-workflow voert de tests opnieuw uit en voegt vervolgens het binaire bestand toe,
    bronnen en Javadoc JAR-bestanden voor GitHub Release.

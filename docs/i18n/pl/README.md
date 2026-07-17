@@ -28,11 +28,11 @@ To nie jest ogólny kalkulator podatkowy, lecz klient do sprawdzania unijnych nu
 ```
 
 ```xml
-<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.0.0</version></dependency>
+<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.2.0</version></dependency>
 ```
 
 ```kotlin
-implementation("vies.client:vies-client:1.0.0")
+implementation("vies.client:vies-client:1.2.0")
 ```
 
 Moduł JPMS nazywa się `vies.client`; w `module-info.java` dodaj `requires vies.client;`. Działa również na classpath.
