@@ -4,7 +4,7 @@
 
 - tiszta `main` branch és zöld GitHub Actions;
 - megfelelő GitHub jogosultság a tag és release létrehozásához;
-- JDK 21 és Maven 3.9+;
+- JDK 21 és JDK 25, checksum-rögzített Maven Wrapper;
 - a kiadási verzió és dátum rögzítve a `CHANGELOG.md` fájlban.
 
 ## 2. Verziózás / Versioning
@@ -22,8 +22,8 @@ features, and major for breaking API or semantic changes.
 
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
-jar --describe-module --file target/vies-client-1.2.0.jar
-jdeps --print-module-deps target/vies-client-1.2.0.jar
+jar --describe-module --file target/vies-client-1.2.1.jar
+jdeps --print-module-deps target/vies-client-1.2.1.jar
 ```
 
 Ellenőrizd még:
@@ -47,6 +47,17 @@ Signed annotated tags are mandatory. The workflow requires `v${pom.version}`, a
 GitHub-verified tag signature, and a commit reachable from `main`. It builds with
 read-only permissions, then an isolated protected-environment job attests and
 publishes the artifacts. Never release an unreviewed or failing commit.
+
+A tag aláírását és main-ősviszonyát a wrapper/POM futtatása előtt ellenőrzi a
+workflow. A Maven-verzió csak ezután olvasható ki; kizárólag `MAJOR.MINOR.PATCH`
+alakú, a taggel pontosan egyező kiadás engedélyezett. A kötelező PR-ellenőrzések
+és a védett release-környezet kapuját tartsd meg.
+
+The workflow verifies tag signature and main ancestry before executing the wrapper
+or POM. Maven version resolution happens only afterward and must yield a plain
+`MAJOR.MINOR.PATCH` matching the tag. Retain required PR checks and the protected
+release-environment gate. Use a new version for every release; never replace a
+published tag or its binaries.
 
 ## 5. Maven Central vagy GitHub Packages
 
@@ -78,9 +89,9 @@ Consumer verification / Fogyasztói ellenőrzés:
 
 ```bash
 sha256sum -c SHA256SUMS
-gh attestation verify vies-client-1.2.0.jar --repo LGx0/vies-client
-gh attestation verify vies-client-1.2.0-sources.jar --repo LGx0/vies-client
-gh attestation verify vies-client-1.2.0-javadoc.jar --repo LGx0/vies-client
+gh attestation verify vies-client-1.2.1.jar --repo LGx0/vies-client
+gh attestation verify vies-client-1.2.1-sources.jar --repo LGx0/vies-client
+gh attestation verify vies-client-1.2.1-javadoc.jar --repo LGx0/vies-client
 ```
 
 The checksum detects transfer/storage corruption; the GitHub CLI command verifies

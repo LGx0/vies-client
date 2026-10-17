@@ -1,5 +1,7 @@
 # Deutsch (`de`) — vies-client — Umsatzsteuer-ID-Prüfer
 
+> 1.2.1 · [Quick start (HU/EN)](../../QUICK_START.md) · [Security review (HU/EN)](../../SECURITY_REVIEW.md)
+
 `disableCache()` deaktiviert den gespeicherten/persistenten Cache. Gleichzeitige Aufrufe mit derselben USt-IdNr.-Requester-Kombination können jedoch eine einzige Single-Flight-Netzwerkanfrage teilen. Ein späterer Aufruf nach deren Abschluss führt eine neue VIES-Anfrage aus. Die `consultationNumber` ist optional und kann von VIES geliefert werden, ist aber nie garantiert; ihr rechtlicher Beweiswert hängt von den lokalen Vorschriften ab. Laden Sie `MY_EU_VAT_NUMBER` nur aus einer vertrauenswürdigen Secret-/Konfigurationsquelle.
 
 **Suchbegriffe:** Umsatzsteuer-ID prüfen, USt-IdNr. validieren, EU-Umsatzsteuer-Validierung, Steuer-ID-Prüfung, VIES Java-Client; `VAT checker`, `VAT number validator`, `EU VAT validation`, `tax ID checker`.
@@ -32,7 +34,7 @@ Dies ist kein allgemeiner Steuerrechner, sondern ein Client zur Prüfung von EU-
 <dependency>
   <groupId>vies.client</groupId>
   <artifactId>vies-client</artifactId>
-  <version>1.2.0</version>
+  <version>1.2.1</version>
 </dependency>
 ```
 
@@ -57,7 +59,7 @@ Fehlerberichte und Beiträge sind willkommen. Wenn Ihnen das Projekt Zeit spart,
 
 ## Build, JPMS und vollständiges Beispiel
 
-Das Artefakt hat die Maven-Koordinaten `vies.client:vies-client:1.2.0`. Das JPMS-Modul `vies.client` exportiert `vies.client`, benötigt `java.net.http` und kapselt `vies.client.internal`. Im Modulprojekt: `module my.api { requires vies.client; }`; im Classpath ist keine Deklaration nötig.
+Das Artefakt hat die Maven-Koordinaten `vies.client:vies-client:1.2.1`. Das JPMS-Modul `vies.client` exportiert `vies.client`, benötigt `java.net.http` und kapselt `vies.client.internal`. Im Modulprojekt: `module my.api { requires vies.client; }`; im Classpath ist keine Deklaration nötig.
 
 ```java
 try (var vies = ViesClient.builder()
@@ -152,7 +154,7 @@ VAT-ID, Firmenname, Adresse, Requester und Consultation-ID können sensible Gesc
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
 ./mvnw package
-jar --describe-module --file target/vies-client-1.2.0.jar
+jar --describe-module --file target/vies-client-1.2.1.jar
 java -cp target/classes examples/ViesDemoServer.java
 ```
 

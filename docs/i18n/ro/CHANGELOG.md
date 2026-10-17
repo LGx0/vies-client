@@ -10,6 +10,10 @@ Toate modificările notabile sunt documentate aici. Proiectul urmează versiunea
 
 ## [Nelansat]
 
+## [1.2.1] - 2026-10-17
+
+- [Remedieri și evaluarea securității](../../../CHANGELOG.md) · [HU/EN](../../SECURITY_REVIEW.md)
+
 ## [1.2.0] - 2026-07-17
 
 ### Adăugat

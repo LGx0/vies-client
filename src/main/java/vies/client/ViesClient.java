@@ -10,6 +10,7 @@ import vies.client.internal.TtlCache;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.URI;
+import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -44,6 +45,7 @@ import java.util.concurrent.locks.LockSupport;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.CompletionStage;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -332,7 +334,7 @@ public final class ViesClient implements AutoCloseable {
                 throw new ViesException("VIES client overloaded / A VIES kliens túlterhelt");
             }
             acquired = true;
-            return http.send(request, boundedUtf8BodyHandler());
+            return sendBoundedRequest(request);
         } catch (IOException e) {
             if (causedByInvalidBody(e)) {
                 throw new ViesException(
@@ -355,8 +357,12 @@ public final class ViesClient implements AutoCloseable {
             if (!(MiniJson.parse(responseBody) instanceof Map<?, ?> root)) {
                 throw new ViesException("Malformed check-status response / Hibás VIES állapotválasz");
             }
-            var serviceAvailable = root.get("vow") instanceof Map<?, ?> vow
-                    && Boolean.TRUE.equals(vow.get("available"));
+            // EN: A broken schema is not an authoritative "service unavailable" answer.
+            // HU: A hibás séma nem hiteles „a szolgáltatás nem elérhető” állapot.
+            if (!(root.get("vow") instanceof Map<?, ?> vow)
+                    || !(vow.get("available") instanceof Boolean serviceAvailable)) {
+                throw malformedAvailability();
+            }
             return new ViesAvailability(serviceAvailable, countryStatuses(root.get("countries")));
         } catch (MiniJson.ParseException e) {
             throw new ViesException("Malformed check-status response / Hibás VIES állapotválasz", e);
@@ -365,20 +371,36 @@ public final class ViesClient implements AutoCloseable {
 
     private static Map<String, ViesAvailability.MemberStateStatus> countryStatuses(Object value) {
         var states = new TreeMap<String, ViesAvailability.MemberStateStatus>();
-        if (value instanceof List<?> countries) {
-            countries.forEach(item -> addCountryStatus(states, item));
+        if (value == null) {
+            return Map.of();
         }
+        if (!(value instanceof List<?> countries)) {
+            throw malformedAvailability();
+        }
+        countries.forEach(item -> addCountryStatus(states, item));
         return Collections.unmodifiableSortedMap(states);
     }
 
     private static void addCountryStatus(
             Map<String, ViesAvailability.MemberStateStatus> states, Object item) {
-        if (item instanceof Map<?, ?> country
-                && optString(country, FIELD_COUNTRY_CODE) instanceof String code
-                && VatFormat.supportedCountries().contains(code)) {
-            states.put(code, ViesAvailability.MemberStateStatus.fromLabel(
-                    optString(country, "availability")));
+        if (!(item instanceof Map<?, ?> country)
+                || !(country.get(FIELD_COUNTRY_CODE) instanceof String code)
+                || code.length() != 2
+                || code.chars().anyMatch(c -> c < 'A' || c > 'Z')
+                || hasNonStringValue(country, "availability")) {
+            throw malformedAvailability();
         }
+        // EN: Unknown future country codes may be ignored; duplicate known entries are ambiguous.
+        // HU: Új, még nem támogatott országkód kihagyható; ismétlődő ismert ország viszont kétértelmű.
+        if (VatFormat.supportedCountries().contains(code)
+                && states.putIfAbsent(code, ViesAvailability.MemberStateStatus.fromLabel(
+                        optString(country, "availability"))) != null) {
+            throw malformedAvailability();
+        }
+    }
+
+    private static ViesException malformedAvailability() {
+        return new ViesException("Malformed check-status response / Hibás VIES állapotválasz");
     }
 
     @Override
@@ -743,7 +765,10 @@ public final class ViesClient implements AutoCloseable {
                 .append("/vat/").append(vat.nationalNumber());
         if (requester != null) {
             uri.append("?requesterMemberStateCode=").append(requester.countryCode())
-                    .append("&requesterNumber=").append(requester.vatNumber());
+                    // EN: Irish requester numbers can contain '+', which query decoders read as space.
+                    // HU: Az ír lekérdezői adószám '+' jelét a query-dekódoló szóközként értelmezné.
+                    .append("&requesterNumber=").append(
+                            URLEncoder.encode(requester.vatNumber(), StandardCharsets.UTF_8));
         }
         var request = HttpRequest.newBuilder(URI.create(uri.toString()))
                 .timeout(requestTimeout)
@@ -759,7 +784,7 @@ public final class ViesClient implements AutoCloseable {
                 return new ViesResponse.Unavailable(vat.countryCode(), vat.full(), ERROR_CLIENT_OVERLOADED);
             }
             acquired = true;
-            var response = http.send(request, boundedUtf8BodyHandler());
+            var response = sendBoundedRequest(request);
             if (response.statusCode() != 200) {
                 return new ViesResponse.Unavailable(vat.countryCode(), vat.full(),
                         "HTTP_" + response.statusCode());
@@ -779,6 +804,40 @@ public final class ViesClient implements AutoCloseable {
             if (acquired) {
                 requestSlots.release();
             }
+        }
+    }
+
+    /**
+     * EN: On JDK 21 the request timer can end at response headers. Wait on the whole
+     * body future with an explicit deadline, and cancel the actual HTTP exchange on
+     * timeout/interruption so a stalled peer cannot permanently occupy a network slot.
+     * HU: JDK 21-en a kérés időzítője a fejlécnél véget érhet. A teljes választestre
+     * külön határidőt alkalmazunk; timeout/megszakítás esetén a valódi HTTP-kérést
+     * is töröljük, hogy egy elakadt peer ne foglalhassa tartósan a hálózati helyet.
+     */
+    private HttpResponse<String> sendBoundedRequest(HttpRequest request)
+            throws IOException, InterruptedException {
+        var exchange = http.sendAsync(request, boundedUtf8BodyHandler());
+        try {
+            return exchange.get(requestTimeout.toNanos(), TimeUnit.NANOSECONDS);
+        } catch (TimeoutException timeout) {
+            exchange.cancel(true);
+            throw new HttpTimeoutException("VIES response deadline exceeded / A VIES válasz határideje lejárt");
+        } catch (InterruptedException interrupted) {
+            exchange.cancel(true);
+            throw interrupted;
+        } catch (ExecutionException failed) {
+            var cause = failed.getCause();
+            if (cause instanceof IOException io) {
+                throw io;
+            }
+            if (cause instanceof RuntimeException runtime) {
+                throw runtime;
+            }
+            if (cause instanceof Error error) {
+                throw error;
+            }
+            throw new IOException("VIES request failed / A VIES-kérés sikertelen", cause);
         }
     }
 
@@ -1230,7 +1289,7 @@ public final class ViesClient implements AutoCloseable {
         private int maxConcurrentRequests = 32;
         private int maxPendingSyncRequests = 512;
         private int maxPendingAsyncRequests = 512;
-        private String userAgent = "vies-client-java/1.0 (Java)";
+        private String userAgent = "vies-client-java/1.2.1 (Java)";
         private ExecutorService executor;
 
         private Builder() {
@@ -1266,14 +1325,21 @@ public final class ViesClient implements AutoCloseable {
             return this;
         }
 
+        /**
+         * Positive connection timeout representable as long nanoseconds.
+         * Magyarul: pozitív kapcsolódási timeout, túlcsordulás nélkül nanoszekundumban.
+         */
         public Builder connectTimeout(Duration timeout) {
-            this.connectTimeout = requirePositive(timeout, "connectTimeout");
+            this.connectTimeout = requireNanos(timeout, "connectTimeout");
             return this;
         }
 
-        /** Per-request timeout; VIES is an interactive service, keep this short. Default 8 s. */
+        /**
+         * Per-request timeout, positive and representable as long nanoseconds. Default 8 s.
+         * Magyarul: kérésenkénti pozitív, nanoszekundumban ábrázolható timeout; alapból 8 s.
+         */
         public Builder requestTimeout(Duration timeout) {
-            this.requestTimeout = requirePositive(timeout, "requestTimeout");
+            this.requestTimeout = requireNanos(timeout, "requestTimeout");
             return this;
         }
 

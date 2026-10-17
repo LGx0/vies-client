@@ -52,12 +52,12 @@ Viens konkrēts tests / viena testa metode:
 
 ## Pašreizējais pārklājums / Pašreizējais pārklājums
 
-Pašreizējā deterministiskā pakotne satur **73 testus**:
+Pašreizējā deterministiskā pakotne satur **81 testus**:
 
-- **44 vienību ieskaite** astoņās klasēs;
-- **29 lokālie HTTP/integrācijas/vienlaicīguma testi**;
+- **47 vienību ieskaite** astoņās klasēs;
+- **34 lokālie HTTP/integrācijas/vienlaicīguma testi**;
 - nulle obligāto ārējā tīkla zvanu.
-  Deterministiskajā komplektā ir **73 testi**: 44 vienību testi, 29 lokāli
+  Deterministiskajā komplektā ir **81 testi**: 47 vienību testi, 34 lokāli
   HTTP/integrācijas/vienlaicības testi un nulle obligāto ārējo zvanu.
 
 ## Vienības pārbaudes katalogs / Vienības pārbaudes katalogs
@@ -117,7 +117,7 @@ Pašreizējā deterministiskā pakotne satur **73 testus**:
 - tūlītēja nulles dalībvalsts kartes noraidīšana.
   Aizsardzības nemainīga momentuzņēmuma kopija un nulles kartes konstruktora validācija.
 
-### `MiniJsonTest`— 4 testi
+### `MiniJsonTest`— 6 testi
 
 - tipisks VIES dokuments un Unicode aizbēgšana;
 - ligzdots objekts/saraksts/skalārs/skaitlis/nulle;
@@ -136,7 +136,7 @@ Pašreizējā deterministiskā pakotne satur **73 testus**:
   TTL uzvedība, precīza derīguma termiņa robeža, izmēra kontrole, paraugu ņemšana pēc derīguma termiņa beigām un
   vienlaicīgs spiediens no 32 virtuālajiem pavedieniem.
 
-### `ViesClientBuilderTest`— 3 testi
+### `ViesClientBuilderTest`— 4 testi
 
 - var uzbūvēt pilnīgu augstas slodzes konfigurāciju;
 - noraidīt nepareizu URL/limit/retry;
@@ -146,7 +146,7 @@ Pašreizējā deterministiskā pakotne satur **73 testus**:
 
 ## Vietējais HTTP, vienlaicīgums un dzīves cikls / Lokālā integrācija un vienlaicība
 
-`ViesClientHttpTest`— 29 testi nejaušā brīvā atpakaļcilpas portā:
+`ViesClientHttpTest`— 34 testi nejaušā brīvā atpakaļcilpas portā:
 | ID | Pārbaudes gadījums |
 |---|---|
 | I-01 | 503 mēģinājumi divreiz, tad veiksme / divi 503 mēģinājumi, tad panākumi |

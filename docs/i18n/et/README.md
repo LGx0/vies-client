@@ -1,5 +1,7 @@
 # Eesti (et) — vies-client — KMKR numbri kontrollija
 
+> 1.2.1 · [Quick start (HU/EN)](../../QUICK_START.md) · [Security review (HU/EN)](../../SECURITY_REVIEW.md)
+
 `disableCache()` lülitab salvestatud/püsiva vahemälu välja, kuid sama KMKR numbri + requester'i paariga samaaegsed kutsed võivad jagada üht single-flight-võrgupäringut. Pärast selle lõppemist teeb hilisem kutse uue VIES-i päringu. `consultationNumber` on valikuline ja VIES võib selle tagastada, kuid see pole kunagi garanteeritud; selle õiguslik tõendusväärtus sõltub kohalikest reeglitest. Laadige `MY_EU_VAT_NUMBER` ainult usaldatud saladuste/konfiguratsiooni allikast.
 
 **Otsinguterminid:** KMKR numbri kontroll, käibemaksukohustuslase numbri valideerimine, ELi käibemaksunumbri valideerimine, maksukohustuslase ID kontroll, VIES Java klient; `VAT checker`, `VAT number validator`, `EU VAT validation`, `tax ID checker`.
@@ -41,7 +43,7 @@ on maksuameti ametlik toode ja see pole nende poolt kinnitatud ega sertifitseeri
 ## Ehitamine ja ühendamine
 
 ```bash
-./mvnw install    # tesztek + target/vies-client-1.2.0.jar (+ -sources.jar, -javadoc.jar)
+./mvnw install    # tesztek + target/vies-client-1.2.1.jar (+ -sources.jar, -javadoc.jar)
                # és telepítés a lokális Maven-repóba
 ```
 
@@ -51,20 +53,20 @@ on maksuameti ametlik toode ja see pole nende poolt kinnitatud ega sertifitseeri
 <dependency>
     <groupId>vies.client</groupId>
     <artifactId>vies-client</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
 </dependency>
 ```
 
 **Gradle:**
 
 ```kotlin
-implementation("vies.client:vies-client:1.2.0")
+implementation("vies.client:vies-client:1.2.1")
 ```
 
 **Päris JPMS-moodul.** Purk käitub nimega moodulina (`jar --describe-module`):
 
 ```
-vies.client@1.2.0
+vies.client@1.2.1
 exports vies.client
 requires java.net.http
 contains vies.client.internal   ← nem exportált, zárt belső csomag

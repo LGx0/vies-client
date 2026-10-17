@@ -4,7 +4,7 @@
 
 > Bei Abweichungen gilt die englische Testdokumentation. `LICENSE` wird nicht übersetzt. Projektlizenz: Apache-2.0.
 
-Die aktuelle deterministische Suite umfasst **73 Tests**: 44 Unit-Tests und 29 lokale HTTP-/Integrations-/Konkurrenztests.
+Die aktuelle deterministische Suite umfasst **81 Tests**: 47 Unit-Tests und 34 lokale HTTP-/Integrations-/Konkurrenztests.
 
 ## Testarten und Befehle
 
@@ -36,7 +36,7 @@ Führen Sie `./mvnw clean verify` auf JDK 21 aus, archivieren Sie Surefire-Beric
 
 ## Vollständiger Katalog und Regressionsregeln
 
-Unit-Gruppen: `VatFormatTest` 8 (Normalisierung, Separatoren, `GR`→`EL`, Fehler, alle 28 Codes); `ViesRequesterTest` 4; `ViesResponseMappingTest` 11 (GET/POST, Placeholder, Invalid/Unavailable/Input, Nichtobjekt, Boolean- und Datumstrenge); `ViesErrorTest` 6; `ViesAvailabilityTest` 2; `MiniJsonTest` 4; `TtlCacheTest` 6; `ViesClientBuilderTest` 3.
+Unit-Gruppen: `VatFormatTest` 8 (Normalisierung, Separatoren, `GR`→`EL`, Fehler, alle 28 Codes); `ViesRequesterTest` 4; `ViesResponseMappingTest` 11 (GET/POST, Placeholder, Invalid/Unavailable/Input, Nichtobjekt, Boolean- und Datumstrenge); `ViesErrorTest` 6; `ViesAvailabilityTest` 2; `MiniJsonTest` 6; `TtlCacheTest` 6; `ViesClientBuilderTest` 4.
 
 | IDs | Lokaler Integration-/Concurrency-Fall |
 |---|---|

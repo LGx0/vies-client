@@ -24,8 +24,8 @@ funktioner og vigtige til at bryde API eller semantiske ændringer.
 
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
-jar --describe-module --file target/vies-client-1.2.0.jar
-jdeps --print-module-deps target/vies-client-1.2.0.jar
+jar --describe-module --file target/vies-client-1.2.1.jar
+jdeps --print-module-deps target/vies-client-1.2.1.jar
 ```
 
 Tjek også:

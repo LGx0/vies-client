@@ -3,6 +3,10 @@
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-10-17
+
+- [Ceartúcháin agus athbhreithniú slándála](../../../CHANGELOG.md) · [HU/EN](../../SECURITY_REVIEW.md)
+
 ## [1.2.0] - 2026-07-17
 - GitHub community files, CI/security automation, Apache-2.0 licensing agus/u Maven metadata.
 

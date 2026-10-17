@@ -1,5 +1,7 @@
 # Português (pt) — vies-client
 
+> 1.2.1 · [Quick start (HU/EN)](../../QUICK_START.md) · [Security review (HU/EN)](../../SECURITY_REVIEW.md)
+
 > [Todos os idiomas](../../LANGUAGES.md) · Tradução informativa. Em caso de divergência, prevalece a fonte técnica ou jurídica canónica em inglês. Apenas `LICENSE` e `NOTICE` na raiz têm valor jurídico; esta tradução não os substitui.
 
 [![Licença: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](../../../LICENSE)
@@ -46,7 +48,7 @@ Projeto independente de código aberto; não a Comissão Europeia, a UE ou os es
 ## Construir e conectar
 
 ```bash
-./mvnw install    # tests + target/vies-client-1.2.0.jar (+ -sources.jar, -javadoc.jar)
+./mvnw install    # tests + target/vies-client-1.2.1.jar (+ -sources.jar, -javadoc.jar)
                # install into the local Maven repository
 ```
 
@@ -56,20 +58,20 @@ Projeto independente de código aberto; não a Comissão Europeia, a UE ou os es
 <dependency>
     <groupId>vies.client</groupId>
     <artifactId>vies-client</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
 </dependency>
 ```
 
 **Gradle:**
 
 ```kotlin
-implementation("vies.client:vies-client:1.2.0")
+implementation("vies.client:vies-client:1.2.1")
 ```
 
 **Módulo JPMS real.** O jar se comporta como um módulo nomeado (`jar --describe-module`):
 
 ```
-vies.client@1.2.0
+vies.client@1.2.1
 exports vies.client
 requires java.net.http
 contains vies.client.internal   ← non-exported internal package

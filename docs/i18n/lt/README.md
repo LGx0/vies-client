@@ -1,5 +1,7 @@
 # Lietuvių (lt) — vies-client — PVM kodo tikrintuvas
 
+> 1.2.1 · [Quick start (HU/EN)](../../QUICK_START.md) · [Security review (HU/EN)](../../SECURITY_REVIEW.md)
+
 **Paieškos frazės:** PVM mokėtojo kodo tikrinimas, PVM kodo validatorius, ES PVM patikra, mokesčių mokėtojo identifikatoriaus tikrinimas, VIES Java klientas; `VAT checker`, `VAT number validator`, `EU VAT validation`, `tax ID checker`.
 
 Tai nėra bendro pobūdžio mokesčių skaičiuoklė, o klientas ES PVM identifikaciniams numeriams tikrinti per VIES.
@@ -39,7 +41,7 @@ yra oficialus mokesčių institucijų produktas ir nėra jų patvirtintas ar ser
 ## Sukurti ir prijungti
 
 ```bash
-./mvnw install    # tesztek + target/vies-client-1.2.0.jar (+ -sources.jar, -javadoc.jar)
+./mvnw install    # tesztek + target/vies-client-1.2.1.jar (+ -sources.jar, -javadoc.jar)
                # és telepítés a lokális Maven-repóba
 ```
 
@@ -49,20 +51,20 @@ yra oficialus mokesčių institucijų produktas ir nėra jų patvirtintas ar ser
 <dependency>
     <groupId>vies.client</groupId>
     <artifactId>vies-client</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
 </dependency>
 ```
 
 **Gradle:**
 
 ```kotlin
-implementation("vies.client:vies-client:1.2.0")
+implementation("vies.client:vies-client:1.2.1")
 ```
 
 **Tikrasis JPMS modulis.** Stiklainis veikia kaip pavadintas modulis (`jar --describe-module`):
 
 ```
-vies.client@1.2.0
+vies.client@1.2.1
 exports vies.client
 requires java.net.http
 contains vies.client.internal   ← nem exportált, zárt belső csomag

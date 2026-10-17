@@ -8,8 +8,8 @@
 
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
-jar --describe-module --file target/vies-client-1.2.0.jar
-jdeps --print-module-deps target/vies-client-1.2.0.jar
+jar --describe-module --file target/vies-client-1.2.1.jar
+jdeps --print-module-deps target/vies-client-1.2.1.jar
 ```
 
 Проверете Git history без secrets/data, актуални LICENSE/NOTICE/SECURITY/docs, sources/Javadoc JAR, no mandatory live/load CI, API changelog. Set pom.xml, commit, signed tag: git tag -s v1.2.0 -m v1.2.0; push origin main --follow-tags. release.yml retests and attaches JARs.

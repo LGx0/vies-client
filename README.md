@@ -28,6 +28,7 @@ adóhatóság hivatalos terméke, és azok nem támogatják vagy hitelesítik.
 
 ## Dokumentáció / Documentation
 
+- [Gyors indulás / Complete English quick start](docs/QUICK_START.md)
 - [Telepítés / Installation](docs/INSTALLATION.md)
 - [Bekötés / Integration](docs/INTEGRATION.md)
 - [Technikai felépítés / Technical design](docs/TECHNICAL.md)
@@ -36,6 +37,7 @@ adóhatóság hivatalos terméke, és azok nem támogatják vagy hitelesítik.
 - [Kiadási útmutató / Releasing](docs/RELEASING.md)
 - [Közreműködés / Contributing](CONTRIBUTING.md)
 - [Biztonsági szabályzat / Security](SECURITY.md)
+- [Biztonsági felmérés és kockázatok / Security review and risks](docs/SECURITY_REVIEW.md)
 - [Magatartási kódex / Code of Conduct](CODE_OF_CONDUCT.md)
 - [Támogatás és adományozás / Support and donations](SUPPORT.md)
 - [Harmadik féltől származó összetevők / Third-party notices](THIRD_PARTY_NOTICES.md)
@@ -43,8 +45,18 @@ adóhatóság hivatalos terméke, és azok nem támogatják vagy hitelesítik.
 
 ## Build és bekötés
 
+A kész JAR-ok a [GitHub Releases](https://github.com/LGx0/vies-client/releases/latest)
+oldalról tölthetők le. A projekt nincs Maven Centralon: a lenti dependency előtt
+telepítsd a kiadást vagy a forrást a helyi Maven-tárba a
+[telepítési útmutató](docs/INSTALLATION.md) szerint.
+
+Prebuilt JARs are available from [GitHub Releases](https://github.com/LGx0/vies-client/releases/latest).
+The artifact is not on Maven Central. Follow the
+[English installation guide](docs/i18n/en/INSTALLATION.md) to verify and install a
+release locally before using the Maven/Gradle coordinates below.
+
 ```bash
-./mvnw install # tesztek + target/vies-client-1.2.0.jar (+ -sources.jar, -javadoc.jar)
+./mvnw install # tesztek + target/vies-client-1.2.1.jar (+ -sources.jar, -javadoc.jar)
                # és telepítés a lokális Maven-repóba
 ```
 
@@ -54,20 +66,20 @@ adóhatóság hivatalos terméke, és azok nem támogatják vagy hitelesítik.
 <dependency>
     <groupId>vies.client</groupId>
     <artifactId>vies-client</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
 </dependency>
 ```
 
 **Gradle:**
 
 ```kotlin
-implementation("vies.client:vies-client:1.2.0")
+implementation("vies.client:vies-client:1.2.1")
 ```
 
 **Valódi JPMS-modul.** A jar named module-ként viselkedik (`jar --describe-module`):
 
 ```
-vies.client@1.2.0
+vies.client@1.2.1
 exports vies.client
 requires java.net.http
 contains vies.client.internal   ← nem exportált, zárt belső csomag
@@ -179,7 +191,7 @@ A kliens immutábilis és szálbiztos — egyetlen példányt hozz létre az alk
 életciklusára (singleton bean), és zárd le leállításkor (`close`).
 
 Keret nélküli minta: [`examples/ViesDemoServer.java`](examples/ViesDemoServer.java)
-(sima JDK `HttpServer`, virtuális szálakon):
+(sima JDK `HttpServer`, korlátos munkaszál-poollal):
 
 ```bash
 ./mvnw -q package

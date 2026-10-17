@@ -55,13 +55,13 @@ Jedan specifični test / jedna metoda ispitivanja:
 
 ## Trenutna pokrivenost
 
-Trenutačni deterministički paket sadrži **73 testova**:
+Trenutačni deterministički paket sadrži **81 testova**:
 
-- **44 jedinična testa** u osam razreda;
-- **29 lokalna testa HTTP/integracije/konkurentnosti**;
+- **47 jedinična testa** u osam razreda;
+- **34 lokalna testa HTTP/integracije/konkurentnosti**;
 - nula obveznih vanjskih mrežnih poziva.
 
-Deterministički paket sadrži **73 testova**: 44 jedinična testa, 29 lokalna
+Deterministički paket sadrži **81 testova**: 47 jedinična testa, 34 lokalna
 HTTP/integracija/testovi paralelnosti i nula obveznih vanjskih poziva.
 
 ## Katalog jediničnih testova
@@ -122,7 +122,7 @@ HTTP/integracija/testovi paralelnosti i nula obveznih vanjskih poziva.
 
 Obrambena nepromjenjiva kopija snimke i provjera valjanosti konstruktora nulte karte.
 
-### `MiniJsonTest`— 4 testa
+### `MiniJsonTest`— 6 testa
 
 - tipični VIES dokument i Unicode escape;
 - ugniježđeni objekt/lista/skalar/broj/nula;
@@ -143,7 +143,7 @@ Uobičajeni VIES JSON, ugniježđene/skalarne vrijednosti, izlazne oznake i neis
 TTL ponašanje, točna granica roka valjanosti, kontrola veličine, prvo uzorkovanje koje je isteklo i
 istodobni pritisak iz 32 virtualne niti.
 
-### `ViesClientBuilderTest`— 3 testa
+### `ViesClientBuilderTest`— 4 testa
 
 - može se izgraditi kompletna konfiguracija visokog opterećenja;
 - odbaci pogrešan URL/ograniči/ponovi pokušaj;
@@ -154,7 +154,7 @@ validacija.
 
 ## Lokalni HTTP, konkurentnost i životni ciklus
 
-`ViesClientHttpTest`— 29 testa na nasumičnim slobodnim portovima povratne petlje:
+`ViesClientHttpTest`— 34 testa na nasumičnim slobodnim portovima povratne petlje:
 
 | ID   | Test slučaj                                                                                                                    |
 | ---- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |

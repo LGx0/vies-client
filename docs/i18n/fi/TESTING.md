@@ -52,12 +52,12 @@ Yksi erityinen testi / yksi testimenetelmä:
 
 ## Nykyinen kattavuus / Nykyinen kattavuus
 
-Nykyinen deterministinen paketti sisältää **73 testiä**:
+Nykyinen deterministinen paketti sisältää **81 testiä**:
 
-- **44 yksikkökoe** kahdeksassa luokassa;
-- **29 paikallista HTTP-/integraatio-/samanaikaisuustestiä**;
+- **47 yksikkökoe** kahdeksassa luokassa;
+- **34 paikallista HTTP-/integraatio-/samanaikaisuustestiä**;
 - nolla pakollisia ulkoisia verkkopuheluita.
-  Deterministinen sarja sisältää **73 testiä**: 44 yksikkötestiä, 29 paikallista
+  Deterministinen sarja sisältää **81 testiä**: 47 yksikkötestiä, 34 paikallista
   HTTP/integraatio/samanaikaisuustestit ja nolla pakollisia ulkopuheluita.
 
 ## Yksikkötestiluettelo / Yksikkötestiluettelo
@@ -117,7 +117,7 @@ Nykyinen deterministinen paketti sisältää **73 testiä**:
 - tyhjän jäsenvaltion kartan välitön hylkääminen.
   Puolustava muuttumaton tilannekuvakopio ja nollakartan rakentajan validointi.
 
-### `MiniJsonTest`— 4 testiä
+### `MiniJsonTest`— 6 testiä
 
 - tyypillinen VIES-dokumentti ja Unicode-pakokoodi;
 - sisäkkäinen objekti/luettelo/skalaari/luku/nolla;
@@ -136,7 +136,7 @@ Nykyinen deterministinen paketti sisältää **73 testiä**:
   TTL-käyttäytyminen, tarkka vanhenemisraja, koon valvonta, vanhentunut-ensimmäinen näytteenotto ja
   samanaikainen paine 32 virtuaalisäikeestä.
 
-### `ViesClientBuilderTest`— 3 testiä
+### `ViesClientBuilderTest`— 4 testiä
 
 - täydellinen suuren kuormituksen kokoonpano voidaan rakentaa;
 - hylkää väärä URL-osoite/rajoitus/yritä uudelleen;
@@ -146,7 +146,7 @@ Nykyinen deterministinen paketti sisältää **73 testiä**:
 
 ## Paikallinen HTTP, samanaikaisuus ja elinkaari / Paikallinen integraatio ja samanaikaisuus
 
-`ViesClientHttpTest`— 29 testiä satunnaisessa vapaassa loopback-portissa:
+`ViesClientHttpTest`— 34 testiä satunnaisessa vapaassa loopback-portissa:
 | ID | Testitapaus |
 |---|---|
 | I-01 | 503 uudelleenyritystä kahdesti, sitten onnistuminen / kaksi 503 uudelleenyritystä sitten menestys |

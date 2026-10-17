@@ -3,6 +3,10 @@
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-10-17
+
+- [Korjaukset ja tietoturva-arvio](../../../CHANGELOG.md) · [HU/EN](../../SECURITY_REVIEW.md)
+
 ## [1.2.0] - 2026-07-17
 - GitHub-yhteisötiedostot / GitHub kogukonnafailid, CI/security-automaatio, Apache-2.0 ja Maven-metadata.
 

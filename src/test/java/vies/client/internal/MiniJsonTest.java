@@ -59,6 +59,22 @@ class MiniJsonTest {
         assertEquals("a\"b\\c\nd\t/", parsed.get("s"));
     }
 
+    /** EN: JSON permits exactly four ASCII hex digits. HU: Pontosan négy ASCII hex számjegy kell. */
+    @Test
+    void rejectsNonAsciiOrSignedUnicodeEscapes() {
+        for (var digits : List.of("+041", "-001", "１２３４", "٠٠٤١", "00G1")) {
+            var json = "\"\\u" + digits + "\"";
+            assertThrows(MiniJson.ParseException.class, () -> MiniJson.parse(json), digits);
+        }
+    }
+
+    /** EN: Valid mixed-case hex and paired surrogates stay supported. HU: A helyes alakok megmaradnak. */
+    @Test
+    void acceptsAsciiUnicodeEscapesAndSurrogatePairs() {
+        assertEquals("Aő", MiniJson.parse("\"\\u0041\\u0151\""));
+        assertEquals("💥", MiniJson.parse("\"\\ud83d\\uDcA5\""));
+    }
+
     @Test
     void rejectsMalformedInput() {
         assertThrows(MiniJson.ParseException.class, () -> MiniJson.parse("{"));

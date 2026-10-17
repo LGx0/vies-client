@@ -12,8 +12,8 @@ Potřebujete čistou větev `main`, zelené GitHub Actions, oprávnění pro tag
 
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
-jar --describe-module --file target/vies-client-1.2.0.jar
-jdeps --print-module-deps target/vies-client-1.2.0.jar
+jar --describe-module --file target/vies-client-1.2.1.jar
+jdeps --print-module-deps target/vies-client-1.2.1.jar
 ```
 
 Ověřte celý Git history bez tajemství/osobních dat, aktuální `LICENSE`, `NOTICE`, `SECURITY.md` a dokumentaci, vznik sources/Javadoc JAR, žádný povinný live/load test v CI a changelog všech veřejných změn.

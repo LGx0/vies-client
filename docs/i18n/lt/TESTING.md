@@ -52,12 +52,12 @@ Vienas konkretus bandymas / vienas bandymo metodas:
 
 ## Dabartinė aprėptis / Dabartinė aprėptis
 
-Dabartiniame deterministiniame pakete yra **73 testai**:
+Dabartiniame deterministiniame pakete yra **81 testai**:
 
-- **44 vienetų testas** aštuoniose klasėse;
-- **29 vietiniai HTTP / integracijos / lygiagretumo testai**;
+- **47 vienetų testas** aštuoniose klasėse;
+- **34 vietiniai HTTP / integracijos / lygiagretumo testai**;
 - nulis privalomų išorinio tinklo skambučių.
-  Deterministiniame rinkinyje yra **73 testai**: 44 vienetiniai testai, 29 vietiniai
+  Deterministiniame rinkinyje yra **81 testai**: 47 vienetiniai testai, 34 vietiniai
   HTTP / integracijos / lygiagretumo testai ir nulis privalomų išorinių skambučių.
 
 ## Vienetų bandymų katalogas / Vienetų bandymų katalogas
@@ -117,7 +117,7 @@ Dabartiniame deterministiniame pakete yra **73 testai**:
 - nedelsiant atmesti nulinės valstybės narės žemėlapį.
   Apsauginė nekintama momentinės kopijos kopija ir nulinio žemėlapio konstruktoriaus patvirtinimas.
 
-### `MiniJsonTest`— 4 testai
+### `MiniJsonTest`— 6 testai
 
 - tipinis VIES dokumentas ir Unicode pabėgimas;
 - įdėtas objektas/sąrašas/skaliaras/skaičius/nuliukas;
@@ -136,7 +136,7 @@ Dabartiniame deterministiniame pakete yra **73 testai**:
   TTL elgesys, tiksli galiojimo pabaigos riba, dydžio kontrolė, mėginių ėmimas, kurio galiojimo laikas pasibaigęs, ir
   vienu metu veikiantis slėgis iš 32 virtualių gijų.
 
-### `ViesClientBuilderTest`– 3 bandymai
+### `ViesClientBuilderTest`– 4 bandymai
 
 - galima sukurti pilną didelės apkrovos konfigūraciją;
 - atmesti neteisingą URL / limitą / bandyti iš naujo;
@@ -146,7 +146,7 @@ Dabartiniame deterministiniame pakete yra **73 testai**:
 
 ## Vietinis HTTP, lygiagretumas ir gyvavimo ciklas / Vietinė integracija ir lygiagretumas
 
-`ViesClientHttpTest`– 29 bandymai atsitiktiniu laisvu atgalinio ryšio prievadu:
+`ViesClientHttpTest`– 34 bandymai atsitiktiniu laisvu atgalinio ryšio prievadu:
 | ID | Bandomasis atvejis |
 |---|---|
 | I-01 | 503 bandymai du kartus, tada sėkmė / du 503 bandymai, tada sėkmė |

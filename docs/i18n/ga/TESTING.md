@@ -52,12 +52,12 @@ Tástáil shonrach amháin / Modh tástála amháin:
 
 ## Clúdach reatha / Current coverage
 
-Tá **73 tástáil** sa phacáiste cinntitheach reatha:
+Tá **81 tástáil** sa phacáiste cinntitheach reatha:
 
-- **tástáil 44 aonad** in ocht rang;
-- **29 tástáil áitiúil HTTP/comhtháthaithe/comhairgeadra**;
+- **tástáil 47 aonad** in ocht rang;
+- **34 tástáil áitiúil HTTP/comhtháthaithe/comhairgeadra**;
 - náid glaonna líonra seachtracha éigeantacha.
-  Tá **73 tástáil** sa tsraith cinntitheach: 44 triail aonad, 29 tástáil áitiúil
+  Tá **81 tástáil** sa tsraith cinntitheach: 47 triail aonad, 34 tástáil áitiúil
   Tástálacha HTTP/comhtháthú/comhairgeadra, agus náid glaonna seachtracha éigeantacha.
 
 ## Catalóg tástála aonaid / catalóg tástála aonaid
@@ -117,7 +117,7 @@ Tá **73 tástáil** sa phacáiste cinntitheach reatha:
 - diúltú láithreach do léarscáil an Bhallstáit ar neamhní.
   Cóip chosanta do-mháistrithe agus bailíochtú cruthaitheoir léarscáile neamhní.
 
-### `MiniJsonTest`- 4 thástáil
+### `MiniJsonTest`- 6 thástáil
 
 - doiciméad tipiciúil VIES agus éalú Unicode;
 - réad neadaithe / liosta / scálach / uimhir / null;
@@ -136,7 +136,7 @@ Tá **73 tástáil** sa phacáiste cinntitheach reatha:
   Iompar TTL, teorainn éagtha bheacht, rialú méide, sampláil in éag-chéad, agus
   brú comhthráthach ó 32 snáithe fíorúil.
 
-### `ViesClientBuilderTest`- 3 thástáil
+### `ViesClientBuilderTest`- 4 thástáil
 
 - is féidir cumraíocht iomlán ard-ualach a thógáil;
 - diúltaigh URL mícheart/teorainn/triail eile;
@@ -146,7 +146,7 @@ Tá **73 tástáil** sa phacáiste cinntitheach reatha:
 
 ## HTTP áitiúil, comhairgeadra agus saolré / Comhtháthú áitiúil agus comhairgeadra
 
-`ViesClientHttpTest`- 29 tástáil ar phort randamach lúb ar ais:
+`ViesClientHttpTest`- 34 tástáil ar phort randamach lúb ar ais:
 | ID | Cás tástála |
 |---|---|
 | I-01 | 503 athiarracht faoi dhó, ansin rath / dhá 503 iarracht ansin rath |

@@ -114,4 +114,13 @@ class ViesClientBuilderTest {
         assertThrows(IllegalArgumentException.class,
                 () -> builder.cacheMaxEntries(100_001));
     }
+
+    /** EN: Reject before JDK timer arithmetic overflows. HU: A JDK időzítő túlcsordulása előtt elutasítunk. */
+    @Test
+    void rejectsOverflowingNetworkTimeoutsAtConfigurationTime() {
+        var huge = Duration.ofSeconds(Long.MAX_VALUE);
+        var builder = ViesClient.builder();
+        assertThrows(IllegalArgumentException.class, () -> builder.connectTimeout(huge));
+        assertThrows(IllegalArgumentException.class, () -> builder.requestTimeout(huge));
+    }
 }

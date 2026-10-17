@@ -55,13 +55,13 @@ Um teste específico/Um método de teste:
 
 ## Cobertura atual / Cobertura atual
 
-O pacote determinístico atual contém **73 testes**:
+O pacote determinístico atual contém **81 testes**:
 
-- **44 testes unitários** em oito turmas;
-- **29 testes locais de HTTP/integração/simultaneidade**;
+- **47 testes unitários** em oito turmas;
+- **34 testes locais de HTTP/integração/simultaneidade**;
 - zero chamadas de rede externas obrigatórias.
 
-O conjunto determinístico contém **73 testes**: 44 testes unitários, 29 testes locais
+O conjunto determinístico contém **81 testes**: 47 testes unitários, 34 testes locais
 Testes HTTP/integração/simultaneidade e zero chamadas externas obrigatórias.
 
 ## Catálogo de testes unitários / Catálogo de testes unitários
@@ -122,7 +122,7 @@ Testes HTTP/integração/simultaneidade e zero chamadas externas obrigatórias.
 
 Cópia defensiva de snapshot imutável e validação de construtor de mapa nulo.
 
-###`MiniJsonTest`— 4 testes
+###`MiniJsonTest`— 6 testes
 
 - documento VIES típico e escape Unicode;
 - objeto/lista/escalar/número/nulo aninhado;
@@ -143,7 +143,7 @@ VIES JSON típico, valores aninhados/escalares, escapes e entrada malformada com
 Comportamento TTL, limite de expiração exato, controle de tamanho, amostragem expirada primeiro e
 pressão simultânea de 32 threads virtuais.
 
-###`ViesClientBuilderTest`— 3 testes
+###`ViesClientBuilderTest`— 4 testes
 
 - configuração completa de alta carga pode ser construída;
 - rejeitar URL/limite/nova tentativa errados;
@@ -154,7 +154,7 @@ validação.
 
 ## HTTP local, simultaneidade e ciclo de vida / Integração local e simultaneidade
 
-`ViesClientHttpTest`— 29 testes em uma porta de loopback livre aleatória:
+`ViesClientHttpTest`— 34 testes em uma porta de loopback livre aleatória:
 
 | ID | Caso de teste |
 | ---- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |

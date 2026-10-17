@@ -1,5 +1,7 @@
 # Italiano (`it`) — vies-client — verificatore di partita IVA
 
+> 1.2.1 · [Quick start (HU/EN)](../../QUICK_START.md) · [Security review (HU/EN)](../../SECURITY_REVIEW.md)
+
 **Termini di ricerca:** verifica partita IVA, validatore partita IVA, validazione IVA UE, verifica identificativo fiscale, client Java VIES; `VAT checker`, `VAT number validator`, `EU VAT validation`, `tax ID checker`.
 
 Non è un calcolatore fiscale generico, ma un client per validare gli identificativi IVA dell’UE tramite VIES.
@@ -30,7 +32,7 @@ Per milioni di attività servono inoltre coda persistente partizionata, cache co
 
 ## Build, JPMS e semantica completa
 
-Maven `vies.client:vies-client:1.2.0`; modulo JPMS `vies.client`, export `vies.client`, require `java.net.http`, internals chiusi. Usare `module my.api { requires vies.client; }` o classpath.
+Maven `vies.client:vies-client:1.2.1`; modulo JPMS `vies.client`, export `vies.client`, require `java.net.http`, internals chiusi. Usare `module my.api { requires vies.client; }` o classpath.
 
 ```java
 try (var vies = ViesClient.builder().defaultRequester(ViesRequester.of(System.getenv("MY_EU_VAT_NUMBER"))).retries(1).build()) {

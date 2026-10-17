@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Timeout;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
+import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.ArrayList;
@@ -71,6 +72,120 @@ class ViesClientHttpTest {
             assertInstanceOf(ViesResponse.Valid.class, client.check("DE000000000"));
         }
         assertEquals(3, requests.get());
+    }
+
+    /** EN: A query '+' must survive form decoding. HU: A query '+' dekódolás után is pluszjel maradjon. */
+    @Test
+    void preservesIrishRequesterPlusInQueryParameter() throws Exception {
+        var decodedQuery = new AtomicReference<String>();
+        var baseUrl = startServer(exchange -> {
+            decodedQuery.set(URLDecoder.decode(exchange.getRequestURI().getRawQuery(), StandardCharsets.UTF_8));
+            sendValid(exchange);
+        });
+        try (var client = ViesClient.builder().baseUrl(baseUrl).disableCache().build()) {
+            assertInstanceOf(ViesResponse.Valid.class,
+                    client.check("DE000000000", ViesRequester.of("IE0+00000A")));
+        }
+        assertEquals("requesterMemberStateCode=IE&requesterNumber=0+00000A", decodedQuery.get());
+    }
+
+    /** EN: Malformed diagnostics must fail explicitly. HU: A hibás diagnosztika jelezzen hibát. */
+    @Test
+    void rejectsMalformedAvailabilitySchemaInsteadOfReportingAnOutage() throws Exception {
+        var body = new AtomicReference<>("{}");
+        var baseUrl = startServer(ViesClientHttpTest::sendValid);
+        server.createContext("/rest/check-status", exchange -> send(exchange, 200, body.get()));
+        try (var client = ViesClient.builder().baseUrl(baseUrl).build()) {
+            for (var malformed : List.of("{}", "{\"vow\":null}",
+                    "{\"vow\":{\"available\":\"true\"}}",
+                    "{\"vow\":{\"available\":true},\"countries\":{}}",
+                    "{\"vow\":{\"available\":true},\"countries\":[null]}",
+                    "{\"vow\":{\"available\":true},\"countries\":[{\"countryCode\":\"HU\",\"availability\":true}]}",
+                    "{\"vow\":{\"available\":true},\"countries\":[{\"countryCode\":\"HU\"},{\"countryCode\":\"HU\"}]}")) {
+                body.set(malformed);
+                assertThrows(ViesException.class, client::availability, malformed);
+            }
+        }
+    }
+
+    /** EN: Partial status maps are valid. HU: A hiányos állapottérkép továbbra is érvényes. */
+    @Test
+    void mapsAvailabilityAndRetainsOptionalCountryStatuses() throws Exception {
+        var body = new AtomicReference<>("""
+                {"vow":{"available":false},"countries":[
+                  {"countryCode":"HU","availability":"Available"},
+                  {"countryCode":"DE","availability":"Unavailable"},
+                  {"countryCode":"PL","availability":"maintenance"}]}
+                """);
+        var baseUrl = startServer(ViesClientHttpTest::sendValid);
+        server.createContext("/rest/check-status", exchange -> send(exchange, 200, body.get()));
+        try (var client = ViesClient.builder().baseUrl(baseUrl).build()) {
+            var snapshot = client.availability();
+            assertFalse(snapshot.serviceAvailable());
+            assertEquals(java.util.Map.of(
+                    "HU", ViesAvailability.MemberStateStatus.AVAILABLE,
+                    "DE", ViesAvailability.MemberStateStatus.UNAVAILABLE,
+                    "PL", ViesAvailability.MemberStateStatus.UNKNOWN), snapshot.memberStates());
+            body.set("{\"vow\":{\"available\":true}}");
+            assertTrue(client.availability().serviceAvailable());
+            assertTrue(client.availability().memberStates().isEmpty());
+        }
+    }
+
+    /** EN: A peer may stall after headers. HU: A fejléc után elakadó peer se foglaljon örökké helyet. */
+    @Test
+    void requestTimeoutCancelsAStalledBodyAndReleasesNetworkCapacity() throws Exception {
+        var headersSent = new CountDownLatch(1);
+        var releaseBody = new CountDownLatch(1);
+        var baseUrl = startServer(exchange -> {
+            if (exchange.getRequestURI().getPath().endsWith("000000001")) {
+                sendValid(exchange);
+                return;
+            }
+            stallBody(exchange, headersSent, releaseBody);
+        });
+        try (var client = ViesClient.builder().baseUrl(baseUrl).disableCache()
+                .requestTimeout(Duration.ofMillis(500)).maxConcurrentRequests(1).build()) {
+            var result = client.checkAsync("DE000000000");
+            assertTrue(headersSent.await(2, TimeUnit.SECONDS));
+            var timeout = assertInstanceOf(ViesResponse.Unavailable.class, result.get(3, TimeUnit.SECONDS));
+            assertEquals("TIMEOUT", timeout.errorCode());
+            assertInstanceOf(ViesResponse.Valid.class,
+                    client.checkAsync("DE000000001").get(3, TimeUnit.SECONDS));
+        } finally {
+            releaseBody.countDown();
+        }
+    }
+
+    /** EN: Diagnostics need the same body deadline. HU: A diagnosztika választestének is van határideje. */
+    @Test
+    void availabilityTimeoutAlsoCancelsAStalledBody() throws Exception {
+        var headersSent = new CountDownLatch(1);
+        var releaseBody = new CountDownLatch(1);
+        var baseUrl = startServer(ViesClientHttpTest::sendValid);
+        server.createContext("/rest/check-status", exchange -> stallBody(exchange, headersSent, releaseBody));
+        try (var caller = Executors.newVirtualThreadPerTaskExecutor();
+             var client = ViesClient.builder().baseUrl(baseUrl)
+                .requestTimeout(Duration.ofMillis(500)).build()) {
+            var result = caller.submit(() -> assertThrows(ViesException.class, client::availability));
+            assertTrue(headersSent.await(2, TimeUnit.SECONDS));
+            var failure = result.get(3, TimeUnit.SECONDS);
+            assertInstanceOf(java.net.http.HttpTimeoutException.class, failure.getCause());
+        } finally {
+            releaseBody.countDown();
+        }
+    }
+
+    /** EN: Deterministic post-header stall, no sleep oracle. HU: Fejléc utáni megállás latch-csel. */
+    private static void stallBody(HttpExchange exchange, CountDownLatch headersSent, CountDownLatch release)
+            throws IOException {
+        exchange.sendResponseHeaders(200, 0);
+        try (var output = exchange.getResponseBody()) {
+            output.write('{');
+            output.flush();
+            headersSent.countDown();
+            awaitIgnoringInterrupt(release);
+        }
     }
 
     @Test

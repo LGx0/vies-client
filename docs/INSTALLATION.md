@@ -1,5 +1,8 @@
 # Telepítés / Installation
 
+Kész kiadásból telepítés, checksum/eredetellenőrzés és teljes futtatható példa:
+[Gyors indulás / Quick start](QUICK_START.md). A könyvtár nincs Maven Centralon.
+
 Ez a modul Java 21-re fordul, és futásidőben csak a JDK-t használja. Nincs szükség
 Springre vagy külső JSON/HTTP könyvtárra.
 
@@ -102,9 +105,9 @@ A Wrapper-verzió és a Maven-disztribúció checksumja a `.mvn/wrapper/` alatt 
 Létrejövő fájlok / Generated artifacts:
 
 ```text
-target/vies-client-1.2.0.jar
-target/vies-client-1.2.0-sources.jar
-target/vies-client-1.2.0-javadoc.jar
+target/vies-client-1.2.1.jar
+target/vies-client-1.2.1-sources.jar
+target/vies-client-1.2.1-javadoc.jar
 ```
 
 ## 4. Maven bekötés / Maven dependency
@@ -115,7 +118,7 @@ Ha előtte lefutott a `./mvnw install` / After running `./mvnw install`:
 <dependency>
     <groupId>vies.client</groupId>
     <artifactId>vies-client</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
 </dependency>
 ```
 
@@ -133,7 +136,7 @@ repositories {
 }
 
 dependencies {
-    implementation("vies.client:vies-client:1.2.0")
+    implementation("vies.client:vies-client:1.2.1")
 }
 
 java {
@@ -148,8 +151,8 @@ java {
 Classpath alkalmazás / Classpath application:
 
 ```bash
-javac -cp /path/to/vies-client-1.2.0.jar MyApplication.java
-java -cp "/path/to/vies-client-1.2.0.jar:." MyApplication
+javac -cp /path/to/vies-client-1.2.1.jar MyApplication.java
+java -cp "/path/to/vies-client-1.2.1.jar:." MyApplication
 ```
 
 Windows alatt a classpath elválasztó `;`, Unix/macOS alatt `:`.
@@ -168,25 +171,24 @@ module my.application {
 Fordítás és futtatás / Compile and run:
 
 ```bash
-javac --module-path vies-client-1.2.0.jar -d out src/module-info.java src/my/application/Main.java
-java --module-path "vies-client-1.2.0.jar:out" -m my.application/my.application.Main
+javac --module-path vies-client-1.2.1.jar -d out src/module-info.java src/my/application/Main.java
+java --module-path "vies-client-1.2.1.jar:out" -m my.application/my.application.Main
 ```
 
 ## 8. Windsurf / VS Code
 
-A projektben található `.vscode/settings.json` JDK 25-re állítja a Java extensiont,
-és a Java 21 futtatókörnyezetet is regisztrálja kompatibilitási ellenőrzéshez.
-A benne lévő Homebrew útvonal gépspecifikus: Intel Macen, Linuxon vagy Windowson
-írd át a saját JDK 25 és JDK 21 könyvtáraidra. Módosítás után futtasd a
+A gépspecifikus `.vscode/settings.json` nincs a publikus repóban. Állítsd az IDE
+Java language leveljét 21-re, a fejlesztői JDK-t 25-re, és regisztráld a helyi
+Java 21 futtatókörnyezetet kompatibilitási ellenőrzéshez. Módosítás után futtasd a
 `Developer: Reload Window` parancsot.
 
-The included `.vscode/settings.json` runs the Java extension on JDK 25 and also
-registers JDK 21 for compatibility checks. Its Homebrew paths are machine-specific;
-replace them on Intel macOS, Linux, or Windows.
+Machine-specific `.vscode/settings.json` is not part of the public repository.
+Set the IDE language level to 21, select JDK 25 for development, and register your
+local JDK 21 installation for compatibility checks.
 Run `Developer: Reload Window` after changing JDK settings.
 
-A projektben a Maven a build hiteles forrása, ezért a VS Code automatikus Java
-háttér-buildje ki van kapcsolva. A `pom.xml` módosítása után futtasd a
+A projektben a Maven a build hiteles forrása. Érdemes az automatikus IDE Java
+háttér-buildet kikapcsolni. A `pom.xml` módosítása után futtasd a
 `Java: Reload Projects` parancsot. Ha az editor hibát jelez, de a forrás helyesnek
 tűnik, ne a `target/` alatti osztályfájlokból indulj ki: először ellenőrizd, hogy a
 `java`, `javac` és Maven ugyanazt a kiválasztott JDK-t használja, majd futtasd:
@@ -195,21 +197,19 @@ tűnik, ne a `target/` alatti osztályfájlokból indulj ki: először ellenőri
 ./mvnw --batch-mode --no-transfer-progress clean verify
 ```
 
-Maven is the build authority for this project, so VS Code's automatic Java background
-build is disabled. Run `Java: Reload Projects` after changing `pom.xml`. If the editor
+Maven is the build authority for this project; disabling the IDE's automatic Java
+background build avoids competing outputs. Run `Java: Reload Projects` after changing `pom.xml`. If the editor
 shows errors while the source looks correct, do not rely on class files under `target/`:
 first make sure `java`, `javac` and Maven use the same selected JDK, then run the clean verification
 command above. This removes stale Eclipse/JDT error stubs before Maven recompiles the project.
 
-A gyökérszintű `examples/ViesDemoServer.java` szándékosan önálló, source-file módban
-futtatható példa, nem Maven-forráskészlet. A workspace ezért csak ennél a fájlnál
-kiszűri a Java language server modul/classpath diagnosztikáját; a fájl tényleges
-ellenőrzését az alábbi smoke parancs végzi.
+A gyökérszintű `examples/` önálló, source-file módban futtatható példákat tartalmaz,
+nem Maven-forráskészlet. Futtatásukhoz add meg a JAR-t a classpath-on; az offline
+smoke parancs a [gyors indulásban](QUICK_START.md) szerepel.
 
-The root-level `examples/ViesDemoServer.java` is intentionally a standalone source-file
-example, not part of a Maven source set. The workspace therefore filters Java language-server
-module/classpath diagnostics only for that file; the smoke command below remains its real
-execution check.
+The root-level `examples/` directory contains standalone source-file examples,
+not a Maven source set. Supply the JAR on their classpath; the
+[quick start](QUICK_START.md) includes an offline smoke command.
 
 ## 9. Hálózat és proxy / Network and proxy
 

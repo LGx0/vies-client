@@ -13,7 +13,7 @@
 ./mvnw clean verify
 ```
 
-Συνολικά υπάρχουν 73 tests: 44 unit σε 8 κλάσεις και 29 τοπικά HTTP/integration/concurrency, χωρίς υποχρεωτική εξωτερική σύνδεση.
+Συνολικά υπάρχουν 81 tests: 47 unit σε 8 κλάσεις και 34 τοπικά HTTP/integration/concurrency, χωρίς υποχρεωτική εξωτερική σύνδεση.
 
 Κατάλογος unit: `VatFormat` 8, `Requester` 4, `ResponseMapping` 11, `Error` 6, `Availability` 2, `MiniJson` 4, `TtlCache` 6, `Builder` 3. Η integration suite καλύπτει retry, same-key one HTTP, sync/async/network limits, cancellation recovery, close races/deadlock, cache anti-stampede/write, custom executor interrupt/reject, ισότητα leader/follower, sync↔async, chained calls και fatal `Error`.
 
@@ -32,12 +32,12 @@ CI: `./mvnw --batch-mode clean verify`. Κάθε bug λαμβάνει determinis
 | `ViesResponseMappingTest` | 11 | GET/POST, strict boolean and timestamp mapping |
 | `ViesErrorTest` | 6 | HU/EN catalog and retry classification |
 | `ViesAvailabilityTest` | 2 | defensive immutable snapshot |
-| `MiniJsonTest` | 4 | JSON values, escapes, malformed fail-closed |
+| `MiniJsonTest` | 6 | JSON values, escapes, malformed fail-closed |
 | `TtlCacheTest` | 6 | TTL, bound, eviction, 32 virtual threads |
-| `ViesClientBuilderTest` | 3 | URL/limit/retry/duration/overflow validation |
-| **Unit total** | **44** | no external network |
+| `ViesClientBuilderTest` | 4 | URL/limit/retry/duration/overflow validation |
+| **Unit total** | **47** | no external network |
 
-### `ViesClientHttpTest` — 29 local tests
+### `ViesClientHttpTest` — 34 local tests
 
 1. 503 retries then success; same-key callers produce exactly one HTTP call.
 2. Active HTTP, pending async and pending sync bounds; admission timeout.
@@ -86,7 +86,7 @@ Every fixed bug requires a deterministic regression test. Use latch/barrier for 
 
 Μετρήστε results ανά type και `errorCode`, p50/p95/p99 latency, cache hit, `CACHE_ERROR`, `CLIENT_OVERLOADED`, retry outcomes, queue depth/age, DLQ, errors ανά χώρα, heap, GC, CPU, virtual threads και sockets. Το liveness δεν εξαρτάται από VIES· το `availability()` είναι σπάνια cached διάγνωση.
 
-Πριν από release εκτελέστε `./mvnw --batch-mode clean verify`. Τα 44 unit tests ελέγχουν format, requester, mapping, errors, availability, JSON, TTL cache και builder. Τα 29 τοπικά HTTP/concurrency tests ελέγχουν retry, limits, cancellation, close races, custom executor, sync↔async single-flight, cache anti-stampede και fatal `Error`. Το live VIES δεν είναι CI gate ή load target. Load μόνο σε mock/staging και soak/chaos 30–60 λεπτά με bounded heap και JFR· οι πόροι πρέπει να φτάσουν σε plateau.
+Πριν από release εκτελέστε `./mvnw --batch-mode clean verify`. Τα 47 unit tests ελέγχουν format, requester, mapping, errors, availability, JSON, TTL cache και builder. Τα 34 τοπικά HTTP/concurrency tests ελέγχουν retry, limits, cancellation, close races, custom executor, sync↔async single-flight, cache anti-stampede και fatal `Error`. Το live VIES δεν είναι CI gate ή load target. Load μόνο σε mock/staging και soak/chaos 30–60 λεπτά με bounded heap και JFR· οι πόροι πρέπει να φτάσουν σε plateau.
 
 ### Κριτήρια αποδοχής
 

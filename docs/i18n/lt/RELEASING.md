@@ -6,8 +6,8 @@ SemVer: PATCH suderinamas taisymas, MINOR suderinama funkcija, MAJOR laužo API/
 
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
-jar --describe-module --file target/vies-client-1.2.0.jar
-jdeps --print-module-deps target/vies-client-1.2.0.jar
+jar --describe-module --file target/vies-client-1.2.1.jar
+jdeps --print-module-deps target/vies-client-1.2.1.jar
 ```
 
 Patikrinkite visą Git history dėl paslapčių/asmens duomenų; atnaujinkite `LICENSE`, `NOTICE`, `SECURITY.md`, lokalizacijas, API dokumentaciją ir tris JAR; live/load lieka pasirenkami; vieši pokyčiai įrašomi changelog.

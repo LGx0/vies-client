@@ -16,7 +16,7 @@ Unit test izolovaně ověřuje třídu/pravidlo bez sítě, DB a živého VIES. 
 ./mvnw -Dtest=ViesClientHttpTest#cancellationDoesNotLeakAsyncCapacity test
 ```
 
-Aktuálně je **73 deterministických testů**: 44 unit v osmi třídách a 29 lokálních HTTP/integration/concurrency; žádné povinné externí volání.
+Aktuálně je **81 deterministických testů**: 47 unit v osmi třídách a 34 lokálních HTTP/integration/concurrency; žádné povinné externí volání.
 
 ## Unit katalog
 
@@ -25,11 +25,11 @@ Aktuálně je **73 deterministických testů**: 44 unit v osmi třídách a 29 l
 - `ViesResponseMappingTest` (11): GET/POST valid, invalid, chyby, non-object JSON, chybějící/špatný boolean a čas, offset→UTC.
 - `ViesErrorTest` (6): HU/EN zprávy, permanentní input, HTTP retry klasifikace, no-error rozhodnutí, úplný katalog, bezpečný unknown.
 - `ViesAvailabilityTest` (2): defensive immutable map a odmítnutí null.
-- `MiniJsonTest` (4): běžný/nested JSON, escapes, fail-closed malformed/trailing input.
+- `MiniJsonTest` (6): běžný/nested JSON, escapes, fail-closed malformed/trailing input.
 - `TtlCacheTest` (6): TTL hit/miss/hranice, non-positive TTL, limit, expired-first, 32 virtuálních vláken.
-- `ViesClientBuilderTest` (3): high-load konfigurace a validace URL/limit/retry/duration/overflow.
+- `ViesClientBuilderTest` (4): high-load konfigurace a validace URL/limit/retry/duration/overflow.
 
-## Lokální HTTP a životní cyklus (29)
+## Lokální HTTP a životní cyklus (34)
 
 Pokrytí zahrnuje 503 retry→success; 200 stejných async→1 HTTP; limit aktivních HTTP; async/sync backpressure; cancel bez úniku permitu; callback `close()` bez deadlocku; admission timeout; `CACHE_ERROR` bez fallbacku; uvolnění single-flight/permitů; sync/async cache-close race; custom executor interruption a queued cancellation; shodný leader/follower výsledek; followeři bez extra slotu; rejection cleanup; oba směry sync↔async single-flight; cache leadership recheck; cache-write close race; chained unique async; blokující callback; fatální `Error` do future i uncaught handleru.
 

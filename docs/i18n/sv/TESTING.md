@@ -55,13 +55,13 @@ Ett specifikt test / En testmetod:
 
 ## Nuvarande täckning / Nuvarande täckning
 
-Det nuvarande deterministiska paketet innehåller **73 test**:
+Det nuvarande deterministiska paketet innehåller **81 test**:
 
-- **44 enheter test** i åtta klasser;
-- **29 lokala HTTP/integration/samtidighetstester**;
+- **47 enheter test** i åtta klasser;
+- **34 lokala HTTP/integration/samtidighetstester**;
 - noll obligatoriska externa nätverksanrop.
 
-Den deterministiska sviten innehåller **73 test**: 44 enhetstester, 29 lokala
+Den deterministiska sviten innehåller **81 test**: 47 enhetstester, 34 lokala
 HTTP/integration/samtidighetstester och noll obligatoriska externa samtal.
 
 ## Enhetstestkatalog / Enhetstestkatalog
@@ -122,7 +122,7 @@ HTTP/integration/samtidighetstester och noll obligatoriska externa samtal.
 
 Defensiv oföränderlig ögonblicksbildkopia och noll-map-konstruktorvalidering.
 
-###`MiniJsonTest`— 4 tester
+###`MiniJsonTest`— 6 tester
 
 - typisk VIES-dokument och Unicode-escape;
 - kapslade objekt/lista/skalär/nummer/null;
@@ -143,7 +143,7 @@ Typisk VIES JSON, kapslade/skalära värden, escapes och felstängd felaktig ind
 TTL-beteende, exakt utgångsgräns, storlekskontroll, utgånget-först provtagning och
 samtidigt tryck från 32 virtuella trådar.
 
-###`ViesClientBuilderTest`— 3 tester
+###`ViesClientBuilderTest`— 4 tester
 
 - komplett högbelastningskonfiguration kan byggas;
 - avvisa fel URL/gräns/försök igen;
@@ -154,7 +154,7 @@ godkännande.
 
 ## Lokal HTTP, samtidighet och livscykel / Lokal integration och samtidighet
 
-`ViesClientHttpTest`— 29 tester på en slumpmässig fri loopback-port:
+`ViesClientHttpTest`— 34 tester på en slumpmässig fri loopback-port:
 
 | ID | Testfall |
 | ---- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |

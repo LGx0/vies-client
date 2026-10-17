@@ -1,5 +1,7 @@
 # Polski (pl) — vies-client — sprawdzanie numeru VAT UE
 
+> 1.2.1 · [Quick start (HU/EN)](../../QUICK_START.md) · [Security review (HU/EN)](../../SECURITY_REVIEW.md)
+
 **Frazy wyszukiwania:** sprawdzanie numeru VAT, walidator numeru VAT UE, walidacja VAT UE, sprawdzanie identyfikatora podatkowego, klient Java VIES; `VAT checker`, `VAT number validator`, `EU VAT validation`, `tax ID checker`.
 
 To nie jest ogólny kalkulator podatkowy, lecz klient do sprawdzania unijnych numerów identyfikacyjnych VAT w systemie VIES.
@@ -28,11 +30,11 @@ To nie jest ogólny kalkulator podatkowy, lecz klient do sprawdzania unijnych nu
 ```
 
 ```xml
-<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.2.0</version></dependency>
+<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.2.1</version></dependency>
 ```
 
 ```kotlin
-implementation("vies.client:vies-client:1.2.0")
+implementation("vies.client:vies-client:1.2.1")
 ```
 
 Moduł JPMS nazywa się `vies.client`; w `module-info.java` dodaj `requires vies.client;`. Działa również na classpath.

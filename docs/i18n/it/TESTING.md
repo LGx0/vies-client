@@ -4,7 +4,7 @@
 
 > Prevale la documentazione inglese. `LICENSE` non è tradotto.
 
-La suite deterministica attuale contiene **73 test**: 44 unit test e 29 test locali HTTP/integrazione/concorrenza.
+La suite deterministica attuale contiene **81 test**: 47 unit test e 34 test locali HTTP/integrazione/concorrenza.
 
 Unit test: formati, requester, risultati/errori, availability, JSON, cache TTL, builder. Test locali HTTP/concorrenza/lifecycle: `HttpServer`, latch ed executor controllati, senza chiamate VIES.
 
@@ -85,7 +85,7 @@ Shutdown: fermare ingress, sospendere consumer, grace period, chiudere client e 
 
 Sicurezza: HTTPS, certificati normali, base URL non controllabile dai tenant, input normalizzato, output upstream untrusted, log redatti, cache/audit protetti. VAT, società, indirizzo, requester, consultation sono sensibili e non label metriche. Health usa liveness, readiness queue/cache e status VIES parsimonioso, non VAT per probe.
 
-La suite contiene 73 test deterministici: 44 unitari e 29 test loopback HTTP/concorrenza, inclusi single-flight, limiti, cancellazione, rejection, sync/async misto, race della cache, close, callback, executor personalizzato ed Error fatale con latch/barrier, non sleep-oracle. CI esegue `./mvnw --batch-mode --no-transfer-progress clean verify`, archivia Surefire, binary, sources, Javadoc e modulo. Il carico usa solo mock con warm-up, heap/GC, throughput, p50/p95/p99; soak/chaos simulano timeout, 429/5xx, JSON rotto, Redis down, interrupt e shutdown.
+La suite contiene 81 test deterministici: 47 unitari e 34 test loopback HTTP/concorrenza, inclusi single-flight, limiti, cancellazione, rejection, sync/async misto, race della cache, close, callback, executor personalizzato ed Error fatale con latch/barrier, non sleep-oracle. CI esegue `./mvnw --batch-mode --no-transfer-progress clean verify`, archivia Surefire, binary, sources, Javadoc e modulo. Il carico usa solo mock con warm-up, heap/GC, throughput, p50/p95/p99; soak/chaos simulano timeout, 429/5xx, JSON rotto, Redis down, interrupt e shutdown.
 
 Spring Boot usa bean singleton `destroyMethod="close"`; controller restituisce 200/400/429/503 senza stacktrace. JDK puro condivide la stessa istanza. Metriche: result/code/retry/reject, latency total/cache/HTTP, pending/inflight, queue age, DLQ, mai VAT. Release SemVer, tag firmato, checksum e artefatti stesso CI. Apache-2.0; `LICENSE`/`NOTICE` inglesi vincolanti; donazione senza SLA/governance.
 

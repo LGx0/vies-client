@@ -1,5 +1,7 @@
 # Malti (mt) — vies-client — kontrollur tan-numru tal-VAT
 
+> 1.2.1 · [Quick start (HU/EN)](../../QUICK_START.md) · [Security review (HU/EN)](../../SECURITY_REVIEW.md)
+
 **Termini tat-tiftix:** verifika tan-numru tal-VAT, validazzjoni tan-numru tal-VAT, validazzjoni tal-VAT tal-UE, verifika tal-identifikatur tat-taxxa, klijent Java VIES; `VAT checker`, `VAT number validator`, `EU VAT validation`, `tax ID checker`.
 
 Dan mhuwiex kalkulatur ġenerali tat-taxxa, iżda klijent għall-validazzjoni tan-numri ta’ identifikazzjoni tal-VAT tal-UE permezz ta’ VIES.
@@ -39,7 +41,7 @@ huwa prodott uffiċjali tal-awtoritajiet tat-taxxa u mhuwiex approvat jew iċċe
 ## Ibni u konnessjoni
 
 ```bash
-./mvnw install    # tesztek + target/vies-client-1.2.0.jar (+ -sources.jar, -javadoc.jar)
+./mvnw install    # tesztek + target/vies-client-1.2.1.jar (+ -sources.jar, -javadoc.jar)
                # és telepítés a lokális Maven-repóba
 ```
 
@@ -49,20 +51,20 @@ huwa prodott uffiċjali tal-awtoritajiet tat-taxxa u mhuwiex approvat jew iċċe
 <dependency>
     <groupId>vies.client</groupId>
     <artifactId>vies-client</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
 </dependency>
 ```
 
 **Gradle:**
 
 ```kotlin
-implementation("vies.client:vies-client:1.2.0")
+implementation("vies.client:vies-client:1.2.1")
 ```
 
 **Modulu JPMS reali.** Il-vażett iġib ruħu bħala modulu msemmi (`jar --describe-module`):
 
 ```
-vies.client@1.2.0
+vies.client@1.2.1
 exports vies.client
 requires java.net.http
 contains vies.client.internal   ← nem exportált, zárt belső csomag

@@ -8,8 +8,8 @@
 
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
-jar --describe-module --file target/vies-client-1.2.0.jar
-jdeps --print-module-deps target/vies-client-1.2.0.jar
+jar --describe-module --file target/vies-client-1.2.1.jar
+jdeps --print-module-deps target/vies-client-1.2.1.jar
 ```
 
 Ελέγξτε το Git history για secrets/data, τα ενημερωμένα LICENSE/NOTICE/SECURITY/docs, τη δημιουργία sources/Javadoc JAR, την απουσία υποχρεωτικού live/load CI και το API changelog. Ρυθμίστε το `pom.xml`, κάντε commit, δημιουργήστε signed tag με `git tag -s v1.2.0 -m v1.2.0` και εκτελέστε `git push origin main --follow-tags`. Το `release.yml` επαναλαμβάνει τις δοκιμές και επισυνάπτει τα JARs.

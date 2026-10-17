@@ -6,8 +6,8 @@ SemVer: PATCH deisiú comhoiriúnach, MINOR gné chomhoiriúnach, MAJOR API/seim
 
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
-jar --describe-module --file target/vies-client-1.2.0.jar
-jdeps --print-module-deps target/vies-client-1.2.0.jar
+jar --describe-module --file target/vies-client-1.2.1.jar
+jdeps --print-module-deps target/vies-client-1.2.1.jar
 ```
 
 Scan Git history do secrets/sonraí pearsanta; seiceáil `LICENSE`, `NOTICE`, `SECURITY.md`, logánuithe, API docs agus na trí JAR; coinnigh live/load roghnach; cuir athruithe poiblí sa changelog.

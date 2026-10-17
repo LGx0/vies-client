@@ -10,6 +10,10 @@ Alle opmerkelijke wijzigingen worden hier gedocumenteerd. Het project volgt sema
 
 ## [Niet uitgebracht]
 
+## [1.2.1] - 2026-10-17
+
+- [Correcties en beveiligingsbeoordeling](../../../CHANGELOG.md) · [HU/EN](../../SECURITY_REVIEW.md)
+
 ## [1.2.0] - 2026-07-17
 
 ### Toegevoegd

@@ -6,6 +6,10 @@
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-10-17
+
+- [Correzioni e verifica della sicurezza](../../../CHANGELOG.md) · [HU/EN](../../SECURITY_REVIEW.md)
+
 ## [1.2.0] - 2026-07-17
 ### Aggiunto
 - File community GitHub, automazione CI/security e governance open source.

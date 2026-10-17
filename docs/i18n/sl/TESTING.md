@@ -13,7 +13,7 @@ Unit test izolira pravilo brez omrežja/DB/live VIES; retry, timeout, single-fli
 ./mvnw clean verify
 ```
 
-Skupaj **73**: 44 unit v 8 razredih + 29 HTTP/integration/concurrency, brez obveznega zunanjega klica. Unit katalog: format 8, requester 4, mapping 11, errors 6, availability 2, JSON 4, TTL cache 6, builder 3. Pokriti so normalizacija vseh držav, strict response mapping, HU/EN katalog, TTL/concurrency in overflow validacija.
+Skupaj **81**: 47 unit v 8 razredih + 34 HTTP/integration/concurrency, brez obveznega zunanjega klica. Unit katalog: format 8, requester 4, mapping 11, errors 6, availability 2, JSON 6, TTL cache 6, builder 4. Pokriti so normalizacija vseh držav, strict response mapping, HU/EN katalog, TTL/concurrency in overflow validacija.
 
 Integracija pokriva retry, same-key one-HTTP, sync/async/network limits, cancellation recovery, close races/deadlock, timeout, cache anti-stampede/write failure, custom executor interruption/rejection, leader/follower equality, oba sync↔async single-flight, chained calls in fatal `Error` propagation.
 
@@ -32,12 +32,12 @@ Unit test izolira pravilo brez omrežja. Lokalni HTTP/concurrency test uporablja
 | `ViesResponseMappingTest` | 11 | GET/POST, strict boolean and timestamp mapping |
 | `ViesErrorTest` | 6 | HU/EN catalog and retry classification |
 | `ViesAvailabilityTest` | 2 | defensive immutable snapshot |
-| `MiniJsonTest` | 4 | JSON values, escapes, malformed fail-closed |
+| `MiniJsonTest` | 6 | JSON values, escapes, malformed fail-closed |
 | `TtlCacheTest` | 6 | TTL, bound, eviction, 32 virtual threads |
-| `ViesClientBuilderTest` | 3 | URL/limit/retry/duration/overflow validation |
-| **Unit total** | **44** | no external network |
+| `ViesClientBuilderTest` | 4 | URL/limit/retry/duration/overflow validation |
+| **Unit total** | **47** | no external network |
 
-### `ViesClientHttpTest` — 29 local tests
+### `ViesClientHttpTest` — 34 local tests
 
 1. 503 retries then success; same-key callers produce exactly one HTTP call.
 2. Active HTTP, pending async and pending sync bounds; admission timeout.

@@ -52,12 +52,12 @@ Test wieħed speċifiku / Metodu wieħed tat-test:
 
 ## Kopertura kurrenti / Kopertura kurrenti
 
-Il-pakkett deterministiku attwali fih **73 test**:
+Il-pakkett deterministiku attwali fih **81 test**:
 
-- **44 unit test** fi tmien klassijiet;
-- **29 test lokali HTTP/integrazzjoni/konkorrenza**;
+- **47 unit test** fi tmien klassijiet;
+- **34 test lokali HTTP/integrazzjoni/konkorrenza**;
 - żero sejħiet obbligatorji tan-netwerk estern.
-  Is-suite deterministiku fih **73 test**: 44 test unitarju, 29 lokali
+  Is-suite deterministiku fih **81 test**: 47 test unitarju, 34 lokali
   Testijiet HTTP/integrazzjoni/konkorrenza, u żero sejħiet esterni obbligatorji.
 
 ## Katalgu tat-test tal-unità / Katalgu tat-test tal-unità
@@ -117,7 +117,7 @@ Il-pakkett deterministiku attwali fih **73 test**:
 - rifjut immedjat tal-mappa null tal-istat membru.
   Kopja ta 'snapshot immutabbli difensiva u validazzjoni tal-kostruttur tal-mappa null.
 
-### `MiniJsonTest`— 4 testijiet
+### `MiniJsonTest`— 6 testijiet
 
 - dokument VIES tipiku u ħarba Unicode;
 - oġġett/lista/skala/numru/null imniżżel;
@@ -136,7 +136,7 @@ Il-pakkett deterministiku attwali fih **73 test**:
   Imġieba TTL, limitu ta 'skadenza eżatta, kontroll tad-daqs, kampjun skaduti-ewwel, u
   pressjoni konkorrenti minn 32 ħajt virtwali.
 
-### `ViesClientBuilderTest`— 3 testijiet
+### `ViesClientBuilderTest`— 4 testijiet
 
 - konfigurazzjoni sħiħa ta 'tagħbija għolja tista' tinbena;
 - tirrifjuta URL/limit/erġa' pprova ħażin;
@@ -146,7 +146,7 @@ Il-pakkett deterministiku attwali fih **73 test**:
 
 ## HTTP lokali, konkorrenza u ċiklu tal-ħajja / Integrazzjoni lokali u konkorrenza
 
-`ViesClientHttpTest`— 29 test fuq port loopback bla każwali:
+`ViesClientHttpTest`— 34 test fuq port loopback bla każwali:
 | ID | Każ tat-test |
 |---|---|
 | I-01 | 503 jerġa' jipprova darbtejn, imbagħad suċċess / żewġ 503 jerġa' jipprova mbagħad suċċess |
