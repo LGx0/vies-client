@@ -52,12 +52,17 @@ Egy konkrét teszt / One test method:
 
 ## Jelenlegi lefedettség / Current coverage
 
-A jelenlegi determinisztikus csomag **73 tesztet** tartalmaz:
+A 2026-10-17-i új regressziók az előjeles/nem ASCII Unicode escape-et, a helyes
+surrogate-párokat, a hálózati timeout túlcsordulását, az ír requester `+` jelét,
+a hibás állapotsémát és az érvényes hiányos állapotpillanatképet ellenőrzik.
+A részletes esetek a [központi kétnyelvű katalógusban](../../TESTING.md) szerepelnek.
 
-- **44 unit teszt** nyolc osztályban;
-- **29 helyi HTTP/integráció/konkurencia teszt**;
+A jelenlegi determinisztikus csomag **81 tesztet** tartalmaz:
+
+- **47 unit teszt** nyolc osztályban;
+- **34 helyi HTTP/integráció/konkurencia teszt**;
 - nulla kötelező külső hálózati hívás.
-  A determinisztikus csomag **73 tesztet** tartalmaz: 44 egységtesztet, 29 helyi tesztet
+  A determinisztikus csomag **81 tesztet** tartalmaz: 47 egységtesztet, 34 helyi tesztet
   HTTP/integrációs/párhuzamossági tesztek, és nulla kötelező külső hívás.
 
 ## Unit tesztkatalógus / Unit-test catalog
@@ -117,7 +122,7 @@ A jelenlegi determinisztikus csomag **73 tesztet** tartalmaz:
 - null tagállami map azonnali elutasítása.
   Védekező megváltoztathatatlan pillanatképmásolat és null-map konstruktor érvényesítése.
 
-### `MiniJsonTest`— 4 teszt
+### `MiniJsonTest`— 6 teszt
 
 - tipikus VIES dokumentum és Unicode escape;
 - nested objektum/lista/scalar/number/null;
@@ -136,7 +141,7 @@ A jelenlegi determinisztikus csomag **73 tesztet** tartalmaz:
   TTL viselkedés, pontos lejárati határ, méretszabályozás, lejárt első mintavétel és
   egyidejű nyomás 32 virtuális szálról.
 
-### `ViesClientBuilderTest`— 3 teszt
+### `ViesClientBuilderTest`— 4 teszt
 
 - teljes nagyterhelésű konfiguráció felépíthető;
 - hibás URL/limit/retry elutasítása;
@@ -146,7 +151,7 @@ A jelenlegi determinisztikus csomag **73 tesztet** tartalmaz:
 
 ## Helyi HTTP, konkurencia és életciklus / Local integration and concurrency
 
-`ViesClientHttpTest`— 29 teszt, véletlen szabad loopback porton:
+`ViesClientHttpTest`— 34 teszt, véletlen szabad loopback porton:
 | ID | Teszteset / Test case |
 |---|---|
 | I-01 | 503 retry kétszer, majd siker / two 503 retries then success |

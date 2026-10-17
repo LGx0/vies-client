@@ -1,5 +1,7 @@
 # Français (`fr`) — vies-client — vérificateur de numéro de TVA
 
+> 1.2.1 · [Quick start (HU/EN)](../../QUICK_START.md) · [Security review (HU/EN)](../../SECURITY_REVIEW.md)
+
 `disableCache()` désactive le cache stocké/persistant, mais des appels simultanés avec la même paire TVA + requester peuvent partager une seule requête réseau single-flight. Un appel ultérieur, après sa fin, effectue une nouvelle requête VIES. `consultationNumber` est facultatif et peut être renvoyé par VIES, mais n’est jamais garanti ; sa valeur probante juridique dépend des règles locales. Chargez `MY_EU_VAT_NUMBER` uniquement depuis une source de secrets/configuration de confiance.
 
 **Termes de recherche:** vérification de numéro de TVA, validateur de numéro de TVA, validation TVA UE, vérification d’identifiant fiscal, client Java VIES; `VAT checker`, `VAT number validator`, `EU VAT validation`, `tax ID checker`.
@@ -25,7 +27,7 @@ Ce projet n’est pas un calculateur fiscal général, mais un client de validat
 ```
 
 ```xml
-<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.2.0</version></dependency>
+<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.2.1</version></dependency>
 ```
 
 ```java
@@ -42,7 +44,7 @@ Les contributions et signalements sont bienvenus. Le lien Sponsor/café du READM
 
 ## Build, JPMS et exemple complet
 
-Coordonnées Maven : `vies.client:vies-client:1.2.0`. Le module JPMS `vies.client` exporte `vies.client`, requiert `java.net.http` et encapsule `vies.client.internal`. En module : `module my.api { requires vies.client; }`; rien à déclarer en classpath.
+Coordonnées Maven : `vies.client:vies-client:1.2.1`. Le module JPMS `vies.client` exporte `vies.client`, requiert `java.net.http` et encapsule `vies.client.internal`. En module : `module my.api { requires vies.client; }`; rien à déclarer en classpath.
 
 ```java
 try (var vies = ViesClient.builder()
@@ -124,7 +126,7 @@ Avant production, un staging avec données synthétiques simule hits/misses cach
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
 ./mvnw package
-jar --describe-module --file target/vies-client-1.2.0.jar
+jar --describe-module --file target/vies-client-1.2.1.jar
 java -cp target/classes examples/ViesDemoServer.java
 ```
 

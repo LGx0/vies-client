@@ -1,5 +1,7 @@
 # Magyar (hu) — vies-client — közösségi adószám-ellenőrző
 
+> 1.2.1 · [Quick start (HU/EN)](../../QUICK_START.md) · [Security review (HU/EN)](../../SECURITY_REVIEW.md)
+
 **Keresési kifejezések:** közösségi adószám ellenőrzés, áfaszám-validátor, EU áfaazonosító ellenőrzés, adóazonosító ellenőrzés, VIES Java kliens; `VAT checker`, `VAT number validator`, `EU VAT validation`, `tax ID checker`.
 
 Ez nem általános adókalkulátor, hanem az EU VIES rendszerében közösségi áfaazonosítókat ellenőrző kliens.
@@ -39,7 +41,7 @@ adóhatóság hivatalos terméke, és azok nem támogatják vagy hitelesítik.
 ## Build és bekötés
 
 ```bash
-./mvnw install    # tesztek + target/vies-client-1.2.0.jar (+ -sources.jar, -javadoc.jar)
+./mvnw install    # tesztek + target/vies-client-1.2.1.jar (+ -sources.jar, -javadoc.jar)
                # és telepítés a lokális Maven-repóba
 ```
 
@@ -49,20 +51,20 @@ adóhatóság hivatalos terméke, és azok nem támogatják vagy hitelesítik.
 <dependency>
     <groupId>vies.client</groupId>
     <artifactId>vies-client</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
 </dependency>
 ```
 
 **Gradle:**
 
 ```kotlin
-implementation("vies.client:vies-client:1.2.0")
+implementation("vies.client:vies-client:1.2.1")
 ```
 
 **Valódi JPMS-modul.** A jar named module-ként viselkedik (`jar --describe-module`):
 
 ```
-vies.client@1.2.0
+vies.client@1.2.1
 exports vies.client
 requires java.net.http
 contains vies.client.internal   ← nem exportált, zárt belső csomag

@@ -1,5 +1,7 @@
 # Español (`es`) — vies-client — comprobador de número de IVA
 
+> 1.2.1 · [Quick start (HU/EN)](../../QUICK_START.md) · [Security review (HU/EN)](../../SECURITY_REVIEW.md)
+
 `disableCache()` desactiva la caché almacenada/persistente, pero las llamadas simultáneas con la misma pareja IVA + requester pueden compartir una única petición de red single-flight. Una llamada posterior, una vez finalizada, realiza una nueva petición a VIES. `consultationNumber` es opcional y VIES puede devolverlo, pero nunca está garantizado; su valor probatorio jurídico depende de las normas locales. Cargue `MY_EU_VAT_NUMBER` únicamente desde una fuente de secretos/configuración de confianza.
 
 **Términos de búsqueda:** comprobador de número de IVA, validador de NIF-IVA, validación de IVA de la UE, comprobador de identificador fiscal, cliente Java VIES; `VAT checker`, `VAT number validator`, `EU VAT validation`, `tax ID checker`.
@@ -32,7 +34,7 @@ Para millones de trabajos, añada una cola persistente particionada, caché comp
 
 ## Build, JPMS y semántica completa
 
-Maven: `vies.client:vies-client:1.2.0`. El módulo JPMS `vies.client` exporta `vies.client`, requiere `java.net.http`, encapsula internals y se declara `module my.api { requires vies.client; }`; classpath funciona sin declaración.
+Maven: `vies.client:vies-client:1.2.1`. El módulo JPMS `vies.client` exporta `vies.client`, requiere `java.net.http`, encapsula internals y se declara `module my.api { requires vies.client; }`; classpath funciona sin declaración.
 
 ```java
 try (var vies = ViesClient.builder().defaultRequester(ViesRequester.of(System.getenv("MY_EU_VAT_NUMBER"))).retries(1).build()) {
@@ -97,7 +99,7 @@ Staging simula hit/down cache, 429/5xx, timeout, backlog, cancel y shutdown. Cri
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
 ./mvnw package
-jar --describe-module --file target/vies-client-1.2.0.jar
+jar --describe-module --file target/vies-client-1.2.1.jar
 java -cp target/classes examples/ViesDemoServer.java
 ```
 

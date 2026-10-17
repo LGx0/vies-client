@@ -57,6 +57,11 @@ data quality alone is not a vulnerability in this library.
 
 ## Beépített védelmek / Built-in defenses
 
+A 2026-10-17-i felmérés, javítások és fennmaradó üzemeltetési kockázatok külön
+[biztonsági jelentésben](docs/SECURITY_REVIEW.md) olvashatók.
+See the [security review](docs/SECURITY_REVIEW.md) for the 2026-10-17 findings,
+fixes, and operational trust boundaries.
+
 - A kliens nem követ redirectet, és sima HTTP-t csak pontos loopback tesztcímhez fogad el.
 - A VIES-válasz 64 KiB-os; a JSON mélysége, elemszáma, számai és üzleti mezői korlátosak.
 - Hibás UTF-8, duplikált kulcs, ellentmondó döntés vagy eltérő VAT echo
@@ -64,6 +69,7 @@ data quality alone is not a vulnerability in this library.
 - A megosztott cache kulcsa verziózott SHA-256 lenyomat; a visszakapott értéknek
   egyeznie kell a kért adószámmal és a mezőlimitekkel.
 - A lokális sync, async, hálózati és cache limitek konfigurációsan is felső korlátosak.
+- A teljes HTTP-válasz határideje timeoutkor a valódi hálózati műveletet is megszakítja.
 
 - Redirects are disabled and plain HTTP is limited to exact loopback test addresses.
 - Responses are capped at 64 KiB; JSON depth, value count, numbers and business
@@ -73,6 +79,7 @@ data quality alone is not a vulnerability in this library.
 - Shared-cache keys are versioned SHA-256 digests; cache values are VAT-bound and
   field-bounded.
 - Sync, async, network and in-memory cache limits have hard configuration ceilings.
+- A full-response deadline cancels the actual HTTP exchange on timeout.
 
 Operational controls remain mandatory: authenticate and rate-limit every public API,
 keep custom HTTPS `baseUrl` configuration trusted, use TLS/auth/ACL/private networking

@@ -1,5 +1,7 @@
 # Slovenščina (sl) — vies-client — preverjanje ID za DDV
 
+> 1.2.1 · [Quick start (HU/EN)](../../QUICK_START.md) · [Security review (HU/EN)](../../SECURITY_REVIEW.md)
+
 **Iskalni izrazi:** preverjanje ID za DDV, validator ID za DDV, preverjanje DDV v EU, preverjanje davčne številke, odjemalec Java VIES; `VAT checker`, `VAT number validator`, `EU VAT validation`, `tax ID checker`.
 
 To ni splošni davčni kalkulator, temveč odjemalec za preverjanje identifikacijskih številk za DDV v sistemu EU VIES.
@@ -22,7 +24,7 @@ VIES: <https://ec.europa.eu/taxation_customs/vies/#/technical-information>. Kon�
 ```
 
 ```xml
-<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.2.0</version></dependency>
+<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.2.1</version></dependency>
 ```
 
 JPMS: `requires vies.client;`; podprt je tudi classpath.

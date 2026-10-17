@@ -202,8 +202,8 @@ java -cp target/classes examples/ViesDemoServer.java 8085
 curl "http://localhost:8085/vat-check?number=DE000000000"
 ```
 
-A példa virtuális szálakat, valós HTTP státuszokat és kétnyelvű hibaválaszokat használ.
-The example uses virtual threads, meaningful HTTP statuses, and bilingual errors.
+A példa korlátos HTTP-munkaszál-poolt, valós HTTP státuszokat és kétnyelvű hibaválaszokat használ.
+The example uses a bounded HTTP worker pool, meaningful HTTP statuses, and bilingual errors.
 
 ## 7. Requester és konzultációs azonosító / Requester and consultation ID
 

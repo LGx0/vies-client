@@ -10,6 +10,10 @@ Alle bemærkelsesværdige ændringer er dokumenteret her. Projektet følger Sema
 
 ## [Ikke udgivet]
 
+## [1.2.1] - 2026-10-17
+
+- [Rettelser og sikkerhedsvurdering](../../../CHANGELOG.md) · [HU/EN](../../SECURITY_REVIEW.md)
+
 ## [1.2.0] - 2026-07-17
 
 ### Tilføjet

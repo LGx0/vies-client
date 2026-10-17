@@ -1,5 +1,7 @@
 # Slovenčina (sk) — vies-client — overenie IČ DPH
 
+> 1.2.1 · [Quick start (HU/EN)](../../QUICK_START.md) · [Security review (HU/EN)](../../SECURITY_REVIEW.md)
+
 **Vyhľadávacie výrazy:** overenie IČ DPH, validátor IČ DPH, overenie DPH v EÚ, kontrola daňového identifikátora, VIES Java klient; `VAT checker`, `VAT number validator`, `EU VAT validation`, `tax ID checker`.
 
 Nejde o všeobecnú daňovú kalkulačku, ale o klienta na overovanie identifikačných čísel DPH v systéme EÚ VIES.
@@ -26,7 +28,7 @@ Nejde o všeobecnú daňovú kalkulačku, ale o klienta na overovanie identifika
 ```
 
 ```xml
-<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.2.0</version></dependency>
+<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.2.1</version></dependency>
 ```
 
 JPMS modul je `vies.client` (`requires vies.client;`), funguje aj na classpath.

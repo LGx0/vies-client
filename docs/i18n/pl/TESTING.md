@@ -14,7 +14,7 @@ Unit test izoluje klasę/regułę bez sieci, DB i live VIES. Timeout, retry, sin
 ./mvnw -Dtest=ViesClientHttpTest#cancellationDoesNotLeakAsyncCapacity test
 ```
 
-Pakiet ma **73 testów**: 44 unit w 8 klasach i 29 lokalne HTTP/integration/concurrency; zero obowiązkowych wywołań zewnętrznych.
+Pakiet ma **81 testów**: 47 unit w 8 klasach i 34 lokalne HTTP/integration/concurrency; zero obowiązkowych wywołań zewnętrznych.
 
 ## Katalog unit
 
@@ -22,9 +22,9 @@ Pakiet ma **73 testów**: 44 unit w 8 klasach i 29 lokalne HTTP/integration/conc
 - `ViesRequesterTest` 4: full VAT, Grecja, pair, fail-fast.
 - `ViesResponseMappingTest` 11: GET/POST valid, invalid, errors, JSON root, boolean i timestamp strictness.
 - `ViesErrorTest` 6: HU/EN, retry classification, cały katalog, unknown bez storm.
-- `ViesAvailabilityTest` 2; `MiniJsonTest` 4; `TtlCacheTest` 6 (w tym 32 virtual threads); `ViesClientBuilderTest` 3 (URL/limity/retry/duration/overflow).
+- `ViesAvailabilityTest` 2; `MiniJsonTest` 6; `TtlCacheTest` 6 (w tym 32 virtual threads); `ViesClientBuilderTest` 4 (URL/limity/retry/duration/overflow).
 
-## Lokalne HTTP/concurrency (29)
+## Lokalne HTTP/concurrency (34)
 
 Retry 503→success, 200 same-key→1 HTTP, limit aktywnych requestów, sync/async backpressure, cancel bez permit leak, close z callbacka, admission timeout, cache error bez fallbacku, cleanup permit/single-flight, oba cache-close race, custom executor interruption/queued cancel, jednakowy leader/follower, followers bez slotów, rejection cleanup, sync↔async single-flight w obu kierunkach, cache recheck, close przy cache write, chained unique, blocking callback i fatal `Error` propagation.
 

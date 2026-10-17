@@ -52,12 +52,12 @@ Puhas kinnitus JAR-i/Javadoci genereerimisega / Puhasta kinnitus artefaktidega:
 
 ## Praegune levi / praegune levi
 
-Praegune deterministlik pakett sisaldab **73 testi**:
+Praegune deterministlik pakett sisaldab **81 testi**:
 
-- **44 ühiku test** kaheksas klassis;
-- **29 kohalikku HTTP/integratsiooni/samaaegsuse testi**;
+- **47 ühiku test** kaheksas klassis;
+- **34 kohalikku HTTP/integratsiooni/samaaegsuse testi**;
 - null kohustuslikku välisvõrgu kõnet.
-  Deterministlik komplekt sisaldab **73 testi**: 44 ühiktesti, 29 kohalikku
+  Deterministlik komplekt sisaldab **81 testi**: 47 ühiktesti, 34 kohalikku
   HTTP/integratsiooni/samaaegsuse testid ja null kohustuslikku väliskõnet.
 
 ## Ühikutestide kataloog / Ühikutestide kataloog
@@ -117,7 +117,7 @@ Praegune deterministlik pakett sisaldab **73 testi**:
 - nullliikmesriigi kaardi viivitamatu tagasilükkamine.
   Kaitsev muutumatu hetktõmmise koopia ja nullkaardi konstruktori valideerimine.
 
-### `MiniJsonTest`— 4 testi
+### `MiniJsonTest`— 6 testi
 
 - tüüpiline VIES dokument ja Unicode põgenemine;
 - pesastatud objekt/loend/skalaar/arv/null;
@@ -136,7 +136,7 @@ Praegune deterministlik pakett sisaldab **73 testi**:
   TTL käitumine, täpne aegumispiir, suuruse kontroll, aegunud-esimene proovide võtmine ja
   samaaegne rõhk 32 virtuaalsest lõimest.
 
-### `ViesClientBuilderTest`— 3 testi
+### `ViesClientBuilderTest`— 4 testi
 
 - saab ehitada täieliku suure koormusega konfiguratsiooni;
 - lükka tagasi vale URL/limit/retry;
@@ -146,7 +146,7 @@ Praegune deterministlik pakett sisaldab **73 testi**:
 
 ## Kohalik HTTP, samaaegsus ja elutsükkel / Kohalik integratsioon ja samaaegsus
 
-`ViesClientHttpTest`— 29 testi juhuslikus vabas loopback-pordis:
+`ViesClientHttpTest`— 34 testi juhuslikus vabas loopback-pordis:
 | ID | Katsejuhtum |
 |---|---|
 | I-01 | 503 korduskatset kaks korda, siis edu / kaks 503 korduskatset ja siis edu |

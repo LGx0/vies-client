@@ -10,6 +10,10 @@ Ovdje su dokumentirane sve značajne promjene. Projekt slijedi semantičko verzi
 
 ## [Neobjavljeno]
 
+## [1.2.1] - 2026-10-17
+
+- [Ispravci i sigurnosna provjera](../../../CHANGELOG.md) · [HU/EN](../../SECURITY_REVIEW.md)
+
 ## [1.2.0] - 2026-07-17
 
 ### Dodano

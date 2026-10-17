@@ -8,6 +8,35 @@ All notable changes are documented here. The project follows Semantic Versioning
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-10-17
+
+### Fixed / Javítva
+
+- Enforce the request timeout through the full response body and cancel the HTTP
+  exchange on timeout/interruption. On JDK 21 a peer could previously stall after
+  headers and hold a network slot indefinitely. A teljes válaszletöltés határidős;
+  az elakadt válasz többé nem foglalhat tartósan hálózati kapacitást.
+- Verify tag signature and protected-main ancestry before executing the repository's
+  Maven wrapper/POM during release. A kiadási forrás megbízhatóságát minden
+  repository-vezérelt kódfuttatás előtt igazoljuk.
+- Preserve literal `+` in Irish requester VAT numbers by encoding the query value.
+  Az ír lekérdezői adószám `+` jele URL-kódolással változatlan marad.
+- Reject signed or non-ASCII Unicode escapes in JSON; only four ASCII hex digits
+  are accepted. A JSON Unicode escape kizárólag négy ASCII hex számjegy lehet.
+- Reject malformed availability schemas and duplicate known country entries instead
+  of reporting a false outage or silently overwriting status. A hibás állapotválasz
+  explicit hibát ad; az opcionális, hiányos országlista továbbra is támogatott.
+- Reject overflowing connect/request timeouts at configuration time with bilingual
+  validation errors. A túl nagy hálózati timeout már a beállításkor hibát jelez.
+- Add eight regression tests: the suite now has 81 tests (47 unit, 34 local HTTP/
+  concurrency). Nyolc új regressziós teszt egészíti ki a meglévő csomagot.
+
+### Documentation / Dokumentáció
+
+- Add a bilingual risk assessment, verified installation from GitHub Releases,
+  complete English quick start, and clearer cache/deadline/integration boundaries.
+  Kétnyelvű kockázatelemzés, letölthető kiadásból telepítés és pontosított bekötési útmutató.
+
 ## [1.2.0] - 2026-07-17
 
 ### Added

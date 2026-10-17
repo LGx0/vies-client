@@ -55,13 +55,13 @@ Eén specifieke test / Eén testmethode:
 
 ## Huidige dekking / Huidige dekking
 
-Het huidige deterministische pakket bevat **73 tests**:
+Het huidige deterministische pakket bevat **81 tests**:
 
-- **44 eenheidstest** in acht klassen;
-- **29 lokale HTTP-/integratie-/gelijktijdigheidstests**;
+- **47 eenheidstest** in acht klassen;
+- **34 lokale HTTP-/integratie-/gelijktijdigheidstests**;
 - nul verplichte externe netwerkoproepen.
 
-De deterministische suite bevat **73 tests**: 44 eenheidstests, 29 lokale
+De deterministische suite bevat **81 tests**: 47 eenheidstests, 34 lokale
 HTTP-/integratie-/gelijktijdigheidstests en nul verplichte externe oproepen.
 
 ## Unit-testcatalogus / Unit-testcatalogus
@@ -122,7 +122,7 @@ HTTP-/integratie-/gelijktijdigheidstests en nul verplichte externe oproepen.
 
 Defensieve onveranderlijke snapshot-kopie en validatie van null-map-constructor.
 
-###`MiniJsonTest`— 4 testen
+###`MiniJsonTest`— 6 testen
 
 - typisch VIES-document en Unicode-escape;
 - genest object/lijst/scalair/getal/null;
@@ -143,7 +143,7 @@ Typische VIES JSON, geneste/scalaire waarden, escapes en foutief gesloten invoer
 TTL-gedrag, exacte vervalgrens, groottecontrole, eerst verlopen bemonstering, en
 gelijktijdige druk van 32 virtuele threads.
 
-###`ViesClientBuilderTest`— 3 tests
+###`ViesClientBuilderTest`— 4 tests
 
 - volledige configuratie voor hoge belasting kan worden gebouwd;
 - verkeerde URL/limiet/opnieuw proberen afwijzen;
@@ -154,7 +154,7 @@ geldigmaking.
 
 ## Lokale HTTP, gelijktijdigheid en levenscyclus / Lokale integratie en gelijktijdigheid
 
-`ViesClientHttpTest`— 29 tests op een willekeurige vrije loopback-poort:
+`ViesClientHttpTest`— 34 tests op een willekeurige vrije loopback-poort:
 
 | Identiteitskaart | Testcase |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |

@@ -6,8 +6,8 @@ Szemantikus verziózás: PATCH kompatibilis javítás, MINOR kompatibilis funkci
 
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
-jar --describe-module --file target/vies-client-1.2.0.jar
-jdeps --print-module-deps target/vies-client-1.2.0.jar
+jar --describe-module --file target/vies-client-1.2.1.jar
+jdeps --print-module-deps target/vies-client-1.2.1.jar
 ```
 
 Vizsgáld át a teljes Git historyt titkokért és személyes adatokért; aktualizáld a `LICENSE`, `NOTICE`, `SECURITY.md`, lokalizáció és API dokumentációt; ellenőrizd a binary/sources/Javadoc JAR-t; az élő VIES/load teszt maradjon opt-in; minden publikus változás legyen changelogban.

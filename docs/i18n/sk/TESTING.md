@@ -13,11 +13,11 @@ Unit test izoluje pravidlo bez siete/DB/live VIES; retry, timeout, single-flight
 ./mvnw clean verify
 ```
 
-Spolu **73 testov**: 44 unit (8 tried) + 29 lokálnych HTTP/integration/concurrency; bez povinnej externej siete.
+Spolu **81 testov**: 47 unit (8 tried) + 34 lokálnych HTTP/integration/concurrency; bez povinnej externej siete.
 
-Unit katalóg: `VatFormatTest` 8 (normalizácia a 28 krajín), `ViesRequesterTest` 4, `ViesResponseMappingTest` 11 (strict boolean/timestamp), `ViesErrorTest` 6 (HU/EN/retry/catalog), `ViesAvailabilityTest` 2, `MiniJsonTest` 4, `TtlCacheTest` 6 (TTL/limit/32 virtual threads), `ViesClientBuilderTest` 3 (URL/limity/duration overflow).
+Unit katalóg: `VatFormatTest` 8 (normalizácia a 28 krajín), `ViesRequesterTest` 4, `ViesResponseMappingTest` 11 (strict boolean/timestamp), `ViesErrorTest` 6 (HU/EN/retry/catalog), `ViesAvailabilityTest` 2, `MiniJsonTest` 6, `TtlCacheTest` 6 (TTL/limit/32 virtual threads), `ViesClientBuilderTest` 4 (URL/limity/duration overflow).
 
-29 integračných testov pokrýva 503 retry, same-key single-flight, HTTP/pending/sync limity, cancel permit recovery, callback close, admission timeout, cache anti-stampede, cleanup, sync/async close race, custom executor interruption/queue cancellation, leader/follower rovnosť, rejection cleanup, oba sync↔async smery, cache recheck/write race, chained calls, blocking callback a fatal `Error` propagation.
+34 integračných testov pokrýva 503 retry, same-key single-flight, HTTP/pending/sync limity, cancel permit recovery, callback close, admission timeout, cache anti-stampede, cleanup, sync/async close race, custom executor interruption/queue cancellation, leader/follower rovnosť, rejection cleanup, oba sync↔async smery, cache recheck/write race, chained calls, blocking callback a fatal `Error` propagation.
 
 Živý VIES nesmie byť CI bránou: voliteľne najviac jedna kontrola dostupnosti a jedna validácia, `concurrency=1`, `retries=0`. Load test iba proti mocku alebo stagingu, vrátane distinct keys, hot-key, overload, zmiešaných chýb a cache pressure. Soak/chaos beží 30–60 minút s bounded heap, JFR, restartom, latency spike, resetom, cache failure a cancellation; zdroje musia dosiahnuť plateau.
 
@@ -39,12 +39,12 @@ Unit test izoluje pravidlo bez siete. Lokálny HTTP/concurrency test používa n
 | `ViesResponseMappingTest` | 11 | GET/POST, strict boolean and timestamp mapping |
 | `ViesErrorTest` | 6 | HU/EN catalog and retry classification |
 | `ViesAvailabilityTest` | 2 | defensive immutable snapshot |
-| `MiniJsonTest` | 4 | JSON values, escapes, malformed fail-closed |
+| `MiniJsonTest` | 6 | JSON values, escapes, malformed fail-closed |
 | `TtlCacheTest` | 6 | TTL, bound, eviction, 32 virtual threads |
-| `ViesClientBuilderTest` | 3 | URL/limit/retry/duration/overflow validation |
-| **Unit total** | **44** | no external network |
+| `ViesClientBuilderTest` | 4 | URL/limit/retry/duration/overflow validation |
+| **Unit total** | **47** | no external network |
 
-### `ViesClientHttpTest` — 29 local tests
+### `ViesClientHttpTest` — 34 local tests
 
 1. 503 retries then success; same-key callers produce exactly one HTTP call.
 2. Active HTTP, pending async and pending sync bounds; admission timeout.

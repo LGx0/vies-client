@@ -1,5 +1,7 @@
 # Hrvatski (hr) — vies-client
 
+> 1.2.1 · [Quick start (HU/EN)](../../QUICK_START.md) · [Security review (HU/EN)](../../SECURITY_REVIEW.md)
+
 `disableCache()` isključuje spremljenu/trajnu predmemoriju, ali istodobni pozivi s istim parom PDV broj + requester mogu dijeliti jedan single-flight mrežni zahtjev. Kasniji poziv nakon njegova završetka izvršava novi VIES zahtjev. `consultationNumber` je neobavezan i VIES ga može vratiti, ali nikada nije zajamčen; njegova pravna dokazna vrijednost ovisi o lokalnim pravilima. Učitavajte `MY_EU_VAT_NUMBER` samo iz pouzdanog izvora tajni/konfiguracije.
 
 > [Svi jezici](../../LANGUAGES.md) · Informativni prijevod. U slučaju razlike mjerodavan je kanonski engleski tehnički ili pravni izvor. Samo su korijenski `LICENSE` i `NOTICE` pravno mjerodavni; prijevod ih ne zamjenjuje.
@@ -48,7 +50,7 @@ podržavaju niti certificiraju.
 ## Izgradnja i povezivanje
 
 ```bash
-./mvnw install    # testovi + target/vies-client-1.2.0.jar (+ -sources.jar, -javadoc.jar)
+./mvnw install    # testovi + target/vies-client-1.2.1.jar (+ -sources.jar, -javadoc.jar)
                # i instalacija u lokalni Maven repozitorij
 ```
 
@@ -58,20 +60,20 @@ podržavaju niti certificiraju.
 <dependency>
     <groupId>vies.client</groupId>
     <artifactId>vies-client</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
 </dependency>
 ```
 
 **Gradle:**
 
 ```kotlin
-implementation("vies.client:vies-client:1.2.0")
+implementation("vies.client:vies-client:1.2.1")
 ```
 
 **Pravi JPMS modul.** Jar se ponaša kao imenovani modul (`jar --describe-module`):
 
 ```
-vies.client@1.2.0
+vies.client@1.2.1
 exports vies.client
 requires java.net.http
 contains vies.client.internal   ← neizvezeni zatvoreni interni paket

@@ -10,6 +10,10 @@ Todas as mudanças notáveis ​​estão documentadas aqui. O projeto segue Ver
 
 ## [Não lançado]
 
+## [1.2.1] - 2026-10-17
+
+- [Correções e revisão de segurança](../../../CHANGELOG.md) · [HU/EN](../../SECURITY_REVIEW.md)
+
 ## [1.2.0] - 2026-07-17
 
 ### Adicionado

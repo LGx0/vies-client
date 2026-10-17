@@ -238,14 +238,25 @@ public final class MiniJson {
         if (pos + 4 > src.length()) {
             throw new ParseException("Truncated \\u escape", pos);
         }
-        var hex = src.substring(pos, pos + 4);
-        try {
-            var code = Integer.parseInt(hex, 16);
-            pos += 4;
-            return (char) code;
-        } catch (NumberFormatException e) {
-            throw new ParseException("Invalid \\u escape '" + hex + "'", pos);
+        // EN: parseInt/Character.digit also accept signs or non-ASCII digits, unlike JSON.
+        // HU: A parseInt/Character.digit előjelet vagy nem ASCII számjegyet is elfogadhat;
+        // a JSON nyelvtana csak négy ASCII hexadecimális számjegyet enged.
+        var code = 0;
+        for (var end = pos + 4; pos < end; pos++) {
+            var c = src.charAt(pos);
+            int digit;
+            if (c >= '0' && c <= '9') {
+                digit = c - '0';
+            } else if (c >= 'a' && c <= 'f') {
+                digit = c - 'a' + 10;
+            } else if (c >= 'A' && c <= 'F') {
+                digit = c - 'A' + 10;
+            } else {
+                throw new ParseException("Invalid hex digit in Unicode escape", pos);
+            }
+            code = (code << 4) | digit;
         }
+        return (char) code;
     }
 
     private BigDecimal parseNumber() {

@@ -1,5 +1,7 @@
 # Suomi (fi) — vies-client — ALV-numeron tarkistin
 
+> 1.2.1 · [Quick start (HU/EN)](../../QUICK_START.md) · [Security review (HU/EN)](../../SECURITY_REVIEW.md)
+
 `disableCache()` poistaa tallennetun/pysyvän välimuistin käytöstä, mutta samanaikaiset kutsut samalla ALV-tunnus + requester -parilla voivat jakaa yhden single-flight-verkkopyynnön. Sen valmistumisen jälkeen tehty myöhempi kutsu lähettää uuden VIES-pyynnön. `consultationNumber` on valinnainen ja VIES voi palauttaa sen, mutta sitä ei koskaan taata; sen oikeudellinen todistusarvo riippuu paikallisista säännöistä. Lataa `MY_EU_VAT_NUMBER` vain luotetusta salaisuus-/konfiguraatiolähteestä.
 
 **Hakusanat:** ALV-numeron tarkistus, ALV-numeron validointi, EU-ALV-validointi, verotunnisteen tarkistus, VIES Java -asiakas; `VAT checker`, `VAT number validator`, `EU VAT validation`, `tax ID checker`.
@@ -41,7 +43,7 @@ on veroviranomaisten virallinen tuote, eikä se ole veroviranomaisten hyväksym�
 ## Rakenna ja liitä
 
 ```bash
-./mvnw install    # tesztek + target/vies-client-1.2.0.jar (+ -sources.jar, -javadoc.jar)
+./mvnw install    # tesztek + target/vies-client-1.2.1.jar (+ -sources.jar, -javadoc.jar)
                # és telepítés a lokális Maven-repóba
 ```
 
@@ -51,20 +53,20 @@ on veroviranomaisten virallinen tuote, eikä se ole veroviranomaisten hyväksym�
 <dependency>
     <groupId>vies.client</groupId>
     <artifactId>vies-client</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
 </dependency>
 ```
 
 **Gradle:**
 
 ```kotlin
-implementation("vies.client:vies-client:1.2.0")
+implementation("vies.client:vies-client:1.2.1")
 ```
 
 **Todellinen JPMS-moduuli.** Purkki toimii nimettynä moduulina (`jar --describe-module`):
 
 ```
-vies.client@1.2.0
+vies.client@1.2.1
 exports vies.client
 requires java.net.http
 contains vies.client.internal   ← nem exportált, zárt belső csomag

@@ -116,6 +116,25 @@ delay ~= retryDelay × 2^(attempt-1) + random(0 .. delay/2)
 The client allows 0–5 local retries with exponential backoff and jitter.
 Jitter prevents synchronized retry storms across worker threads.
 
+`connectTimeout`, `requestTimeout` és `admissionTimeout` pozitív, `long`
+nanoszekundumban ábrázolható időtartam legyen. A túl nagy értéket a builder magyar
+és angol hibaüzenettel elutasítja, mielőtt a JDK időzítőjéhez jutna.
+
+`connectTimeout`, `requestTimeout`, and `admissionTimeout` must be positive and fit
+in a signed `long` nanosecond count. The builder rejects oversized values with a
+bilingual error before they reach the JDK timer.
+
+A `requestTimeout` minden egyes HTTP-próba kapcsolódását, fejlécét és teljes
+választestét korlátozza. A kliens timeout vagy megszakítás esetén a hálózati future-t
+is cancelöli. Ez különösen JDK 21-en szükséges, ahol a JDK saját kérésidőzítője
+a fejléc beérkezésekor véget érhet. Az admission, cache és retry-backoff külön
+időtartam: a teljes üzleti műveletnek nincs egyetlen globális határideje.
+
+`requestTimeout` covers connection, headers, and the complete response body for each
+HTTP attempt. Timeout/interruption cancels the actual network future. This matters
+on JDK 21, where the JDK's request timer can stop at response headers. Admission,
+cache calls, and retry backoff are separate; there is no single global operation deadline.
+
 Helyi retry csak átmeneti hálózati/VIES hibára történik. `CLIENT_OVERLOADED`,
 `CLIENT_CLOSED`, inputhiba és blokkolás nem indul újra helyben. Nagyüzemben az
 elsődleges retry mechanizmus tartós queue + késleltetés + maximális attempts + DLQ.
@@ -157,6 +176,27 @@ A külső JSON nem megbízható adat. `Valid`/`Invalid` csak akkor jöhet létre
 - az esetleges `countryCode`/`vatNumber` echo mező a kért adószámmal egyezik;
 - a két validity mező és a `userError` nem mond ellent egymásnak;
 - a UTF-8, a válasz (64 KiB), JSON-mélység/elemszám és szövegmezők korlátosak.
+
+A JSON Unicode escape pontosan négy ASCII hexadecimális számjegyet tartalmazhat;
+előjel, nem ASCII számjegy és párosítatlan surrogate nem fogadható el.
+A requester query-paraméter URL-kódolt: az ír adószám `+` jele `%2B`, így a szerver
+nem értelmezi szóközként.
+
+JSON Unicode escapes require exactly four ASCII hexadecimal digits; signs,
+non-ASCII digits, and unpaired surrogates are rejected. The requester query value is
+URL-encoded, preserving a literal Irish VAT `+` as `%2B` instead of a decoded space.
+
+Az `availability()` kötelező `vow.available` mezője valódi boolean. A hiányzó vagy
+null `countries` üres térképet jelenthet; egy jelen lévő lista hibás eleme, hibás
+mezőtípusa vagy ismétlődő támogatott országkódja `ViesException` kivételt okoz.
+Hiányzó vagy ismeretlen szöveges availability címke `UNKNOWN`; új, nem támogatott
+kéttagú nagybetűs országkód kihagyható.
+
+`availability()` requires a boolean `vow.available`. Missing/null `countries` may
+produce an empty map; malformed list entries, wrong field types, and duplicate
+supported country codes throw `ViesException`. Missing or unrecognized textual
+availability labels map to `UNKNOWN`; future unsupported two-letter uppercase
+country codes are ignored.
 
 External JSON is untrusted. A missing/wrong boolean or missing/invalid timestamp
 returns `MALFORMED_RESPONSE`, never a fabricated `Invalid` or local timestamp.

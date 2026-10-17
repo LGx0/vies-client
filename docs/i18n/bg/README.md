@@ -1,5 +1,7 @@
 # Български (bg) — vies-client — проверка на ДДС номер
 
+> 1.2.1 · [Quick start (HU/EN)](../../QUICK_START.md) · [Security review (HU/EN)](../../SECURITY_REVIEW.md)
+
 `disableCache()` изключва съхраняваното/постоянното кеширане, но едновременни заявки за една и съща комбинация ДДС номер + requester могат да споделят една single-flight мрежова заявка. След нейното завършване по-късна заявка извършва ново обръщение към VIES. `consultationNumber` е незадължително поле, което VIES може да върне, но никога не е гарантирано; доказателствената му стойност зависи от местните правила. Зареждайте `MY_EU_VAT_NUMBER` само от доверена secret/config система.
 
 **Ключови думи за търсене:** проверка на ДДС номер, валидиране на ДДС номер, валидиране на ДДС в ЕС, проверка на данъчен идентификатор, VIES Java клиент; `VAT checker`, `VAT number validator`, `EU VAT validation`, `tax ID checker`.
@@ -24,7 +26,7 @@ VIES: <https://ec.europa.eu/taxation_customs/vies/#/technical-information>
 ```
 
 ```xml
-<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.2.0</version></dependency>
+<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.2.1</version></dependency>
 ```
 
 JPMS: `requires vies.client;`; работи и на classpath.

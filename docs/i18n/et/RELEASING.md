@@ -6,8 +6,8 @@ SemVer: PATCH ühilduv parandus, MINOR ühilduv funktsioon, MAJOR murdev API/sem
 
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
-jar --describe-module --file target/vies-client-1.2.0.jar
-jdeps --print-module-deps target/vies-client-1.2.0.jar
+jar --describe-module --file target/vies-client-1.2.1.jar
+jdeps --print-module-deps target/vies-client-1.2.1.jar
 ```
 
 Skaneeri kogu Git history saladuste/isikuandmete suhtes; kontrolli `LICENSE`, `NOTICE`, `SECURITY.md`, lokaliseeringuid, API dokumentatsiooni ja kolme JAR-i; live/load jäävad valikuliseks; dokumenteeri avalikud muudatused.

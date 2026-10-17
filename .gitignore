@@ -11,3 +11,7 @@ target/
 .vscode/
 .github/modernize/
 *.iml
+
+# Local agent handover and audit evidence / Helyi átadó és auditbizonyíték.
+/.local-audit/
+/WORKSTATE.md

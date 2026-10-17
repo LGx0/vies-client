@@ -1,5 +1,7 @@
 # Dansk (da) — vies-client
 
+> 1.2.1 · [Quick start (HU/EN)](../../QUICK_START.md) · [Security review (HU/EN)](../../SECURITY_REVIEW.md)
+
 `disableCache()` slår lagret/persistent cache fra, men samtidige kald med samme momsnummer + requester kan dele én single-flight-netværksanmodning. Et senere kald efter afslutningen udfører en ny VIES-anmodning. `consultationNumber` er en valgfri værdi, som VIES kan returnere, men den er aldrig garanteret; dens bevisværdi afhænger af lokale regler. Indlæs kun `MY_EU_VAT_NUMBER` fra en betroet secret-/konfigurationskilde.
 
 > [Alle sprog](../../LANGUAGES.md) · Informativ oversættelse. Ved afvigelser er den kanoniske engelske tekniske eller juridiske kilde gældende. Kun `LICENSE` og `NOTICE` i roden er juridisk autoritative; oversættelsen erstatter dem ikke.
@@ -48,7 +50,7 @@ er et officielt produkt fra skattemyndighederne og er ikke godkendt eller certif
 ## Byg og tilslutning
 
 ```bash
-./mvnw install    # tests + target/vies-client-1.2.0.jar (+ -sources.jar, -javadoc.jar)
+./mvnw install    # tests + target/vies-client-1.2.1.jar (+ -sources.jar, -javadoc.jar)
                # install into the local Maven repository
 ```
 
@@ -58,20 +60,20 @@ er et officielt produkt fra skattemyndighederne og er ikke godkendt eller certif
 <dependency>
     <groupId>vies.client</groupId>
     <artifactId>vies-client</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
 </dependency>
 ```
 
 **Gradel:**
 
 ```kotlin
-implementation("vies.client:vies-client:1.2.0")
+implementation("vies.client:vies-client:1.2.1")
 ```
 
 **Ægte JPMS-modul.** Krukken opfører sig som et navngivet modul (`jar --describe-module`):
 
 ```
-vies.client@1.2.0
+vies.client@1.2.1
 exports vies.client
 requires java.net.http
 contains vies.client.internal   ← non-exported internal package

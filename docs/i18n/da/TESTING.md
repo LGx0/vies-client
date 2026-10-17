@@ -55,13 +55,13 @@ Ren verifikation med JAR/Javadoc generation / Ren verifikation med artefakter:
 
 ## Nuværende dækning / Nuværende dækning
 
-Den nuværende deterministiske pakke indeholder **73 test**:
+Den nuværende deterministiske pakke indeholder **81 test**:
 
-- **44 enheder test** i otte klasser;
-- **29 lokale HTTP/integration/samtidig test**;
+- **47 enheder test** i otte klasser;
+- **34 lokale HTTP/integration/samtidig test**;
 - nul obligatoriske eksterne netværksopkald.
 
-Den deterministiske suite indeholder **73 test**: 44 enhedstest, 29 lokale
+Den deterministiske suite indeholder **81 test**: 47 enhedstest, 34 lokale
 HTTP/integration/samtidighedstests og ingen obligatoriske eksterne opkald.
 
 ## Enhedstestkatalog / Enhedstestkatalog
@@ -122,7 +122,7 @@ HTTP/integration/samtidighedstests og ingen obligatoriske eksterne opkald.
 
 Defensiv, uforanderlig snapshot-kopi og null-map-konstruktørvalidering.
 
-###`MiniJsonTest`— 4 tests
+###`MiniJsonTest`— 6 tests
 
 - typisk VIES-dokument og Unicode-escape;
 - indlejret objekt/liste/skalær/nummer/nul;
@@ -143,7 +143,7 @@ Typisk VIES JSON, indlejrede/skalære værdier, escapes og fejllukket forkert ud
 TTL-adfærd, nøjagtig udløbsgrænse, størrelseskontrol, udløbet-først prøveudtagning og
 samtidig tryk fra 32 virtuelle tråde.
 
-###`ViesClientBuilderTest`— 3 tests
+###`ViesClientBuilderTest`— 4 tests
 
 - komplet højbelastningskonfiguration kan bygges;
 - afvis forkert URL/grænse/forsøg igen;
@@ -154,7 +154,7 @@ validering.
 
 ## Lokal HTTP, samtidighed og livscyklus / Lokal integration og samtidighed
 
-`ViesClientHttpTest`— 29 tests på en tilfældig fri loopback-port:
+`ViesClientHttpTest`— 34 tests på en tilfældig fri loopback-port:
 
 | ID | Test case |
 | ---- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |

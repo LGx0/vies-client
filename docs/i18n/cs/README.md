@@ -1,5 +1,7 @@
 # Čeština (cs) — vies-client — ověření DIČ pro DPH
 
+> 1.2.1 · [Quick start (HU/EN)](../../QUICK_START.md) · [Security review (HU/EN)](../../SECURITY_REVIEW.md)
+
 `disableCache()` vypne uloženou/trvalou cache, ale souběžná volání se stejnou dvojicí DIČ + requester mohou sdílet jeden síťový požadavek single-flight. Pozdější volání po jeho dokončení provede nový požadavek VIES. `consultationNumber` je volitelná hodnota, kterou VIES může vrátit, ale nikdy není zaručena; její důkazní hodnota závisí na místních pravidlech. `MY_EU_VAT_NUMBER` načítejte pouze z důvěryhodného úložiště tajemství nebo konfigurace.
 
 **Hledané výrazy:** ověření DIČ, validátor DIČ, ověření DPH v EU, kontrola daňového identifikačního čísla, VIES Java klient; `VAT checker`, `VAT number validator`, `EU VAT validation`, `tax ID checker`.
@@ -32,12 +34,12 @@ Nejde o obecnou daňovou kalkulačku, ale o klienta pro ověřování identifika
 
 ```xml
 <dependency>
-  <groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.2.0</version>
+  <groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.2.1</version>
 </dependency>
 ```
 
 ```kotlin
-implementation("vies.client:vies-client:1.2.0")
+implementation("vies.client:vies-client:1.2.1")
 ```
 
 Jde o skutečný JPMS modul `vies.client`; v `module-info.java` použijte `requires vies.client;`. Funguje i na classpath.

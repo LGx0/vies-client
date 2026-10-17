@@ -70,13 +70,13 @@ Egy konkrét teszt / One test method:
 
 ## Jelenlegi lefedettség / Current coverage
 
-A jelenlegi determinisztikus csomag **73 tesztet** tartalmaz:
+A jelenlegi determinisztikus csomag **81 tesztet** tartalmaz:
 
-- **44 unit teszt** nyolc osztályban;
-- **29 helyi HTTP/integráció/konkurencia teszt**;
+- **47 unit teszt** nyolc osztályban;
+- **34 helyi HTTP/integráció/konkurencia teszt**;
 - nulla kötelező külső hálózati hívás.
 
-The deterministic suite contains **73 tests**: 44 unit tests, 29 local
+The deterministic suite contains **81 tests**: 47 unit tests, 34 local
 HTTP/integration/concurrency tests, and zero mandatory external calls.
 
 ## Unit tesztkatalógus / Unit-test catalog
@@ -137,14 +137,17 @@ HTTP/integration/concurrency tests, and zero mandatory external calls.
 
 Defensive immutable snapshot copy and null-map constructor validation.
 
-### `MiniJsonTest` — 4 teszt
+### `MiniJsonTest` — 6 teszt
 
 - tipikus VIES dokumentum és Unicode escape;
 - nested objektum/lista/scalar/number/null;
 - JSON escape-ek;
 - hibás, csonka és trailing input elutasítása.
+- előjeles vagy nem ASCII Unicode escape-ek elutasítása;
+- helyes ASCII hex escape és surrogate-pár elfogadása.
 
 Typical VIES JSON, nested/scalar values, escapes, and fail-closed malformed input.
+Unicode regressions reject signs/non-ASCII hex and preserve valid surrogate pairs.
 
 ### `TtlCacheTest` — 6 teszt
 
@@ -158,18 +161,20 @@ Typical VIES JSON, nested/scalar values, escapes, and fail-closed malformed inpu
 TTL behavior, exact expiry boundary, size control, expired-first sampling, and
 concurrent pressure from 32 virtual threads.
 
-### `ViesClientBuilderTest` — 3 teszt
+### `ViesClientBuilderTest` — 4 teszt
 
 - teljes nagyterhelésű konfiguráció felépíthető;
 - hibás URL/limit/retry elutasítása;
 - nulla, negatív és overflow Duration elutasítása.
+- túlcsorduló connect/request timeout elutasítása már konfiguráláskor.
 
 Valid high-load configuration plus URL, limit, retry, duration, and overflow
 validation.
+Network-timeout overflow is rejected at configuration time.
 
 ## Helyi HTTP, konkurencia és életciklus / Local integration and concurrency
 
-`ViesClientHttpTest` — 29 teszt, véletlen szabad loopback porton:
+`ViesClientHttpTest` — 34 teszt, véletlen szabad loopback porton:
 
 | ID | Teszteset / Test case |
 |---|---|
@@ -181,6 +186,11 @@ validation.
 | C-05 | `close()` async callbackből nem deadlockol |
 | C-06 | `admissionTimeout` korlátozza a sorban állást |
 | I-02 | Redis/cache olvasási hiba → `CACHE_ERROR`, nulla VIES-hívás |
+| I-03 | Ír requester `+` jele megmarad a query dekódolása után / preserve Irish requester `+` |
+| I-04 | Hibás availability séma és ismétlődő ország elutasítása / reject malformed status schema and duplicate countries |
+| I-05 | Availability boolean és opcionális országlista / map boolean status and optional country list |
+| I-06 | Fejléc után elakadó VAT-válasz timeoutja megszakítja a HTTP-t és elengedi a slotot / stalled VAT body times out, cancels HTTP, and releases capacity |
+| I-07 | Fejléc után elakadó állapotválasz timeoutja / stalled availability body times out |
 | C-07 | Egymás utáni async hívások előtt felszabadul a permit és single-flight |
 | C-08 | Async cache/close race → `CLIENT_CLOSED`, nulla HTTP |
 | C-09 | Sync cache/close race → `CLIENT_CLOSED`, nulla HTTP |

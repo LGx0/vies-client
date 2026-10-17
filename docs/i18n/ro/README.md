@@ -1,5 +1,7 @@
 # Română (ro) — vies-client
 
+> 1.2.1 · [Quick start (HU/EN)](../../QUICK_START.md) · [Security review (HU/EN)](../../SECURITY_REVIEW.md)
+
 > [Toate limbile](../../LANGUAGES.md) · Traducere informativă. În caz de diferență prevalează sursa canonică tehnică sau juridică în limba engleză. Numai `LICENSE` și `NOTICE` din rădăcină sunt texte juridice oficiale; traducerea nu le înlocuiește.
 
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](../../../LICENSE)
@@ -45,7 +47,7 @@ Comisiei Europene, al Uniunii Europene sau al vreunei autorități fiscale nați
 ## Construire și conectare
 
 ```bash
-./mvnw install    # teste + target/vies-client-1.2.0.jar (+ -sources.jar, -javadoc.jar)
+./mvnw install    # teste + target/vies-client-1.2.1.jar (+ -sources.jar, -javadoc.jar)
                # și instalare în depozitul Maven local
 ```
 
@@ -55,20 +57,20 @@ Comisiei Europene, al Uniunii Europene sau al vreunei autorități fiscale nați
 <dependency>
     <groupId>vies.client</groupId>
     <artifactId>vies-client</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
 </dependency>
 ```
 
 **Gradle:**
 
 ```kotlin
-implementation("vies.client:vies-client:1.2.0")
+implementation("vies.client:vies-client:1.2.1")
 ```
 
 **Modul JPMS real.** Jarul se comportă ca un modul numit (`jar --describe-module`):
 
 ```
-vies.client@1.2.0
+vies.client@1.2.1
 exports vies.client
 requires java.net.http
 contains vies.client.internal   ← pachet intern neexportat

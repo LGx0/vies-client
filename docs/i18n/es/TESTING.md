@@ -1,5 +1,7 @@
 # Español (`es`) — Pruebas
 
+La suite contiene **81 pruebas**: **47 unitarias** y **34 pruebas locales de HTTP/integración/concurrencia**.
+
 [Selector de idioma](../../LANGUAGES.md) · [Original inglés](../../TESTING.md)
 
 > Prevalece la documentación inglesa. `LICENSE` no se traduce. Licencia del proyecto: Apache-2.0.
@@ -19,7 +21,7 @@ Smoke live: manual y mínimo. Carga: solo mock local, con warm-up, concurrencia 
 
 ## Catálogo completo y regresión
 
-Unit: `VatFormatTest` 8 (normalización, separadores, `GR`→`EL`, inválidos, 28 códigos), `ViesRequesterTest` 4, `ViesResponseMappingTest` 11 (GET/POST, placeholder, decisiones/errores, objeto/boolean/fecha estrictos), `ViesErrorTest` 6, `ViesAvailabilityTest` 2, `MiniJsonTest` 4, `TtlCacheTest` 6, `ViesClientBuilderTest` 3.
+Unit: `VatFormatTest` 8 (normalización, separadores, `GR`→`EL`, inválidos, 28 códigos), `ViesRequesterTest` 4, `ViesResponseMappingTest` 11 (GET/POST, placeholder, decisiones/errores, objeto/boolean/fecha estrictos), `ViesErrorTest` 6, `ViesAvailabilityTest` 2, `MiniJsonTest` 6, `TtlCacheTest` 6, `ViesClientBuilderTest` 4.
 
 | IDs | Caso local |
 |---|---|
@@ -97,7 +99,7 @@ Chaos también prueba cierre del mock, conexiones reset, body grande/malformado,
 
 ## Criterios de aceptación
 
-Una suite verde significa 73 casos actuales sin failure/error/skip inesperado y build de binary/sources/Javadoc. El número puede crecer; la cobertura de escenarios importa más que conservar exactamente 73. Ningún test depende de orden global, hora real, red pública o VAT cambiante. Fixtures sintéticos tienen nombres claros y no parecen credenciales reales.
+Una suite verde significa 81 casos actuales sin failure/error/skip inesperado y build de binary/sources/Javadoc. El número puede crecer; la cobertura de escenarios importa más que conservar exactamente 81. Ningún test depende de orden global, hora real, red pública o VAT cambiante. Fixtures sintéticos tienen nombres claros y no parecen credenciales reales.
 
 Para cambios de parser, añada body mínimo de éxito y cada forma inválida relevante. Para concurrency, pruebe interleaving exacto antes y después de la línea cambiada. Para shutdown, mida que termina dentro de una cota y que el executor externo sigue usable. Para cache, pruebe read/write exception por separado.
 

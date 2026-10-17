@@ -55,13 +55,13 @@ Un test specific / O metodă de testare:
 
 ## Acoperire curentă
 
-Pachetul determinist actual conține **73 de teste**:
+Pachetul determinist actual conține **81 de teste**:
 
-- **test de 44 de unități** în opt clase;
-- **29 de teste locale HTTP/integrare/concurență**;
+- **test de 47 de unități** în opt clase;
+- **34 de teste locale HTTP/integrare/concurență**;
 - zero apeluri obligatorii de rețea externă.
 
-Suita deterministă conține **73 de teste**: 44 de teste unitare, 29 locale
+Suita deterministă conține **81 de teste**: 47 de teste unitare, 34 locale
 Teste HTTP/integrare/concurență și zero apeluri externe obligatorii.
 
 ## Catalog test unitar
@@ -122,7 +122,7 @@ Teste HTTP/integrare/concurență și zero apeluri externe obligatorii.
 
 Copiere defensive imuabile instantanee și validare a constructorului de hartă nulă.
 
-### `MiniJsonTest`— 4 teste
+### `MiniJsonTest`— 6 teste
 
 - document tipic VIES și evadare Unicode;
 - obiect imbricat/listă/scalar/număr/null;
@@ -143,7 +143,7 @@ JSON tipic VIES, valori imbricate/scalare, escape și intrare defectuoasă înch
 Comportamentul TTL, limita exactă de expirare, controlul dimensiunii, eșantionarea expirată-prima și
 presiune concomitentă din 32 fire virtuale.
 
-### `ViesClientBuilderTest`— 3 teste
+### `ViesClientBuilderTest`— 4 teste
 
 - se poate construi o configurație completă de sarcină mare;
 - respinge adresa URL/limita/reîncerca greșită;
@@ -154,7 +154,7 @@ validare.
 
 ## HTTP local, concurență și ciclu de viață
 
-`ViesClientHttpTest`— 29 de teste pe un port loopback liber aleatoriu:
+`ViesClientHttpTest`— 34 de teste pe un port loopback liber aleatoriu:
 
 | ID   | Caz de testare                                                                                                               |
 | ---- | ---------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |

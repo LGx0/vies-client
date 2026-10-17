@@ -8,8 +8,8 @@ Zahteve: čist `main`, green Actions, release pravice, JDK 21, Maven 3.9+, aktua
 
 ```bash
 ./mvnw --batch-mode --no-transfer-progress clean verify
-jar --describe-module --file target/vies-client-1.2.0.jar
-jdeps --print-module-deps target/vies-client-1.2.0.jar
+jar --describe-module --file target/vies-client-1.2.1.jar
+jdeps --print-module-deps target/vies-client-1.2.1.jar
 ```
 
 Preverite history brez secretov/podatkov, LICENSE/NOTICE/SECURITY/docs, sources/Javadoc JAR, brez required live/load CI in changelog API.

@@ -13,7 +13,7 @@ Unit test изолира правило без network/DB/live VIES; retry, time
 ./mvnw clean verify
 ```
 
-Общо 73: 44 unit в 8 класа + 29 local HTTP/integration/concurrency, без задължителна външна мрежа.
+Общо 81: 47 unit в 8 класа + 34 local HTTP/integration/concurrency, без задължителна външна мрежа.
 
 Unit catalog: VatFormat 8, Requester 4, ResponseMapping 11, Error 6, Availability 2, MiniJson 4, TtlCache 6, Builder 3. Integration покрива retry, same-key one HTTP, sync/async/network limits, cancellation recovery, close races/deadlock, cache anti-stampede/write, custom executor interrupt/reject, leader/follower equality, sync↔async, chained calls, fatal Error.
 
@@ -32,12 +32,12 @@ Unit test изолира правилото без мрежа. Локалния�
 | `ViesResponseMappingTest` | 11 | GET/POST, strict boolean and timestamp mapping |
 | `ViesErrorTest` | 6 | HU/EN catalog and retry classification |
 | `ViesAvailabilityTest` | 2 | defensive immutable snapshot |
-| `MiniJsonTest` | 4 | JSON values, escapes, malformed fail-closed |
+| `MiniJsonTest` | 6 | JSON values, escapes, malformed fail-closed |
 | `TtlCacheTest` | 6 | TTL, bound, eviction, 32 virtual threads |
-| `ViesClientBuilderTest` | 3 | URL/limit/retry/duration/overflow validation |
-| **Unit total** | **44** | no external network |
+| `ViesClientBuilderTest` | 4 | URL/limit/retry/duration/overflow validation |
+| **Unit total** | **47** | no external network |
 
-### `ViesClientHttpTest` — 29 local tests
+### `ViesClientHttpTest` — 34 local tests
 
 1. 503 retries then success; same-key callers produce exactly one HTTP call.
 2. Active HTTP, pending async and pending sync bounds; admission timeout.
@@ -86,7 +86,7 @@ Cache съхранява само `Valid` и е ограничен по TTL и �
 
 Наблюдавайте резултати по тип и `errorCode`, p50/p95/p99 latency, cache hit, `CACHE_ERROR`, `CLIENT_OVERLOADED`, retry outcomes, queue depth/age, DLQ, грешки по държави, heap, GC, CPU, virtual threads и sockets. Liveness не зависи от VIES; `availability()` е рядка кеширана диагностика.
 
-Преди release изпълнете `./mvnw --batch-mode clean verify`. 44 unit теста проверяват формат, requester, mapping, errors, availability, JSON, TTL cache и builder. 29 локални HTTP/concurrency теста проверяват retry, limits, cancellation, close races, custom executor, sync↔async single-flight, cache anti-stampede и fatal `Error`. Live VIES не е CI gate или load target. Load се изпълнява срещу mock/staging, а soak/chaos продължава 30–60 минути с bounded heap и JFR; ресурсите трябва да достигнат plateau.
+Преди release изпълнете `./mvnw --batch-mode clean verify`. 47 unit теста проверяват формат, requester, mapping, errors, availability, JSON, TTL cache и builder. 34 локални HTTP/concurrency теста проверяват retry, limits, cancellation, close races, custom executor, sync↔async single-flight, cache anti-stampede и fatal `Error`. Live VIES не е CI gate или load target. Load се изпълнява срещу mock/staging, а soak/chaos продължава 30–60 минути с bounded heap и JFR; ресурсите трябва да достигнат plateau.
 
 ### Критерии за приемане
 

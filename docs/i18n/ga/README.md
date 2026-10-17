@@ -1,5 +1,7 @@
 # Gaeilge (ga) — vies-client — seiceálaí uimhir CBL
 
+> 1.2.1 · [Quick start (HU/EN)](../../QUICK_START.md) · [Security review (HU/EN)](../../SECURITY_REVIEW.md)
+
 Díchumasaíonn `disableCache()` an taisce stóráilte/mharthanach, ach féadfaidh glaonna comhuaineacha leis an bpéire céanna CBL + requester aon iarratas líonra single-flight amháin a roinnt. Déanann glao níos déanaí, tar éis a chríochnaithe, iarratas nua VIES. Tá `consultationNumber` roghnach agus féadfaidh VIES é a thabhairt ar ais, ach ní ráthaítear riamh é; braitheann a luach fianaiseach dlíthiúil ar rialacha áitiúla. Ná lódáil `MY_EU_VAT_NUMBER` ach ó fhoinse rúin/cumraíochta iontaofa.
 
 **Téarmaí cuardaigh:** seiceáil uimhir CBL, bailíochtú uimhir CBL, bailíochtú CBL AE, seiceáil aitheantais chánach, cliant Java VIES; `VAT checker`, `VAT number validator`, `EU VAT validation`, `tax ID checker`.
@@ -41,7 +43,7 @@ is táirge oifigiúil de chuid na n-údarás cánach é agus níl sé formhuinit
 ## Tógáil agus ceangail
 
 ```bash
-./mvnw install    # tesztek + target/vies-client-1.2.0.jar (+ -sources.jar, -javadoc.jar)
+./mvnw install    # tesztek + target/vies-client-1.2.1.jar (+ -sources.jar, -javadoc.jar)
                # és telepítés a lokális Maven-repóba
 ```
 
@@ -51,20 +53,20 @@ is táirge oifigiúil de chuid na n-údarás cánach é agus níl sé formhuinit
 <dependency>
     <groupId>vies.client</groupId>
     <artifactId>vies-client</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
 </dependency>
 ```
 
 **Gradle:**
 
 ```kotlin
-implementation("vies.client:vies-client:1.2.0")
+implementation("vies.client:vies-client:1.2.1")
 ```
 
 **Modúl fíor JPMS.** Iompraíonn an próca mar mhodúl ainmnithe (`jar --describe-module`):
 
 ```
-vies.client@1.2.0
+vies.client@1.2.1
 exports vies.client
 requires java.net.http
 contains vies.client.internal   ← nem exportált, zárt belső csomag

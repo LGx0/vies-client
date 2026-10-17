@@ -4,7 +4,7 @@
 
 > La documentation anglaise prévaut. `LICENSE` n’est pas traduit. Licence du projet : Apache-2.0.
 
-La suite déterministe actuelle contient **73 tests** : 44 unitaires et 29 tests locaux HTTP/intégration/concurrence.
+La suite déterministe actuelle contient **81 tests** : 47 unitaires et 34 tests locaux HTTP/intégration/concurrence.
 
 Les tests unitaires isolent format, requester, modèle de réponse/erreur, disponibilité, JSON, cache TTL et builder. Les tests locaux HTTP/concurrence/lifecycle utilisent un `HttpServer`, des latches et des executors contrôlés ; ils n’appellent pas VIES.
 
@@ -23,7 +23,7 @@ Le CI exécute `./mvnw clean verify` sur JDK 21, archive rapports et artefacts, 
 
 ## Catalogue complet et règle de régression
 
-Unitaires : `VatFormatTest` 8 (normalisation, séparateurs, `GR`→`EL`, invalides, 28 codes), `ViesRequesterTest` 4, `ViesResponseMappingTest` 11 (GET/POST, placeholder, décisions/erreurs, objet/boolean/date stricts), `ViesErrorTest` 6, `ViesAvailabilityTest` 2, `MiniJsonTest` 4, `TtlCacheTest` 6, `ViesClientBuilderTest` 3.
+Unitaires : `VatFormatTest` 8 (normalisation, séparateurs, `GR`→`EL`, invalides, 28 codes), `ViesRequesterTest` 4, `ViesResponseMappingTest` 11 (GET/POST, placeholder, décisions/erreurs, objet/boolean/date stricts), `ViesErrorTest` 6, `ViesAvailabilityTest` 2, `MiniJsonTest` 6, `TtlCacheTest` 6, `ViesClientBuilderTest` 4.
 
 | IDs | Cas local intégration/concurrence |
 |---|---|

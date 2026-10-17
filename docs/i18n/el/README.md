@@ -1,5 +1,7 @@
 # Ελληνικά (el) — vies-client — έλεγχος αριθμού ΦΠΑ
 
+> 1.2.1 · [Quick start (HU/EN)](../../QUICK_START.md) · [Security review (HU/EN)](../../SECURITY_REVIEW.md)
+
 Το `disableCache()` απενεργοποιεί την αποθηκευμένη/μόνιμη cache, αλλά ταυτόχρονες κλήσεις με το ίδιο ζεύγος ΑΦΜ + requester μπορούν να μοιραστούν ένα single-flight αίτημα δικτύου. Μια μεταγενέστερη κλήση μετά την ολοκλήρωσή του εκτελεί νέο αίτημα VIES. Το `consultationNumber` είναι προαιρετικό και μπορεί να επιστραφεί από το VIES, αλλά δεν είναι ποτέ εγγυημένο· η αποδεικτική του αξία εξαρτάται από τους τοπικούς κανόνες. Φορτώνετε το `MY_EU_VAT_NUMBER` μόνο από αξιόπιστη πηγή secret/config.
 
 **Όροι αναζήτησης:** έλεγχος αριθμού ΦΠΑ, επικύρωση αριθμού ΦΠΑ, επικύρωση ΦΠΑ ΕΕ, έλεγχος φορολογικού αναγνωριστικού, πελάτης VIES Java; `VAT checker`, `VAT number validator`, `EU VAT validation`, `tax ID checker`.
@@ -24,7 +26,7 @@ VIES: <https://ec.europa.eu/taxation_customs/vies/#/technical-information>
 ```
 
 ```xml
-<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.2.0</version></dependency>
+<dependency><groupId>vies.client</groupId><artifactId>vies-client</artifactId><version>1.2.1</version></dependency>
 ```
 
 JPMS: `requires vies.client;`· λειτουργεί και στο classpath.
